@@ -1,0 +1,1 @@
+# coinomy-app
