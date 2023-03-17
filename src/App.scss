@@ -1,0 +1,22 @@
+.App {
+  color: white;
+  background-color: var(--disabled-color);
+  display: flex;
+  min-height: 100vh;
+}
+
+.container {
+  padding: 12px;
+  background-color: var(--primary-color);
+  width: 100%;
+  margin-left: 0;
+
+  /*
+  @media screen and (min-width: 688px) {
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px 5px #403e3e;
+    width: 70%;
+    margin-left: 15%;
+  }
+  */
+}

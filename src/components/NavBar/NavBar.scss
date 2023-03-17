@@ -1,0 +1,32 @@
+.nav-container {
+  position: absolute;
+  color: var(--secondary-color);
+
+  justify-content: space-between;
+  @media screen and (min-width: 700px) {
+    bottom: auto;
+    left: 0;
+    top: 0;
+    border-right: 2px solid var(--secondary-color);
+    min-height: 100%;
+    width: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  @media screen and (max-width: 700px) {
+    bottom: 0;
+    min-height: 70px;
+    min-width: 95%;
+    border-top: 2px solid var(--secondary-color);
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.icon-1,
+.icon-2,
+.icon-3 {
+  padding: 10px;
+  font-size: 36px;
+}

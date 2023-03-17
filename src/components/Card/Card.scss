@@ -1,0 +1,26 @@
+.card-container {
+  width: 92%;
+  margin-left: 4%;
+  padding: 10px;
+  height: 60px;
+  background-color: red;
+  margin-top: 5px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-external-container {
+  width: 100%;
+  padding: 2px;
+  height: 80px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-date {
+  margin-left: 4%;
+}
