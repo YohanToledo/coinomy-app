@@ -2,6 +2,10 @@
   position: absolute;
   color: var(--secondary-color);
 
+  a {
+    all: unset;
+  }
+
   justify-content: space-between;
   @media screen and (min-width: 700px) {
     bottom: auto;
@@ -24,9 +28,12 @@
   }
 }
 
-.icon-1,
-.icon-2,
-.icon-3 {
+.home,
+.new,
+.options {
   padding: 10px;
   font-size: 36px;
+  :hover {
+    cursor: pointer;
+  }
 }

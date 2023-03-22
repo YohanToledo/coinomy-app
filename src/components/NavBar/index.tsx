@@ -7,45 +7,63 @@ import {
 } from "react-icons/ai";
 import { TbDotsCircleHorizontal } from "react-icons/tb";
 import { HiDotsCircleHorizontal } from "react-icons/hi";
-import { useState } from "react";
-const NavBar = () => {
-  const [isHome, setIsHome] = useState(true);
-  const [isNew, setIsNew] = useState(false);
-  const [isOptions, setIsOptions] = useState(false);
+import { Link } from "react-router-dom";
+
+type Options = {
+  home: boolean;
+  new: boolean;
+  options: boolean;
+};
+
+type Props = {
+  selected: Options;
+  setSelected: (options: Options) => void;
+};
+
+const NavBar = ({ selected, setSelected }: Props) => {
+  const select = (page: "home" | "new" | "options") => {
+    const allDisabled = { home: false, new: false, options: false };
+
+    setSelected({ ...allDisabled, [page]: true });
+  };
 
   return (
     <>
       <div className="nav-container">
-        <div
-          className="icon-1"
-          onClick={() => {
-            setIsHome(true);
-            setIsNew(false);
-            setIsOptions(false);
-          }}
-        >
-          {isHome ? <AiFillHome /> : <AiOutlineHome />}
-        </div>
-        <div
-          className="icon-2"
-          onClick={() => {
-            setIsHome(false);
-            setIsNew(true);
-            setIsOptions(false);
-          }}
-        >
-          {isNew ? <AiFillPlusCircle /> : <AiOutlinePlusCircle />}
-        </div>
-        <div
-          className="icon-3"
-          onClick={() => {
-            setIsHome(false);
-            setIsNew(false);
-            setIsOptions(true);
-          }}
-        >
-          {isOptions ? <HiDotsCircleHorizontal /> : <TbDotsCircleHorizontal />}
-        </div>
+        <Link to="/home">
+          <div
+            className="home"
+            onClick={() => {
+              select("home");
+            }}
+          >
+            {selected.home ? <AiFillHome /> : <AiOutlineHome />}
+          </div>
+        </Link>
+        <Link to="/new">
+          <div
+            className="new"
+            onClick={() => {
+              select("new");
+            }}
+          >
+            {selected.new ? <AiFillPlusCircle /> : <AiOutlinePlusCircle />}
+          </div>
+        </Link>
+        <Link to="/options">
+          <div
+            className="options"
+            onClick={() => {
+              select("options");
+            }}
+          >
+            {selected.options ? (
+              <HiDotsCircleHorizontal />
+            ) : (
+              <TbDotsCircleHorizontal />
+            )}
+          </div>
+        </Link>
       </div>
     </>
   );

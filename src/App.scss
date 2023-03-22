@@ -1,6 +1,6 @@
 .App {
   color: white;
-  background-color: var(--disabled-color);
+  background-color: var(--primary-color);
   display: flex;
   min-height: 100vh;
 }
@@ -11,6 +11,10 @@
   width: 100%;
   margin-left: 0;
 
+  @media screen and (min-width: 700px) {
+    width: 80%;
+    margin-left: 12%;
+  }
   /*
   @media screen and (min-width: 688px) {
     border-radius: 5px;

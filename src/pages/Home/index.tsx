@@ -5,11 +5,11 @@ import "./Home.scss";
 const Home = () => {
   return (
     <>
-    <div className="balance-component">
-      <Balance  />
+      <div>
+        <Balance />
       </div>
-      <div className="list-component">
-      <List />
+      <div>
+        <List />
       </div>
     </>
   );
