@@ -5,6 +5,7 @@ import {
   BsFillArrowDownCircleFill,
 } from "react-icons/bs";
 import { useState } from "react";
+import React from "react";
 
 const Balance = () => {
   const [hide, setHide] = useState(true);

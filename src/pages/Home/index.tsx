@@ -1,3 +1,4 @@
+import React from "react";
 import Balance from "../../components/Balance";
 import List from "../../components/List";
 import "./Home.scss";

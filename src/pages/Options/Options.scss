@@ -1,0 +1,155 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    //max-width: 100%;
+    max-width: 4000px;    
+    max-height: 4000px;
+    text-decoration: none;
+}
+
+// Tags
+h1 {
+    width: 152px;
+    height: 29px;
+    margin-top: 50px;
+    font-weight: 800px;
+    font-size: 24px;
+}
+
+// classes
+
+.container {
+    /*
+    position: fixed;
+    margin-left: 3rem;
+    justify-content: center;
+    width: 90%;
+    margin-top: 1rem;
+    */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;            
+}
+
+.moeda {    
+    background: #D9D9D9;
+    height: 4.3rem;
+    margin-top: 3rem;    
+    border-radius: 15px;
+}
+
+.icone-moeda {
+    font-size: 30px;
+    color: white;
+    //background: black;
+    margin-right: 0.5rem;    
+    background: green;
+    border-radius: 100%;    
+    margin-left: 0.7rem;
+}
+
+.moeda a {    
+    color: black;
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+
+.contas {
+    background: #D9D9D9;
+    height: 4.3rem;
+    margin-top: 3rem;
+    align-items: center;    
+    border-radius: 15px;
+    display: flex;    
+}
+
+.icone-conta{
+    font-size: 30px;
+    color: black;        
+    border-radius: 30%;
+    margin-left: 0.7rem;  
+    margin-right: 0.5rem;    
+    //background: darkkhaki;
+}
+
+.contas a {
+    text-decoration: none;    
+    color: black;
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+
+.categorias{
+    background: #D9D9D9;
+    height: 3.5rem;
+    margin-top: 3rem;
+    align-items: center;    
+    border-radius: 15px;
+    height: 4.3rem;
+    display: flex;  
+}
+
+.icone-categorias{
+    font-size: 30px;
+    color: black;      
+    border-radius: 100%;
+    margin-right: 0.7rem;  
+    margin-left: 0.7rem;
+}
+
+.categorias a{
+    text-decoration: none;    
+    color: black;
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+
+.voltar{
+    background: #D9D9D9;
+    height: 3.5rem;
+    margin-top: 3rem;
+    align-items: center;    
+    border-radius: 15px;
+    display: flex;  
+    height: 4.3rem;
+}
+
+.voltar a{
+    text-decoration: none;    
+    color: black;
+    font-weight: bolder;
+    font-size: 1.5rem;    
+    
+}
+
+.icone-voltar{
+    font-size: 30px;
+    color: black;              
+    margin-right: 0.7rem;  
+    margin-left: 0.7rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// media querys
+
+// ids
