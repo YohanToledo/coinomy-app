@@ -3,13 +3,10 @@ import { RouteProps, Navigate, Outlet } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import NavBar from '../NavBar';
 
-type PrivateRouteProps = {
-  component: React.FC<RouteProps>;
-} & RouteProps;
-
 const PrivateRoute = () => {
   const { isAuthenticated } = useContext(AuthContext);
 
+  console.log({ isAuthenticated })
   return (
     isAuthenticated ?
       <>

@@ -36,11 +36,12 @@ const NavBar = () => {
   };
 
 
+  const basePath = "/app";
 
   return (
     <>
       <div className="nav-container">
-        <Link to="/home">
+        <Link to={`${basePath}/home`}>
           <div
             className="home"
             onClick={() => {
@@ -50,7 +51,7 @@ const NavBar = () => {
             {selected.home ? <AiFillHome /> : <AiOutlineHome />}
           </div>
         </Link>
-        <Link to="/new">
+        <Link to={`${basePath}/new`}>
           <div
             className="new"
             onClick={() => {
@@ -60,7 +61,7 @@ const NavBar = () => {
             {selected.new ? <AiFillPlusCircle /> : <AiOutlinePlusCircle />}
           </div>
         </Link>
-        <Link to="/options">
+        <Link to={`${basePath}/options`}>
           <div
             className="options"
             onClick={() => {

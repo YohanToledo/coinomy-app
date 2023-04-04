@@ -1,22 +1,28 @@
-import "./input.css";
+import "./input.scss";
 
 import { MdMail } from "react-icons/md";
 import { FaLock } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import { useState } from "react";
 
+type Props = {
+  type: string,
+  icon: string,
+  errorMessage: string,
+  setValue: (value: string) => void,
+  inputProps: any
+}
+
 const Input = ({
   type,
   icon,
   errorMessage,
   setValue,
-  error,
-  refer,
-  ...inputProps
-}) => {
+  inputProps,
+}: Props) => {
   const [focused, setFocused] = useState(false);
 
-  const handleFocus = (e) => setFocused(true);
+  const handleFocus = (e: any) => setFocused(true);
 
   return (
     <>
@@ -33,7 +39,7 @@ const Input = ({
         {...inputProps}
         type={type}
         className="input-text font-20"
-        onChange={(e) => setValue(e.target.value)}
+        onChange={(e: any) => setValue(e.target.value)}
         onBlur={handleFocus}
         focused={focused.toString()}
       />

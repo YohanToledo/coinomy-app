@@ -5,7 +5,7 @@ import Input from "../Input";
 import { Link } from "react-router-dom";
 import "../styles.css";
 import { validatePassword } from "../../utils/validate";
-//import Api from "../../shared/requests/Api";
+import Api from "../../shared/requests/Api";
 import Modal from "../Modal";
 
 const RegisterForm = () => {

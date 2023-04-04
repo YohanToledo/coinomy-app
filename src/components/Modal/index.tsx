@@ -1,8 +1,17 @@
-import "./Modal.css";
+import "./Modal.scss";
 
 import { FaWindowClose } from "react-icons/fa";
 
-const Modal = ({ show, onClose, msgAndType }) => {
+type Props = {
+  show: boolean,
+  onClose: () => void,
+  msgAndType: {
+    type: string,
+    msg: string
+  }
+}
+
+const Modal = ({ show, onClose, msgAndType }: Props) => {
   if (!show) {
     return null;
   }

@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 type AuthContextType = {
   isAuthenticated: boolean;
@@ -16,20 +17,24 @@ type AuthProviderProps = {
 
 const AuthProvider = ({ children }: AuthProviderProps) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const logout = () => {
-    localStorage.removeItem('token');
+    localStorage.removeItem('coinomy_token');
     setIsAuthenticated(false);
   };
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('coinomy_token');
 
     if (token) {
-      // Add code here to verify the token
       setIsAuthenticated(true);
+      if (window.location.href.slice(-5) === 'login') {
+        console.log('redirect')
+        navigate("/app/home")
+      }
     }
-  }, []);
+  }, [navigate, setIsAuthenticated]);
 
   return (
     <AuthContext.Provider value={{ isAuthenticated, logout }}>

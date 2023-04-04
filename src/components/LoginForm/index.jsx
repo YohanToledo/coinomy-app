@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from "../Button";
 import "./loginform.css";
 import Input from "../Input";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import "../styles.css";
 import Api from "../../shared/requests/Api";
 import Modal from "../Modal";
@@ -17,6 +17,7 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,6 +32,8 @@ const LoginForm = () => {
       if (response.status === 201) {
         setModalMsg({ msg: "Login efetuado com sucesso", type: "success" });
         setShowModal(true);
+
+        navigate("/app");
       }
       if (response.status === 401) {
         setModalMsg({ msg: "Email ou Senha Inválidos!", type: "error" });
