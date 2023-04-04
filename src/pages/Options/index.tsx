@@ -8,7 +8,7 @@ import { GrLogout } from "react-icons/gr";
 const Options = () => {
   return (
     <>
-      <div className="container">
+      <div className="options-container">
         <h1>Preferências</h1>
         <div className="moeda">
           <ImCoinDollar className="icone-moeda">
