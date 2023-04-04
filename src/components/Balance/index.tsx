@@ -19,7 +19,7 @@ const Balance = () => {
           </div>
         </div>
         <div className="month-balance">
-          <div>Balanço Mensal</div>
+          <div className="balance-title">Balanço Mensal</div>
 
           <div className="value">{hide ? "*******" : "R$1500.00"}</div>
         </div>
