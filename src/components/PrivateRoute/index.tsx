@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { RouteProps, Navigate, Outlet } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
+import NavBar from '../NavBar';
 
 type PrivateRouteProps = {
   component: React.FC<RouteProps>;
@@ -10,10 +11,15 @@ const PrivateRoute = () => {
   const { isAuthenticated } = useContext(AuthContext);
 
   return (
-    isAuthenticated ? 
-    <Outlet />
-    : 
-    <Navigate to={"/login"} />
+    isAuthenticated ?
+      <>
+        <div className="container">
+          <Outlet />
+        </div>
+        <NavBar />
+      </>
+      :
+      <Navigate to={"/login"} />
   );
 };
 

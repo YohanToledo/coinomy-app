@@ -7,7 +7,7 @@ type AuthContextType = {
 
 export const AuthContext = createContext<AuthContextType>({
   isAuthenticated: false,
-  logout: () => {},
+  logout: () => { },
 });
 
 type AuthProviderProps = {

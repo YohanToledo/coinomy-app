@@ -8,6 +8,7 @@ import {
 import { TbDotsCircleHorizontal } from "react-icons/tb";
 import { HiDotsCircleHorizontal } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 type Options = {
   home: boolean;
@@ -20,12 +21,21 @@ type Props = {
   setSelected: (options: Options) => void;
 };
 
-const NavBar = ({ selected, setSelected }: Props) => {
+const NavBar = () => {
+
+  const [selected, setSelected] = useState({
+    home: true,
+    new: false,
+    options: false,
+  });
+
   const select = (page: "home" | "new" | "options") => {
     const allDisabled = { home: false, new: false, options: false };
 
     setSelected({ ...allDisabled, [page]: true });
   };
+
+
 
   return (
     <>
