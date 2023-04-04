@@ -1,18 +1,34 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    //max-width: 100%;
+    max-width: 4000px;    
+    max-height: 4000px;
+    text-decoration: none;
+}
+
 // Tags
+h1 {
+    width: 152px;
+    height: 29px;
+    margin-top: 50px;
+    font-weight: 800px;
+    font-size: 24px;
+}
 
 // classes
 
-.options-container h1 {
-    
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    font-size: 2.4rem;
-    font-weight: 800;
-
+.container {
+    /*
+    position: fixed;
+    margin-left: 3rem;
+    justify-content: center;
+    width: 90%;
+    margin-top: 1rem;
+    */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;            
 }
-
-
-
 
 .moeda {
     background: #D9D9D9;
@@ -21,11 +37,6 @@
     align-items: center;
     //margin-top: 3rem;    
     border-radius: 15px;
-
-}
-
-@media screen and (max-width: 800px) {
-    
 }
 
 .icone-moeda {
@@ -38,7 +49,7 @@
     margin-left: 0.7rem;
 }
 
-.moeda a {
+.moeda a {    
     color: black;
     font-weight: bolder;
     font-size: 1.5rem;
@@ -50,7 +61,7 @@
     margin-top: 3rem;
     align-items: center;
     border-radius: 15px;
-    display: flex;
+    display: flex;    
 }
 
 .icone-conta {
@@ -94,7 +105,7 @@
     font-size: 1.5rem;
 }
 
-.voltar {
+.voltar{
     background: #D9D9D9;
     height: 3.5rem;
     margin-top: 3rem;
@@ -117,22 +128,44 @@
     color: black;
     margin-right: 0.7rem;
     margin-left: 0.7rem;
+    
 }
+
+// media querys
+
+@media screen and (max-width:800px){
+    .container{
+        margin-left: 2%;
+        margin-right: 2%;
+        padding-left: 3%;
+        padding-right: 3%;
+        margin-top: 2%;
+        margin-bottom: 0%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 // media querys
-@media screen and (max-width:1000px) {
-}
-
-
-@media screen and (max-width:750px) {
-    
-
-}
-
-@media screen and (max-width: 725px){
-    
-}
 
 // ids
