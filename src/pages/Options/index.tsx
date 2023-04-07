@@ -34,11 +34,7 @@ const Options = () => {
           </GrLogout>
           <a href="#" className="link-voltar">Voltar</a>
         </div>
-
       </div>
-
-
-
     </>
   );
 };
