@@ -1,0 +1,47 @@
+.row {
+  padding: 5px;
+  width: 95%;
+}
+
+.input-icon {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  margin-top: 5px;
+  border: none;
+  font-size: 20px;
+  color: var(--secondary-color);
+  transition: 0.2s all;
+}
+
+.form {
+  padding: 12px;
+  color: var(--secondary-color);
+}
+
+.custom-form {
+  width: 80%;
+  position: relative;
+}
+
+@media (max-width: 800px) {
+  .custom-form {
+    width: 95%;
+  }
+}
+
+a {
+  color: var(--hover-color);
+  font-size: 18px;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+.title {
+  text-align: center;
+  font-size: 27px;
+  color: var(--secondary-color);
+}

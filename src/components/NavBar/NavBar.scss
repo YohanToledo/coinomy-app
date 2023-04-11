@@ -28,6 +28,18 @@
   }
 }
 
+.logo-icon{
+  width: 73px;
+  height: 64px;
+  position: fixed;
+  left: -6px;
+  top: 0px;
+
+  @media screen and (max-width: 700px) {
+    display: none;
+  }
+}
+
 .home,
 .new,
 .options {
