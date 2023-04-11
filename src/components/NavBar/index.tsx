@@ -11,17 +11,6 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import Logo from "../../assets/img/logo-dark.png"
 
-type Options = {
-  home: boolean;
-  new: boolean;
-  options: boolean;
-};
-
-type Props = {
-  selected: Options;
-  setSelected: (options: Options) => void;
-};
-
 const NavBar = () => {
 
   const [selected, setSelected] = useState({
