@@ -9,6 +9,7 @@ import { TbDotsCircleHorizontal } from "react-icons/tb";
 import { HiDotsCircleHorizontal } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import Logo from "../../assets/img/logo-dark.png"
 
 type Options = {
   home: boolean;
@@ -40,7 +41,11 @@ const NavBar = () => {
 
   return (
     <>
+     <div>
+          <img className="logo-icon" src={Logo}/>
+        </div>
       <div className="nav-container">
+        
         <Link to={`${basePath}/home`}>
           <div
             className="home"

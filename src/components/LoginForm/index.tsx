@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from "../Button";
 import "./loginform.css";
 import Input from "../Input";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles.css";
 import Api from "../../shared/requests/Api";
 import Modal from "../Modal";
@@ -19,7 +19,7 @@ const LoginForm = () => {
 
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     setIsLoading(!isLoading);
@@ -51,7 +51,7 @@ const LoginForm = () => {
   return (
     <>
       <div className="custom-form">
-        <form className="form" onSubmit={handleSubmit} autocomplete="off">
+        <form className="form" onSubmit={handleSubmit} autoComplete="off">
           <div className="row">
             <h1 className="title">Acesse sua conta</h1>
           </div>

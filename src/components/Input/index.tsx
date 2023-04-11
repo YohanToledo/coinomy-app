@@ -8,9 +8,9 @@ import { useState } from "react";
 type Props = {
   type: string,
   icon: string,
-  errorMessage: string,
+  errorMessage?: string,
   setValue: (value: string) => void,
-  inputProps: any
+  inputProps?: any,
 }
 
 const Input = ({

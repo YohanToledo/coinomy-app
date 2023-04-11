@@ -28,7 +28,7 @@ const RegisterForm = () => {
     confirmPassword: "Campo obrigatorio",
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     setIsLoading(true);
 
@@ -72,7 +72,7 @@ const RegisterForm = () => {
   return (
     <>
       <div className="custom-form">
-        <form className="form" onSubmit={handleSubmit} autocomplete="off">
+        <form className="form" onSubmit={handleSubmit} autoComplete="off">
           <div className="row">
             <h1 className="title">Crie sua conta</h1>
           </div>
@@ -85,8 +85,7 @@ const RegisterForm = () => {
               icon="user"
               setValue={setName}
               errorMessage={error.name}
-              required={true}
-              pattern={"^[^ ][A-zÀ-ž ]{3,32}$"}
+              inputProps={{required: true, pattern: "^[^ ][A-zÀ-ž ]{3,32}$"}}
             />
           </div>
           <div className="row">
@@ -98,7 +97,8 @@ const RegisterForm = () => {
               icon="email"
               setValue={setEmail}
               errorMessage={error.email}
-              required={true}
+              inputProps={{required: true}}
+              
             />
           </div>
           <div className="row">
@@ -110,10 +110,7 @@ const RegisterForm = () => {
               icon="lock"
               setValue={setPassword}
               errorMessage={error.password}
-              required={true}
-              pattern={
-                "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$"
-              }
+              inputProps={{required: true, pattern: "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$"}}
             />
           </div>
           <div className="row">
@@ -125,7 +122,7 @@ const RegisterForm = () => {
               icon="lock"
               setValue={setConfirmPassword}
               errorMessage={error.confirmPassword}
-              required={true}
+              inputProps={{required: true}}
             />
           </div>
           <div className="row">

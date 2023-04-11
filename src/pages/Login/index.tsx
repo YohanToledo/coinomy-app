@@ -1,7 +1,6 @@
-import React, { useContext } from 'react';
+import "../login-register.scss";
+import { useContext } from 'react';
 import LoginForm from "../../components/LoginForm";
-import "./Login.scss";
-import { BsGraphUp } from "react-icons/bs";
 import { AuthContext } from "../../context/AuthContext";
 import { Navigate } from 'react-router-dom';
 import LogoImg from '../../assets/img/logo-light.png';
@@ -20,9 +19,7 @@ const Login = () => {
                     <>
                         <div className="left-column">
                             <div className="icons-panel">
-                                {/*<h1 className="brand">Coinomy</h1>*/}
-                                <div className="logo">
-                                    {/*<BsGraphUp />*/}
+                                <div>
                                     <img className="logo-img" src={LogoImg} />
                                 </div>
                             </div>

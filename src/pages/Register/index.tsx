@@ -1,15 +1,14 @@
-import "../pages.css";
-import { BsGraphUp } from "react-icons/bs";
+import "../login-register.scss";
 import RegisterForm from "../../components/RegisterForm";
+import LogoImg from '../../assets/img/logo-light.png';
 
 const Register = () => {
     return (
         <>
             <div className="left-column">
                 <div className="icons-panel">
-                    <h1 className="brand">Coinomy</h1>
-                    <div className="icon">
-                        <BsGraphUp />
+                    <div>
+                    <img className="logo-img" src={LogoImg} />
                     </div>
                 </div>
             </div>
