@@ -1,14 +1,9 @@
-.icon {
-    margin: 2%;
-    font-size: 150px;
-    width: 50%;
-    margin-left: 8%;
+.logo-img {
+    width: 320px;
+    height: 320px;
+
 }
 
-.brand {
-    font-size: 50px;
-    margin-left: 20%;
-}
 
 .left-column {
     display: flex;
@@ -41,8 +36,9 @@
         width: 100%;
     }
 
-    .icon {
-        font-size: 70px;
+    .logo-img {
+        width: 180px;
+        height: 180px;
     }
 }
 
