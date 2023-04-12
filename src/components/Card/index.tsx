@@ -9,6 +9,12 @@ export type CardInfo = {
   type: "EXPENSE" | "INCOME";
 };
 const Card = (cardInfo: CardInfo) => {
+
+  const COLOR = {
+    expense: "#763C40",
+    income: "#3C7672"
+  }
+
   return (
     <>
       <div className="card-external-container">
@@ -19,7 +25,7 @@ const Card = (cardInfo: CardInfo) => {
           className="card-container"
           style={{
             backgroundColor:
-              cardInfo.type === "EXPENSE" ? "#CC0000" : "#009000",
+              cardInfo.type === "EXPENSE" ? COLOR.expense : COLOR.income,
           }}
         >
           <div className="card-icon">

@@ -58,7 +58,7 @@ const List = () => {
       <div className="list-container">
         {arr.map((item) => {
           return (
-            <div className="card">
+            <div className="card"  >
               <Card {...item} key={new Date().getMilliseconds()} />
             </div>
           );

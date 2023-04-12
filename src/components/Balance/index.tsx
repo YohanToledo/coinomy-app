@@ -1,22 +1,28 @@
 import "./Balance.scss";
-import { AiOutlineEyeInvisible } from "react-icons/ai";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import {
   BsFillArrowUpCircleFill,
   BsFillArrowDownCircleFill,
+  BsThreeDots
 } from "react-icons/bs";
+import { TfiLineDotted } from 'react-icons/tfi'
 import { useState } from "react";
+import MonthPicker from "../MonthPicker/indext";
 
 const Balance = () => {
   const [hide, setHide] = useState(true);
+
+  const [month, setMonth] = useState("");
+
 
   return (
     <>
       <div className="balance-container">
         <div className="balance-header">
-          <div className="month-name">JANEIRO</div>
-          <div className="hide-values" onClick={() => setHide(!hide)}>
-            <AiOutlineEyeInvisible />
-          </div>
+          <MonthPicker />
+          <button className="hide-values" onClick={() => setHide(!hide)}>
+            {hide ? <AiFillEye /> : <AiFillEyeInvisible />}
+          </button>
         </div>
         <div className="month-balance">
           <div className="balance-title">Balanço Mensal</div>

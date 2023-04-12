@@ -7,6 +7,7 @@
   @media screen and (min-height: 780px) {
     max-height: 400px;
   }
+
   @media screen and (min-height: 940px) {
     max-height: 550px;
   }
@@ -19,6 +20,8 @@
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .list-container {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }

@@ -5,7 +5,7 @@ import "./Home.scss";
 const Home = () => {
   return (
     <>
-      <div>
+      <div className="balance-component">
         <Balance />
       </div>
       <div>
