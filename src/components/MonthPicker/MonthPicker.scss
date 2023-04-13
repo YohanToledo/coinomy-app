@@ -1,5 +1,5 @@
 .month-picker {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     padding: 10px;
     width: 300px;
@@ -9,6 +9,7 @@
     justify-content: center;
     font-family: inherit;
 
+    /*
     select {
         appearance: none;
         background-color: transparent;
@@ -32,8 +33,10 @@
     select::-ms-expand {
         display: none;
     }
+    */
 } 
 
+/*
 .dropdown{
     width: 80px;
     height: 200px;
@@ -45,11 +48,12 @@
     border: none;
     color: #fff;
     position: fixed;
-    width: 80px;
+    width: 120px;
     cursor: pointer;
     font-size: 22px;
     display: flex;
     flex-direction: row;
+    text-align: center;
     
 }
 
@@ -63,6 +67,7 @@
     margin-top: 30px;
     height: 140px;
     background-color: var(--secondary-color);
+    width: 120px;
     border-radius: 5px;
     overflow-y: auto;
 
@@ -80,5 +85,11 @@
     padding: 10px;
     border-bottom: 2px solid black;
     cursor: pointer;
+
 }
+
+.dropdown-item:hover{
+    background-color: #08b1cf;
+}
+*/
 

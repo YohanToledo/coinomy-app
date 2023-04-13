@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './MonthPicker.scss';
-import {MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp} from 'react-icons/md'
+import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from 'react-icons/md'
+import Dropdown from '../Dropdown';
 
 
 const MonthPicker = () => {
@@ -10,11 +11,59 @@ const MonthPicker = () => {
     const [month, setMonth] = useState(currentMonth);
     const [year, setYear] = useState(currentYear);
 
+    const monthSelectedDefault = MONTHS.find(m => m.value === currentMonth) || {label: "Jan", value: "01"}
+    const [monthSelected, setMonthSelected] = useState(monthSelectedDefault)
+    console.log(monthSelected)
 
-    const [showDropdown, setShowDropdown] = useState(false)
+    const yearSelectedDefault = getYears().find(y => y.value === currentYear) || {label: "2023", value: "01"}
+    const [yearSelected, setYearSelected] = useState(yearSelectedDefault)
 
     return (
         <>
+            <Dropdown items={MONTHS} selected={monthSelected} setSelected={setMonthSelected}/> 
+
+            <Dropdown items={getYears()} selected={yearSelected} setSelected={setYearSelected}/>         
+        </>
+    )
+}
+
+export default MonthPicker;
+
+
+const MONTHS = [
+    { label: "Jan", value: "1" },
+    { label: "Fev", value: "2" },
+    { label: "Mar", value: "3" },
+    { label: "Abr", value: "4" },
+    { label: "Mai", value: "5" },
+    { label: "Jun", value: "6" },
+    { label: "Jul", value: "7" },
+    { label: "Ago", value: "8" },
+    { label: "Set", value: "9" },
+    { label: "Out", value: "10" },
+    { label: "Nov", value: "11" },
+    { label: "Dez", value: "12" },
+]
+
+type Item = {
+    label: string,
+    value: string,
+}
+
+const getYears = () => {
+    const currentYear = new Date().getFullYear()
+    const years: Item[] = []
+
+    for (let y = 2020; y <= currentYear; y++) {
+        years.push({label: `${y}`, value: `${y}`})
+    }
+
+    return years
+}
+
+
+
+ {/*
             <div className="month-picker">
                 <div className="select_mate">
                     <select>
@@ -28,62 +77,27 @@ const MonthPicker = () => {
                         {getYears().map((y) => <option selected={y === year ? true : false} value={y}>{y}</option>)}
                     </select>
                 </div>
+    </div>
+    
+     <div className="month-picker">
+
+                <div className="dropdown">
+                    <button className="dropdown-toggle" onSubmit={(e: any) => e.preventDefault()} onClick={(e: any) => setShowDropdown(!showDropdown)}>
+                        <div>
+                            Mes
+                        </div>
+                        <div>
+                            {showDropdown ? <MdOutlineKeyboardArrowDown /> : <MdOutlineKeyboardArrowUp />}
+                        </div>
+
+                    </button>
 
 
+                    {showDropdown ? <ul className="dropdown-menu">
+                        {MONTHS.map((m) => <li className="dropdown-item" value={m.value}>{m.name}</li>)}
+                    </ul> : ""}
+
+                </div>
             </div>
-
-            <div className="dropdown">
-                <button className="dropdown-toggle" onClick={(e: any) => setShowDropdown(!showDropdown)}>
-                    <div>
-                    Mes
-                    </div>
-                    <div>
-                    {showDropdown ?  <MdOutlineKeyboardArrowDown /> : <MdOutlineKeyboardArrowUp />}
-                    </div>
-                    
-                </button>
-
-
-                {showDropdown ? <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li className="dropdown-item">1</li>
-                    <li className="dropdown-item">2</li>
-                    <li className="dropdown-item">3</li>
-                    <li className="dropdown-item">4</li>
-                    <li className="dropdown-item">5</li>
-                    <li className="dropdown-item">6</li>
-                    <li className="dropdown-item">7</li>
-                </ul> : ""}
-
-            </div>
-        </>
-    )
-}
-
-export default MonthPicker;
-
-
-const MONTHS = [
-    { name: "Janeiro", value: "01" },
-    { name: "Fevereiro", value: "02" },
-    { name: "Março", value: "03" },
-    { name: "Abril", value: "04" },
-    { name: "Maio", value: "05" },
-    { name: "Junho", value: "06" },
-    { name: "Julho", value: "07" },
-    { name: "Agosto", value: "08" },
-    { name: "Setembro", value: "09" },
-    { name: "Outubro", value: "10" },
-    { name: "Novembro", value: "11" },
-    { name: "Dezembro", value: "12" },
-]
-
-const getYears = () => {
-    const currentYear = new Date().getFullYear()
-    const years: string[] = []
-
-    for (let y = 2020; y <= currentYear; y++) {
-        years.push(`${y}`)
-    }
-
-    return years
-}
+    
+    */}
