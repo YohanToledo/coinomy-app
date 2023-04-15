@@ -5,6 +5,7 @@ import "./App.scss";
 import NavBar from "./components/NavBar";
 import New from "./pages/New";
 import Options from "./pages/Options";
+import OptionsWeb from "./components/OptionsWeb/preferencias";
 
 function App() {
   const [selected, setSelected] = useState({
@@ -21,6 +22,11 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/new" element={<New />} />
           <Route path="/options" element={<Options />} />
+
+          {/* Anderson ↓↓↓ Adicionei  <Route path="/OptionsWeb" element={<OptionsWeb />} />*/}
+          <Route path="/OptionsWeb" element={<OptionsWeb />} />
+          {/*Anderson adiuci  */}
+          <Route path="/OptionsWeb" element={<OptionsWeb />} />
         </Routes>
       </div>
       <NavBar selected={selected} setSelected={setSelected} />

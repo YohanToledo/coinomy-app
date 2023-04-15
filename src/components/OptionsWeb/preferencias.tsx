@@ -1,15 +1,16 @@
 import React from "react";
-import "./Options.scss";
-
-// biblioteca react-icons
+//import "./Options.scss";
+import "./stylepreferences.scss";
 import { ImCoinDollar } from "react-icons/im";
 import { MdAccountBalance } from "react-icons/md"
 import { BiCategory } from "react-icons/bi";
 import { GrLogout } from "react-icons/gr";
-const Options = () => {
-  return (
-    <>
-      <div className="options-container">
+
+const OptionsWeb = () =>{
+    return(
+        <>
+        
+        <div className="options-container">
         <h1>Preferências</h1>
         <div className="moeda">
           <ImCoinDollar className="icone-moeda">
@@ -36,8 +37,7 @@ const Options = () => {
           <a href="#" className="link-voltar">Voltar</a>
         </div>
       </div>
-    </>
-  );
-};
-
-export default Options;
+        </>
+    )
+}
+export default OptionsWeb;
