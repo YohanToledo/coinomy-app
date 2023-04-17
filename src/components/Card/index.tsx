@@ -19,7 +19,7 @@ const Card = (cardInfo: CardInfo) => {
     <>
       <div className="card-external-container">
         <div className="card-date">
-          {cardInfo.transactionDate.toLocaleString()}
+          {cardInfo.transactionDate.toLocaleDateString()}
         </div>
         <div
           className="card-container"

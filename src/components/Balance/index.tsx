@@ -3,23 +3,23 @@ import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import {
   BsFillArrowUpCircleFill,
   BsFillArrowDownCircleFill,
-  BsThreeDots
 } from "react-icons/bs";
-import { TfiLineDotted } from 'react-icons/tfi'
 import { useState } from "react";
-import MonthPicker from "../MonthPicker/indext";
+import MonthYearSelect from "../MonthYearSelect";
 
 const Balance = () => {
   const [hide, setHide] = useState(true);
 
   const [month, setMonth] = useState("");
-
+  console.log(month)
 
   return (
     <>
       <div className="balance-container">
         <div className="balance-header">
-          <MonthPicker />
+          <div className="selector">
+            <MonthYearSelect  setMonth={setMonth} />
+          </div>
           <button className="hide-values" onClick={() => setHide(!hide)}>
             {hide ? <AiFillEye /> : <AiFillEyeInvisible />}
           </button>
