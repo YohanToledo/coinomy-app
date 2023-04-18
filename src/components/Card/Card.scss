@@ -21,7 +21,24 @@
   flex-direction: column;
 }
 
-.card-date {
+.card-icon-desc{
+  font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
 
-  color: rgb(255, 255, 255, 0.6);
+.ci{
+  margin-inline: 10px;
+}
+
+.card-date {
+  color: #b0b0b0;
+}
+
+.card-value{
+  display: flex;
+  text-align: center;
+  justify-content: center;
 }
