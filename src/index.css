@@ -1,12 +1,7 @@
 :root {
-  /*--primary-color: #1f1b24; 
-    --logo-container: #0f0d118a;
-    --secondary-color: #24cbe9;
-    --secondary-color: #03dac6;*/ /*ciano verde*/
-
   --primary-color: #230350;
-  --logo-container: #29a0b6;
-  --secondary-color: #29a0b6;
+  --logo-container: #2fbfd9;
+  --secondary-color: #2fbfd9;
 
   --hover-color: #08b1cf;
   --disabled-color: #037e94;
