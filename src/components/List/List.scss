@@ -4,6 +4,10 @@
   padding: 5px;
   overflow-y: auto;
 
+  @media screen and (max-height: 900px) {
+    max-height: 420px;
+  }
+
   @media screen and (max-height: 800px) {
     max-height: 360px;
   }
@@ -16,12 +20,8 @@
     max-height: 250px;
   }
 
-  @media screen and (min-height: 780px) {
-    max-height: 420px;
-  }
-
-  @media screen and (min-height: 940px) {
-    max-height: 570px;
+  @media screen and (min-height: 900px) {
+    max-height: 530px;
   }
 }
 
