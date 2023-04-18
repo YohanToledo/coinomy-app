@@ -1,6 +1,6 @@
 import "../login-register.scss";
 import RegisterForm from "../../components/RegisterForm";
-import LogoImg from '../../assets/img/logo-light.png';
+import LogoImg from '../../assets/img/logo-dark.png';
 
 const Register = () => {
     return (
@@ -8,7 +8,7 @@ const Register = () => {
             <div className="left-column">
                 <div className="icons-panel">
                     <div>
-                    <img className="logo-img" src={LogoImg} />
+                        <img className="logo-img" src={LogoImg} />
                     </div>
                 </div>
             </div>

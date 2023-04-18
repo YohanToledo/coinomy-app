@@ -31,13 +31,9 @@
 }
 
 a {
-  color: var(--hover-color);
+  color: var(--secondary-color);
   font-size: 18px;
   text-decoration: none;
-}
-
-a:hover {
-  color: var(--secondary-color);
 }
 
 .title {

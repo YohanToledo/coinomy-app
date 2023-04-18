@@ -1,10 +1,10 @@
-.dropdown-container{
+.dropdown-container {
     position: absolute;
     width: inherit;
     height: inherit;
 }
 
-.dropdown-toggle{
+.dropdown-toggle {
     appearance: none;
     background-color: inherit;
     border: none;
@@ -16,10 +16,9 @@
     font-size: inherit;
 }
 
-.dropdown-menu{
+.dropdown-menu {
     margin-top: 10px;
     max-height: 180px;
-    background-color: var(--secondary-color);
     border-radius: 4px;
     text-align: left;
     overflow-y: auto;
@@ -32,15 +31,14 @@
     display: none;
 }
 
-.dropdown-item{
+.dropdown-item {
     padding: 10px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.4);
     cursor: pointer;
 }
 
-.dropdown-item:hover{
+.dropdown-item:hover {
     background-color: rgba(0, 0, 0, 0.2);
     width: 100%;
     margin: 0;
 }
-  
