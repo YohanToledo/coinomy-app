@@ -35,6 +35,28 @@
     gap: 3vh;
 }
 
+.list{
+    width: 35vw;
+    font-size: 1.6em;
+    margin: 5px 5px 5px 5px;
+    padding-bottom: 4.5vh;
+}
+
+.dropdown-category {
+    z-index: 99;
+    border-bottom: 1px solid cyan;
+}
+
+.dropdown-bankAccount {
+    z-index: 98;
+    border-bottom: 1px solid cyan;
+}
+
+.transactionIcons {
+    font-size: 1.8em;
+    color: white;
+}
+
 .input-box label {
     font-size: 0.9em;
     color: darkgray;
@@ -43,51 +65,28 @@
 .input-field {
     display: flex;
     align-items: center;
+    justify-items: space-between;
     gap: 4vh;
     padding: 3px;
     cursor: text;
-    border-bottom: 1px solid cyan;
     width: 40vw;
+    border-bottom: transparent;
 }
 
-.input-field i {
-    font-size: 1.75em;
+.recebido{
+    font-size: 1.8em;
     color: white;
 }
 
 .input-field input{
     border: none;
     background-color: transparent;
-
+    border-bottom: 1px solid cyan;
     font-size: 0.9em;
     padding: 0px 5px;
     color: white;
 }
 
-.input-field select {
-    border: none;
-    border-color: transparent;
-    background-color: transparent;
-    width: 15vw;
-    -moz-appearance:none; /* Firefox */
-    -webkit-appearance:none; /* Safari and Chrome */
-    appearance:none;
-    font-size: 1.6em;
-    padding: 0px 5px;
-    color: white;
-
-}
-
-.input-field select:focus {
-    outline: none;
-}
-
-select option {
-    background-color: #230350;
-    color: white;
-    border: none;
-    border-color: transparent;
-}
 
 .input-field input::placeholder {
     color: white;
@@ -96,6 +95,70 @@ select option {
 .input-field input:focus {
     outline: none;
 }
+
+
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 26px;
+    height: 20px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 13px;
+    width: 11px;
+    left: 1.5px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(11px);
+    -ms-transform: translateX(11px);
+    transform: translateX(11px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
 
 #save_button {
     border: none;
@@ -127,8 +190,10 @@ select option {
     .input-field {
         gap: 3vh;
     }
-
     
+    .lists {
+        gap:3.75vh;
+    }
 
     .input-field select {
 
@@ -144,18 +209,12 @@ select option {
     .input-field {
         gap: 6vh;
     }
-
-    .input-field select {
-        width: 15vw;
-        font-size: 1.6em;       
+    .lists {
+        gap:3.75vh;
     }
 
     .input-field input{
 
-        font-size: 1.75em;
-    }
-
-    .input-field i {
         font-size: 1.75em;
     }
 
@@ -180,21 +239,16 @@ select option {
         gap: 5vh;
     }
 
+    .lists {
+        gap:3.75vh;
+    }
+
     .input-field {
         gap: 5vh;
     }
 
     .input-field input {
 
-        font-size: 1.75em;
-    }
-
-    .input-field select {
-        width: 15vw;
-        font-size: 1.6em;       
-    }
-
-    .input-field i {
         font-size: 1.75em;
     }
 
@@ -231,19 +285,14 @@ select option {
         gap: 4vh;
     }
     
-    .input-field i {
-        font-size: 1.75em;
-    }
-
-    .input-field select {
-        width: 15vw;
-        font-size: 1.6em;       
-    }
-    
     .input-field input {
 
         font-size: 1.75em;
         padding: 0px 5px;
+    }
+
+    .lists {
+        gap:3.75vh;
     }
     
     #save_button {

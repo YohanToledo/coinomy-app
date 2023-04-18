@@ -1,109 +1,122 @@
 import "./Transactions.scss";
-import "https://kit.fontawesome.com/413f70ac23.js";
+import { useState } from "react";
+import Dropdown from "../Dropdown";
+import { BsFillCalendarDateFill, BsFillCalculatorFill, BsFillPencilFill, BsFillTagFill, BsFillCreditCardFill } from "react-icons/bs"
+
+type Item = {
+    value: string,
+    label: string
+}
 
 const Transactions = () => {
+    const [category, setCategory] = useState({ label: "Categoria", value: "1" })
+    const [bank, setBank] = useState({ label: "Banco", value: "1" })
     return (
         <>
-       <head>
-       <script src="https://kit.fontawesome.com/413f70ac23.js" crossOrigin="anonymous"></script>
-       </head>
-       <main id="containerBaseNew">
-        <form id="recieve">
-            
-            <div id="form_header">
-                <h1>RECEITA</h1>
-            </div>
+            <main id="containerBaseNew">
+                <form id="recieve" onSubmit={(e: any) => e.preventDefault()}>
 
-        
+                    <div id="form_header">
+                        <h1>RECEITA</h1>
+                    </div>
 
-          
-            <div id="inputs">
-                
-                <div className="input-box">
-                    <label htmlFor="money">
-                        <div className="input-field">
-                          <i className="fa-solid fa-calculator"></i>
-                            <input type="text" id="money" name="money" placeholder="R$ 00,00"/>
+                    <div id="inputs">
+
+                        <div className="input-box">
+                            <label htmlFor="money">
+                                <div className="input-field">
+                                    <div className="transactionIcons">
+                                        <BsFillCalculatorFill />
+                                    </div>
+                                    <input type="text" id="money" name="money" placeholder="R$ 00,00" />
+                                </div>
+                            </label>
                         </div>
-                    </label>
-                </div>
-                
-                
-                <div className="input-box">
-                    <label htmlFor="recebido">
-                        <div className="input-field">
-                        <i className="fa-solid fa-circle-half-stroke"></i>
-                            
-                            <input type="text" id="recebido" name="recebido" placeholder="Recebido"/>
+
+
+                        <div className="input-box">
+                            <label htmlFor="recebido">
+                                <div className="input-field">
+                                    <label className="switch">
+                                        <input type="checkbox"></input>
+                                        <span className="slider round"></span>
+                                    </label>
+                                    <p className="recebido">Recebido</p>
+                                </div>
+                            </label>
                         </div>
-                    </label>
-                </div>
-                
-              
-                <div className="input-box">
-                    <label htmlFor="date">
-                        <div className="input-field">
-                        <i className="fa-solid fa-calendar-days"></i>
-                            
-                            <input type="date" id="date" name="date" placeholder="Data"/>
+
+
+                        <div className="input-box">
+                            <label htmlFor="date">
+                                <div className="input-field">
+                                    <div className="transactionIcons">
+                                        <BsFillCalendarDateFill />
+                                    </div>
+
+                                    <input type="date" id="date" name="date" placeholder="Data" />
+                                </div>
+                            </label>
                         </div>
-                    </label>
-                </div>
 
-                <div className="input-box">
-                    <label htmlFor="description">
-                        <div className="input-field">
-                            <i className="fa-solid fa-pencil"></i>
-                            
-                            <input type="text" id="description" name="description" placeholder="Descrição"/>
+                        <div className="input-box">
+                            <label htmlFor="description">
+                                <div className="input-field">
+                                    <div className="transactionIcons">
+                                        <BsFillPencilFill />
+                                    </div>
+
+                                    <input type="text" id="description" name="description" placeholder="Descrição" />
+                                </div>
+                            </label>
                         </div>
-                    </label>
-                </div>
 
-                <div className="input-box">
-                    <label htmlFor="categorie">
-                        <div className="input-field">
-                        <i className="fa-solid fa-tag"></i>
-
-                             
-                           <select>
-                            <option value="0">Categoria</option>
-                            <option value="1">Lazer</option>
-                            <option value="2">Internet</option>
-                            <option value="3">Comida</option>
-                            
-                            </select>
-
+                        <div className="input-box">
+                            <label htmlFor="categoria">
+                                <div className="input-field">
+                                    <div className="transactionIcons">
+                                        <BsFillTagFill />
+                                    </div>
+                                    <div className="list dropdown-category">
+                                        <Dropdown items={Categories} selected={category} setSelected={setCategory} />
+                                    </div>
+                                </div>
+                            </label>
                         </div>
-                    </label>
-                </div>
 
-                <div className="input-box">
-                    <label htmlFor="account">
-                        <div className="input-field">
-                        <i className="fa-solid fa-credit-card"></i>
-                            
-                        <select>
-                            <option value="0">Conta</option>
-                            <option value="1">Bradesco</option>
-                            <option value="2">Paypal</option>
-                            <option value="3">Binance</option>
-                            
-                            </select>
+
+                        <div className="input-box">
+                            <label htmlFor="banco">
+                                <div className="input-field">
+                                <div className="transactionIcons">
+                                    <BsFillCreditCardFill />
+                                </div>
+                                <div className="list dropdown-bankAccount">
+                                    <Dropdown items={Banks} selected={bank} setSelected={setBank} />
+                                </div>
+                                </div>
+                            </label>
                         </div>
-                    </label>
-                </div>
 
-            </div>
 
-            
-            <button type="submit" id="save_button">
-                Salvar
-            </button>
-        </form>
-    </main>
-    </>
+                    </div>
+
+
+
+
+
+
+
+                    <button type="submit" id="save_button">
+                        Salvar
+                    </button>
+                </form>
+            </main>
+        </>
     );
 };
+
+const Categories = [{ label: "Categoria 1", value: "Categoria 1" }, { label: "Categoria 2", value: "Categoria 2" }, { label: "Categoria 3", value: "Categoria 3" }]
+const Banks = [{ label: "Bradesco", value: "Bradesco" }, { label: "Itaú", value: "Itaú" }, { label: "Next", value: "Next" }]
 
 export default Transactions;
