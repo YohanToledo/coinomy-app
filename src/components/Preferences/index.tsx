@@ -1,12 +1,13 @@
 import React from "react";
-import "./preferencias-frame10.scss";
-
+//import "./Options.scss";
+import "./Preferences.scss";
 import { ImCoinDollar } from "react-icons/im";
 import { MdAccountBalance } from "react-icons/md"
 import { BiCategory } from "react-icons/bi";
 import { GrLogout } from "react-icons/gr";
+import { Link } from "react-router-dom";
 
-const OptionsWeb = () =>{
+const Preferences = () =>{
     return(
         <>
         
@@ -31,13 +32,24 @@ const OptionsWeb = () =>{
           <a href="#" className="link-categoria">Categorias</a>
         </div>
 
+        <div className="perfil">
+          <GrLogout className="icone-perfil">
+          </GrLogout>
+          <Link to="/options/profile">
+            Perfil
+          </Link>
+          {/*<a href="#" className="link-perfil">Perfil</a>*/}
+        </div>
+
         <div className="voltar">
           <GrLogout className="icone-voltar">
           </GrLogout>
           <a href="#" className="link-voltar">Voltar</a>
         </div>
+
+        
       </div>
         </>
     )
 }
-export default OptionsWeb;
+export default Preferences;

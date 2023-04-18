@@ -5,7 +5,8 @@ import "./App.scss";
 import NavBar from "./components/NavBar";
 import New from "./pages/New";
 import Options from "./pages/Options";
-import OptionsWeb from "./components/OptionsWeb/preferencias";
+import ProfilePreferences from "./components/ProfilePreferences";
+
 
 function App() {
   const [selected, setSelected] = useState({
@@ -24,9 +25,9 @@ function App() {
           <Route path="/options" element={<Options />} />
 
           {/* Anderson ↓↓↓ Adicionei  <Route path="/OptionsWeb" element={<OptionsWeb />} />*/}
-          <Route path="/OptionsWeb" element={<OptionsWeb />} />
-          {/*Anderson adiuci  */}
-          <Route path="/OptionsWeb" element={<OptionsWeb />} />
+          <Route path="/options/profile" element={<ProfilePreferences/>} />
+          <Route path="/options/currency" element={<ProfilePreferences/>} />{/*/criar componente*/}
+          
         </Routes>
       </div>
       <NavBar selected={selected} setSelected={setSelected} />
