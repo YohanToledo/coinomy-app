@@ -31,14 +31,14 @@ const Dropdown = ({ items, selected, setSelected }: Props) => {
             </button>
 
 
-            {showDropdown ? <ul className="dropdown-menu">
+            {showDropdown ? <ul className="dropdown-menu bg-3">
                 {items.map((item) => <li
                     className="dropdown-item s-c bottom"
                     value={`${item.value}`}
                     accessKey={item.label}
-                    onClick={(e: any) => { 
+                    onClick={(e: any) => {
                         setSelected({ label: e.target.accessKey, value: String(e.target.value) });
-                        setShowDropdown(!showDropdown) 
+                        setShowDropdown(!showDropdown)
                     }}
                 >{item.label}</li>)}
             </ul> : ""}

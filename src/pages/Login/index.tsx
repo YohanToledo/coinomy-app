@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import LoginForm from "../../components/LoginForm";
 import { AuthContext } from "../../context/AuthContext";
 import { Navigate } from 'react-router-dom';
-import LogoImg from '../../assets/img/logo-light.png';
+import LogoImg from '../../assets/img/logo-dark.png';
 
 const Login = () => {
 
