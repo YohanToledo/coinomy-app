@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar";
 import New from "./pages/New";
 import Options from "./pages/Options";
 import ProfilePreferences from "./components/ProfilePreferences";
+import Preferences from "./components/Preferences";
 
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
 
           {/* Anderson ↓↓↓ Adicionei  <Route path="/OptionsWeb" element={<OptionsWeb />} />*/}
           <Route path="/options/profile" element={<ProfilePreferences/>} />
-          <Route path="/options/currency" element={<ProfilePreferences/>} />{/*/criar componente*/}
+          {/**<Route path="/options/currency" element={<Preferences/>} />{/criar componente} */}
           
         </Routes>
       </div>

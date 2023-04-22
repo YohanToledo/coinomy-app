@@ -4,12 +4,8 @@
     display: flex;
     //justify-content: space-around;
     flex-direction: column;
-    height: 50%;
-}
+    //height: 50%;        
 
-.options-container a{
-    text-decoration: none;
-    
 }
 
 .options-container h1 {
@@ -17,39 +13,83 @@
     //margin-bottom: 5rem;
     margin-bottom: 3rem;
     font-weight: 800px;
-    font-size: 3.5rem;
+    font-size: 3.5rem;    
 }
 
-.minha-conta{
-    background: #D9D9D9;    
+.privacy {
+    background: #D9D9D9;
+    display: flex;
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    //margin-top: 3rem;    
+    border-radius: 1.3rem;   
+    margin: 0.5rem; 
+}
+
+.privacy:hover {
+    background: rgba(231, 136, 58, 0.782);
+}
+
+.icone-privacy {
+    font-size: 30px;
+    color: white;
+    margin-right: 0.5rem;
+    //background: rgba(231, 136, 58, 0.782);
+    margin-left: 0.7rem;
+}
+
+.link-privacy {
+    color: black;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    //height: 100%;
+}
+
+.minha-conta {
+    background: #D9D9D9;
+    display: flex;
     height: 10rem;
     display: flex;
     align-items: center;
     //margin-top: 3rem;    
     border-radius: 1.3rem;
+    margin: 0.5rem; 
 }
 
-.icone-minha-conta{
+.minha-conta:hover {
+    background-color: rgba(224, 158, 158, 0.954);
+}
+
+.icone-minha-conta {
     font-size: 30px;
     color: white;
     //background: black;
     margin-right: 0.5rem;
-    background: rgb(77, 88, 98);
+    background: rgba(215, 43, 135, 0.869);
     
-    border-radius: 100%;
+    border-radius: 40%;
     margin-left: 0.7rem;
 }
 
 .moeda {
-    background: #D9D9D9;    
+    background: #D9D9D9;
     height: 10rem;
     display: flex;
     align-items: center;
     //margin-top: 3rem;    
     border-radius: 1.3rem;
+    margin: 0.5rem; 
 }
 
-.link-minha-conta{
+.moeda:hover {
+    background: #a7ea60bb;
+}
+
+.link-minha-conta {
     color: black;
     font-weight: bolder;
     font-size: 1.5rem;
@@ -69,24 +109,19 @@
     margin-left: 0.7rem;
 }
 
-.moeda a {
-    color: black;
-    font-weight: bolder;
-    font-size: 1.5rem;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    height: 100%;
-}
-
 .contas {
     background: #D9D9D9;
     height: 10rem;
-    margin-top: 3rem;
+    //margin-top: 3rem;
     align-items: center;
     border-radius: 1.3rem;
     display: flex;
+    margin: 0.5rem;     
     
+}
+
+.contas:hover{
+   background-color: rgba(159, 149, 186, 0.897);
 }
 
 .icone-conta {
@@ -95,30 +130,24 @@
     border-radius: 30%;
     margin-left: 0.7rem;
     margin-right: 0.5rem;
-    color: rgba(107, 81, 176, 0.781);
-    
-    //background: darkkhaki;
-}
+    color: rgba(106, 81, 176, 0.504);
 
-.contas a {
-    text-decoration: none;
-    color: black;
-    font-weight: bolder;
-    font-size: 1.5rem;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    height: 100%;
+    //background: darkkhaki;
 }
 
 .categorias {
     background: #D9D9D9;
     height: 10rem;
-    margin-top: 3rem;
+    //margin-top: 3rem;
     align-items: center;
     border-radius: 1.3rem;
     height: 10rem;
     display: flex;
+    margin: 0.5rem; 
+}
+
+.categorias:hover{
+    background-color: rgb(193, 154, 135);
 }
 
 .icone-categorias {
@@ -130,16 +159,6 @@
     color: rgb(194, 60, 82);
 }
 
-.categorias a {
-    text-decoration: none;
-    color: black;
-    font-weight: bolder;
-    font-size: 1.5rem;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    height: 100%;
-}
 
 .voltar {
     background: #D9D9D9;
@@ -150,17 +169,11 @@
     display: flex;
     //height: 4.3rem;
     height: 10rem;
+    margin: 0.5rem; 
 }
 
-.voltar a {
-    text-decoration: none;
-    color: black;
-    font-weight: bolder;
-    font-size: 1.5rem;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    height: 100%;
+.voltar:hover{
+    background-color: rgba(158, 158, 158, 0.88);
 }
 
 .icone-voltar {
@@ -198,15 +211,82 @@
 @media screen and (min-height:1368px) {
     .options-container {
         margin-top: 50%;
-        justify-content: space-around;                
+        justify-content: space-around;
     }
 }
 
-@media screen and (min-width:936px){
-    .options-container{
+@media screen and (min-width:936px) {
+    .options-container {
         margin-top: 10%;
     }
 }
 
+@media screen and (min-height:745px) {
+    .options-container {
+        margin-top: 1%;
+    }
+}
+
+/*
+@media screen and (min-height:398px) {
+    .options-container {
+        margin-bottom: 44%;
+        .minha-conta{
+            height: 15%;
+        }
+
+        .privacy{
+            height: 15%;
+        }  
+        
+        .moeda{
+            height: 15%;
+        }
+    
+        .contas{
+            height: 15%;
+        }
+    
+        .categorias{
+            height: 15%;
+        }
+    
+        .voltar{
+            height: 15%;
+        }
+    }
+
+    
+}
+*/
+
+@media screen and (max-width:800px) {
+    .options-container{
+        .minha-conta{
+            height: 20%;
+        }
+        
+        .privacy{
+            height: 20%;
+        }
+        
+        .contas{
+            height: 20%;
+        }
+        
+        .categorias{
+            height: 20%;
+        }
+
+        .moeda{
+            height: 20%;
+        }
+
+        .voltar{
+            height: 20%;
+        }
+
+    }
+}
 
 // ids

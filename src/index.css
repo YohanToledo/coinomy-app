@@ -4,7 +4,8 @@
     --secondary-color: #24cbe9;
     --secondary-color: #03dac6;*/ /*ciano verde*/
 
-  --primary-color: #230350;
+  /*--primary-color: #230350;*/
+  --primary-color: #00202f;
   --logo-container: #29a0b6;
   --secondary-color: #29a0b6;
 
@@ -22,8 +23,7 @@
 }
 
 * {
-  box-sizing: border-box;
-  
+  box-sizing: border-box;  
 }
 
 body {
