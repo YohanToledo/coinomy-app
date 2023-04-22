@@ -2,13 +2,14 @@
 
 .options-container {
     display: flex;
-    justify-content: space-around;
+    //justify-content: space-around;
     flex-direction: column;
     height: 50%;
 }
 
 .options-container a{
     text-decoration: none;
+    
 }
 
 .options-container h1 {
@@ -19,6 +20,26 @@
     font-size: 3.5rem;
 }
 
+.minha-conta{
+    background: #D9D9D9;    
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    //margin-top: 3rem;    
+    border-radius: 1.3rem;
+}
+
+.icone-minha-conta{
+    font-size: 30px;
+    color: white;
+    //background: black;
+    margin-right: 0.5rem;
+    background: rgb(77, 88, 98);
+    
+    border-radius: 100%;
+    margin-left: 0.7rem;
+}
+
 .moeda {
     background: #D9D9D9;    
     height: 10rem;
@@ -26,6 +47,16 @@
     align-items: center;
     //margin-top: 3rem;    
     border-radius: 1.3rem;
+}
+
+.link-minha-conta{
+    color: black;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .icone-moeda {

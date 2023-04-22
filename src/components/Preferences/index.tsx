@@ -5,14 +5,25 @@ import { ImCoinDollar } from "react-icons/im";
 import { MdAccountBalance } from "react-icons/md"
 import { BiCategory } from "react-icons/bi";
 import { GrLogout } from "react-icons/gr";
+import { MdOutlineManageAccounts } from "react-icons/md";
 import { Link } from "react-router-dom";
 
-const Preferences = () =>{
-    return(
-        <>
-        
-        <div className="options-container">
+const Preferences = () => {
+  return (
+    <>
+
+      <div className="options-container">
         <h1>Preferências</h1>
+
+        <div className="minha-conta">
+          <MdOutlineManageAccounts className="icone-minha-conta">
+          </MdOutlineManageAccounts>
+          <Link to="/options/profile" className="link-minha-conta">
+            Minha Conta
+          </Link>
+
+        </div>
+
         <div className="moeda">
           <ImCoinDollar className="icone-moeda">
           </ImCoinDollar>
@@ -47,9 +58,9 @@ const Preferences = () =>{
           <a href="#" className="link-voltar">Voltar</a>
         </div>
 
-        
+
       </div>
-        </>
-    )
+    </>
+  )
 }
 export default Preferences;
