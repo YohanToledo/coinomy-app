@@ -1,55 +1,72 @@
 import React from "react";
-//import "./Options.scss";
 import "./Preferences.scss";
 import { ImCoinDollar } from "react-icons/im";
 import { MdAccountBalance } from "react-icons/md"
 import { BiCategory } from "react-icons/bi";
 import { GrLogout } from "react-icons/gr";
+import { MdOutlineManageAccounts } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { FcPrivacy } from "react-icons/fc";
 
-const Preferences = () =>{
-    return(
-        <>
-        
-        <div className="options-container">
+const Preferences = () => {
+  return (
+    <>
+
+      <div className="options-container">
         <h1>Preferências</h1>
+
+        <div className="minha-conta">
+          <MdOutlineManageAccounts className="icone-minha-conta">
+          </MdOutlineManageAccounts>
+          <Link to="/options/profile" className="link-minha-conta">
+            Minha Conta
+          </Link>
+        </div>
+
+        <div className="privacy">
+          <FcPrivacy className="icone-privacy">
+          </FcPrivacy>
+          <Link to="/options/profile" className="link-privacy">
+            Privacidade
+          </Link>
+        </div>
+
         <div className="moeda">
           <ImCoinDollar className="icone-moeda">
           </ImCoinDollar>
-          <a href="#" className="link-moeda">Moeda</a>
+          <Link to="/options/profile" className="link-moeda">
+            Moeda
+          </Link>
 
         </div>
 
         <div className="contas">
           <MdAccountBalance className="icone-conta">
-          </MdAccountBalance>
-          <a href="#" className="link-conta">Contas</a>
+          </MdAccountBalance>          
+          <Link to="/options/profile" className="link-conta">
+            Contas
+          </Link>
         </div>
 
         <div className="categorias">
           <BiCategory className="icone-categorias">
-          </BiCategory>
-          <a href="#" className="link-categoria">Categorias</a>
-        </div>
-
-        <div className="perfil">
-          <GrLogout className="icone-perfil">
-          </GrLogout>
-          <Link to="/options/profile">
-            Perfil
+          </BiCategory>          
+          <Link to="/options/profile" className="link-categoria">
+            Categorias
           </Link>
-          {/*<a href="#" className="link-perfil">Perfil</a>*/}
-        </div>
+        </div>        
 
         <div className="voltar">
           <GrLogout className="icone-voltar">
-          </GrLogout>
-          <a href="#" className="link-voltar">Voltar</a>
+          </GrLogout>          
+          <Link to="/options/profile" className="link-voltar">
+            Voltar
+          </Link>
         </div>
 
-        
+
       </div>
-        </>
-    )
+    </>
+  )
 }
 export default Preferences;
