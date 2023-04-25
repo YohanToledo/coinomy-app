@@ -13,7 +13,7 @@ const Transactions = () => {
     const [bank, setBank] = useState({ label: "Banco", value: "1" })
     return (
         <>
-            <main id="containerBaseNew">
+            <main id="containerBaseNew" className="bp-2">
                 <form id="recieve" onSubmit={(e: any) => e.preventDefault()}>
 
                     <div id="form_header">
