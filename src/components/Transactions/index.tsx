@@ -8,23 +8,26 @@ type Item = {
     label: string
 }
 
-const Transactions = () => {
+type Props = {
+    title: "RECEITA"|"DESPESA";
+}
+const Transactions = ({title}:Props) => {
     const [category, setCategory] = useState({ label: "Categoria", value: "1" })
     const [bank, setBank] = useState({ label: "Banco", value: "1" })
     return (
         <>
-            <main id="containerBaseNew" className="bp-2">
-                <form id="recieve" onSubmit={(e: any) => e.preventDefault()}>
+            <main id="containerBaseNew-addTransactions">
+                <form id="recieve-addTransactions" onSubmit={(e: any) => e.preventDefault()}>
 
-                    <div id="form_header">
-                        <h1>RECEITA</h1>
+                    <div id="form_header-addTransactions">
+                        <h1 className={title.toUpperCase() === "RECEITA"? "colorReceita":"colorDespesa"}>{title}</h1>
                     </div>
 
-                    <div id="inputs">
+                    <div id="inputs-addTransactions">
 
-                        <div className="input-box">
-                            <label htmlFor="money">
-                                <div className="input-field">
+                        <div className="input-box-addTransactions">
+                            <label htmlFor="money-addTransactions">
+                                <div className="input-field-addTransactions">
                                     <div className="transactionIcons">
                                         <BsFillCalculatorFill />
                                     </div>
@@ -33,35 +36,32 @@ const Transactions = () => {
                             </label>
                         </div>
 
-
-                        <div className="input-box">
+                        <div className="input-box-addTransactions">
                             <label htmlFor="recebido">
-                                <div className="input-field">
-                                    <label className="switch">
+                                <div className="input-field-addTransactions">
+                                    <label className="switch-addTransactions">
                                         <input type="checkbox"></input>
-                                        <span className="slider round"></span>
+                                        <span className="slider-addTransactions round"></span>
                                     </label>
-                                    <p className="recebido">Recebido</p>
+                                    <p className="recebido-addTransactions">{title.toUpperCase() === "RECEITA"? "Recebido":"Pago"}</p>
                                 </div>
                             </label>
                         </div>
 
-
-                        <div className="input-box">
-                            <label htmlFor="date">
-                                <div className="input-field">
+                        <div className="input-box-addTransactions">
+                            <label htmlFor="date-addTransactions">
+                                <div className="input-field-addTransactions">
                                     <div className="transactionIcons">
                                         <BsFillCalendarDateFill />
                                     </div>
-
-                                    <input type="date" id="date" name="date" placeholder="Data" />
+                                    <input type="date" id="date" name="date" placeholder="Data"/>
                                 </div>
                             </label>
                         </div>
 
-                        <div className="input-box">
-                            <label htmlFor="description">
-                                <div className="input-field">
+                        <div className="input-box-addTransactions">
+                            <label htmlFor="description-addTransactions">
+                                <div className="input-field-addTransactions">
                                     <div className="transactionIcons">
                                         <BsFillPencilFill />
                                     </div>
@@ -71,43 +71,35 @@ const Transactions = () => {
                             </label>
                         </div>
 
-                        <div className="input-box">
-                            <label htmlFor="categoria">
-                                <div className="input-field">
+                        <div className="input-box-addTransactions">
+                            <label htmlFor="categoria-addTransactions">
+                                <div className="input-field-addTransactions">
                                     <div className="transactionIcons">
                                         <BsFillTagFill />
                                     </div>
-                                    <div className="list dropdown-category">
+                                    <div className="list-addTransactions dropdown-category">
                                         <Dropdown items={Categories} selected={category} setSelected={setCategory} />
                                     </div>
                                 </div>
                             </label>
                         </div>
 
-
-                        <div className="input-box">
-                            <label htmlFor="banco">
-                                <div className="input-field">
+                        <div className="input-box-addTransactions">
+                            <label htmlFor="banco-addTransactions">
+                                <div className="input-field-addTransactions">
                                 <div className="transactionIcons">
                                     <BsFillCreditCardFill />
                                 </div>
-                                <div className="list dropdown-bankAccount">
+                                <div className="list-addTransactions dropdown-bankAccount">
                                     <Dropdown items={Banks} selected={bank} setSelected={setBank} />
                                 </div>
                                 </div>
                             </label>
                         </div>
 
-
                     </div>
 
-
-
-
-
-
-
-                    <button type="submit" id="save_button">
+                    <button type="submit" id="save_button-addTransactions">
                         Salvar
                     </button>
                 </form>

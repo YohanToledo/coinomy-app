@@ -1,4 +1,12 @@
-#containerBaseNew {
+.colorDespesa{
+    color: red;
+}
+.colorReceita{
+    color: #00A006;
+}
+
+//Container base
+#containerBaseNew-addTransactions {
     height: 100vh;
     width: 100%;
     background: var(--color-gradient);
@@ -7,27 +15,29 @@
     justify-content: center;
 }
 
-#recieve {
-    background-color: #42019c;
+//Container da tela Receita/Despesa
+#recieve-addTransactions {
+    background-color: #00455d;
     display: flex;
     flex-direction: column;
-    padding: 6vh 4vw; 
+    padding: 4vh 2vw;
     border-radius: 10px;
     gap: 3vh;
 }
 
-#form_header {
+//Cabeçalho do Formulário
+#form_header-addTransactions {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-#form_header h1 {
-    font-size:5em;
-    color: green;
+#form_header-addTransactions h1 {
+    font-size: 5em;
 }
 
-#inputs {
+//Div onde estão os inputs (textos, icones, box de valor)
+#inputs-addTransactions {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,85 +45,84 @@
     gap: 3vh;
 }
 
-.list{
-    width: 35vw;
-    font-size: 1.6em;
-    margin: 5px 5px 5px 5px;
-    padding-bottom: 4.5vh;
-}
-
-.dropdown-category {
-    z-index: 99;
-    border-bottom: 1px solid cyan;
-}
-
-.dropdown-bankAccount {
-    z-index: 98;
-    border-bottom: 1px solid cyan;
-}
-
-.transactionIcons {
-    font-size: 1.8em;
-    color: white;
-}
-
-.input-box label {
+//Input para lidar com cada elemento em si, seus inputs, icone...
+.input-box-addTransactions label {
     font-size: 0.9em;
     color: darkgray;
 }
 
-.input-field {
+//Input direcionado aos valores em específico
+.input-field-addTransactions {
     display: flex;
     align-items: center;
     justify-items: space-between;
     gap: 4vh;
     padding: 3px;
     cursor: text;
-    width: 40vw;
+    width: 30vw;
     border-bottom: transparent;
 }
 
-.recebido{
+.input-field-addTransactions input {
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid #00b4df;
+    font-size: 0.9em;
+    padding: 5px;
+    color: white;
+}
+
+.input-field-addTransactions input::placeholder {
+    color: white;
+}
+
+.input-field-addTransactions input:focus {
+    outline: none;
+}
+
+//Icones
+.transactionIcons {
     font-size: 1.8em;
     color: white;
 }
 
-.input-field input{
-    border: none;
-    background-color: transparent;
-    border-bottom: 1px solid cyan;
-    font-size: 0.9em;
-    padding: 0px 5px;
+//Select box
+.list-addTransactions {
+    width: 35vw;
+    font-size: 1.6em;
+    color: white;
+    margin-bottom: auto;
+}
+
+.dropdown-category {
+    z-index: 99;
+}
+
+.dropdown-bankAccount {
+    z-index: 98;
+}
+
+//Texto do Toggle Button
+.recebido-addTransactions {
+    font-size: 1.8em;
     color: white;
 }
 
-
-.input-field input::placeholder {
-    color: white;
-}
-
-.input-field input:focus {
-    outline: none;
-}
-
-
-
-.switch {
+//Toggle Button - Slider
+.switch-addTransactions {
     position: relative;
     display: inline-block;
     width: 26px;
     height: 20px;
-  }
-  
-  /* Hide default HTML checkbox */
-  .switch input {
+}
+
+.switch-addTransactions input {
     opacity: 0;
     width: 0;
     height: 0;
-  }
-  
-  /* The slider */
-  .slider {
+}
+
+.slider-addTransactions {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -123,9 +132,9 @@
     background-color: #ccc;
     -webkit-transition: .4s;
     transition: .4s;
-  }
-  
-  .slider:before {
+}
+
+.slider-addTransactions:before {
     position: absolute;
     content: "";
     height: 13px;
@@ -135,169 +144,179 @@
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
-  }
-  
-  input:checked + .slider {
-    background-color: #2196F3;
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
-  
-  input:checked + .slider:before {
+}
+
+input:checked+.slider-addTransactions {
+    background-color: #00b4df;
+}
+
+input:focus+.slider-addTransactions {
+    box-shadow: 0 0 1px #00b4df;
+}
+
+input:checked+.slider-addTransactions:before {
     -webkit-transform: translateX(11px);
     -ms-transform: translateX(11px);
     transform: translateX(11px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
+}
 
-#save_button {
+.slider-addTransactions.round {
+    border-radius: 34px;
+}
+
+.slider-addTransactions.round:before {
+    border-radius: 50%;
+}
+
+//Botão "Salvar"
+#save_button-addTransactions {
     border: none;
-    background-color: green;
+    background-color: #00A006;
     color: white;
     padding: 0.2em;
     border-radius: 10px;
     font-size: 0.9em;
+    transition: 0.5s;
 }
 
-#save_button:hover {
-    background-color: rgb(0, 84, 0);
+#save_button-addTransactions:hover {
+    background-color: rgb(1, 109, 1);
     transition: 0.5s;
     cursor: pointer;
 }
 
+//Tratando responsividade
 @media screen and (max-width: 700px) {
-    #recieve {
+    #recieve-addTransactions {
         margin-bottom: 75px;
         padding: 8vh 6vw;
     }
 }
 
 @media screen and (max-width: 382px) {
-    #recieve {
+    #recieve-addTransactions {
         padding: 8vh 6vw;
     }
 
-    .input-field {
+    .input-field-addTransactions {
         gap: 3vh;
     }
-    
-    .lists {
-        gap:3.75vh;
+
+    .input-field-addTransactions select {
+        font-size: 1.6em;
     }
 
-    .input-field select {
-
-        font-size: 1.6em;       
+    .list-addTransactions {
+        gap: 3.75vh;
+        width: 16.5vw;
     }
 }
 
 @media screen and (max-height: 900px) {
-    #recieve {
+    #recieve-addTransactions {
         padding: 8vh 6vw;
     }
 
-    .input-field {
+    #form_header-addTransactions h1 {
+        font-size: 5em;
+    }
+
+    .input-field-addTransactions {
         gap: 6vh;
     }
-    .lists {
-        gap:3.75vh;
-    }
 
-    .input-field input{
-
+    .input-field-addTransactions input {
         font-size: 1.75em;
     }
 
-    #inputs {
+    #inputs-addTransactions {
         gap: 3vh;
     }
 
-    #save_button {
+    .list-addTransactions {
+        gap: 3.75vh;
+        width: 16.5vw;
+    }
+
+    #save_button-addTransactions {
         padding: 0.2em;
         border-radius: 10px;
         font-size: 1.75em;
     }
-
-    #form_header h1 {
-        font-size:5em;
-    }
 }
 
-@media screen and (min-height: 901px){
-    #recieve {
+@media screen and (min-height: 901px) {
+    #recieve-addTransactions {
         padding: 8vh 6vw;
         gap: 5vh;
     }
 
-    .lists {
-        gap:3.75vh;
+    #form_header-addTransactions h1 {
+        font-size: 5em;
     }
 
-    .input-field {
+    .input-field-addTransactions {
         gap: 5vh;
     }
 
-    .input-field input {
-
+    .input-field-addTransactions input {
         font-size: 1.75em;
     }
 
-    #save_button {
+    #inputs-addTransactions {
+        gap: 3vh;
+    }
+
+    .list-addTransactions {
+        gap: 3.75vh;
+        width: 16.5vw;
+    }
+
+    #save_button-addTransactions {
         padding: 0.2em;
         border-radius: 10px;
         font-size: 1.75em;
     }
-
-    #form_header h1 {
-        font-size:5em;
-    }
-
-    #inputs {
-        gap: 3vh;
-    }
 }
 
-@media screen and (min-height: 1000px) {   
-    #recieve {  
-        padding: 6vh 4vw; 
+@media screen and (max-height: 1000px) {
+    #recieve-addTransactions {
+        padding: 6vh 4vw;
         gap: 3vh;
     }
 
-    #form_header h1 {
-        font-size:5em;
+    #form_header-addTransactions h1 {
+        font-size: 5em;
     }
-    
-    #inputs {
-        gap: 3vh;
-    }
-    
-    .input-field {
+
+    .input-field-addTransactions {
         gap: 4vh;
     }
-    
-    .input-field input {
 
+    .input-field-addTransactions input {
         font-size: 1.75em;
         padding: 0px 5px;
     }
 
-    .lists {
-        gap:3.75vh;
+    #inputs-addTransactions {
+        gap: 3vh;
     }
-    
-    #save_button {
+
+    .list-addTransactions {
+        gap: 3.75vh;
+        width: 16.5vw;
+    }
+
+    #save_button-addTransactions {
         padding: 0.2em;
         border-radius: 10px;
         font-size: 1.75em;
+    }
+}
+
+@media screen and (min-height: 1080px){
+    .list-addTransactions {
+        gap: 3.75vh;
+        width: 16.5vw;
     }
 }

@@ -6,7 +6,7 @@ import Transactions from "../../components/Transactions";
 const New = () => {
   return (
     <>
-       <Transactions />
+       <Transactions title="DESPESA"/>
     </>
   );
 };
