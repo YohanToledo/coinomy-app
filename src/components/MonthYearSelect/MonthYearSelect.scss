@@ -1,0 +1,14 @@
+.drops{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: inherit;
+    border-radius: 4px;
+}
+
+.drop{
+    width: 120px;
+    font-size: 18px;
+    margin: 5px 5px 5px 5px;
+}
+

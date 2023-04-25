@@ -1,6 +1,6 @@
 .balance-container {
   width: 80%;
-  height: 220px;
+  height: 260px;
   margin-left: 10%;
   padding: 10px;
   display: flex;
@@ -10,13 +10,40 @@
   @media screen and (min-width: 700px) {
     flex-direction: row;
     align-items: end;
+    height: 210px;
+  }
+
+  .selector{
+    position: absolute;
+    top: 20px;
+    left: 10%;
+    z-index: 99;
+  }
+
+  @media screen and (max-width: 700px) {
+
+    .selector{
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 99;
+    }
+
+    .balance-title,
+    .month-balance,
+    .value {
+      font-size: 18px;
+    }
+
+    .arrow-down,
+    .arrow-up {
+      font-size: 30px;
+    }
   }
 }
 
-.balance-header {
-  padding: 10px;
-  display: flex;
-  align-items: center;
+.balance-header{
+  height: 80px;
 }
 
 .month-name {
@@ -26,27 +53,42 @@
 }
 
 .month-balance {
+  width: 70%;
+  height: 100px;
   font-size: 18px;
   padding: 10px;
 }
 
 .hide-values {
-  font-size: 22px;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 26px;
   position: absolute;
-  right: 50px;
-  top: 20px;
-  @media screen and (min-width: 688px) {
-    font-size: 22px;
+  right: 10px;
+  top: 10px;
+
+  @media screen and (min-width: 700px) {
+    font-size: 30px;
     position: absolute;
-    right: 25%;
+    right: 20px;
     top: 20px;
   }
+
   :hover {
     cursor: pointer;
   }
 }
 
+.balance-title {
+  font-size: 24px;
+  text-align: center;
+  padding: 6px;
+}
+
 .value {
+  font-size: 24px;
   padding: 6px;
   text-align: center;
   font-weight: bold;
@@ -68,19 +110,25 @@
 
 .income {
   text-align: center;
-  left: 0; /* position child1 at full left */
-  width: 50%; /* set width of child1 to 50% */
+  left: 0;
+  /* position child1 at full left */
+  width: 50%;
+  /* set width of child1 to 50% */
   padding: 5px;
+
   .value {
-    color: rgb(80, 225, 80);
+    color: #00A006 //rgb(80, 225, 80);
   }
 }
 
 .expense {
   text-align: center;
-  right: 0; /* position child2 at full right */
-  width: 50%; /* set width of child2 to 50% */
+  right: 0;
+  /* position child2 at full right */
+  width: 50%;
+  /* set width of child2 to 50% */
   padding: 5px;
+
   .value {
     color: red;
   }
@@ -88,12 +136,12 @@
 
 .arrow-up,
 .arrow-down {
-  font-size: 30px;
+  font-size: 42px;
   padding: 5px;
 }
 
 .arrow-up {
-  color: rgb(80, 225, 80);
+  color: #00A006 //rgb(80, 225, 80);
 }
 
 .arrow-down {

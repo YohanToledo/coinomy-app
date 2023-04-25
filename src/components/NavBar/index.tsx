@@ -8,29 +8,34 @@ import {
 import { TbDotsCircleHorizontal } from "react-icons/tb";
 import { HiDotsCircleHorizontal } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { CiCalculator2 } from 'react-icons/ci';
 
-type Options = {
-  home: boolean;
-  new: boolean;
-  options: boolean;
-};
+const NavBar = () => {
 
-type Props = {
-  selected: Options;
-  setSelected: (options: Options) => void;
-};
+  const [selected, setSelected] = useState({
+    home: true,
+    new: false,
+    options: false,
+  });
 
-const NavBar = ({ selected, setSelected }: Props) => {
   const select = (page: "home" | "new" | "options") => {
     const allDisabled = { home: false, new: false, options: false };
 
     setSelected({ ...allDisabled, [page]: true });
   };
 
+
+  const basePath = "/app";
+
   return (
     <>
+      <div className="icon-calc">
+        <CiCalculator2 className="calc" />
+      </div>
       <div className="nav-container">
-        <Link to="/home">
+
+        <Link to={`${basePath}/home`}>
           <div
             className="home"
             onClick={() => {
@@ -40,7 +45,7 @@ const NavBar = ({ selected, setSelected }: Props) => {
             {selected.home ? <AiFillHome /> : <AiOutlineHome />}
           </div>
         </Link>
-        <Link to="/new">
+        <Link to={`${basePath}/new`}>
           <div
             className="new"
             onClick={() => {
@@ -50,7 +55,7 @@ const NavBar = ({ selected, setSelected }: Props) => {
             {selected.new ? <AiFillPlusCircle /> : <AiOutlinePlusCircle />}
           </div>
         </Link>
-        <Link to="/options">
+        <Link to={`${basePath}/options`}>
           <div
             className="options"
             onClick={() => {
