@@ -5,6 +5,13 @@
   min-height: 100vh;
 }
 
+@media (max-width: 800px) {
+  .App {
+    flex-direction: column;
+  }
+}
+
+
 .container {
   padding: 0px;
   background-color: var(--primary-color);
@@ -12,9 +19,10 @@
   margin-left: 0;
 
   @media screen and (min-width: 700px) {
-    width: 80%;
-    margin-left: 12%;
+    width: 90%;
+    margin-left: 7%;
   }
+
   /*
   @media screen and (min-width: 688px) {
     border-radius: 5px;

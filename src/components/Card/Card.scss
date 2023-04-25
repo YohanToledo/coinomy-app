@@ -1,6 +1,6 @@
 .card-container {
-  width: 92%;
-  margin-left: 4%;
+  width: 100%;
+  margin-left: 0%;
   padding: 10px;
   height: 60px;
   background-color: red;
@@ -21,6 +21,24 @@
   flex-direction: column;
 }
 
+.card-icon-desc{
+  font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.ci{
+  margin-inline: 10px;
+}
+
 .card-date {
-  margin-left: 4%;
+  color: #b0b0b0;
+}
+
+.card-value{
+  display: flex;
+  text-align: center;
+  justify-content: center;
 }
