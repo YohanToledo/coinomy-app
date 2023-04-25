@@ -7,6 +7,7 @@ import New from "./pages/New";
 import PrivateRoute from "./components/PrivateRoute";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Preferences from "./components/Preferences";
 
 function App() {
   console.log(window.location.href)
@@ -21,7 +22,8 @@ function App() {
           <Route path="/app" element={<Navigate to={"/app/home"} />} />
           <Route path="/app/home" element={<Home />} />
           <Route path="/app/new" element={<New />} />
-          <Route path="/app/options" element={<New />} />
+          {/*<Route path="/app/options" element={<New />} />*/}
+          <Route path="/app/options" element={<Preferences />} />
         </Route>
       </Routes>
     </div >
