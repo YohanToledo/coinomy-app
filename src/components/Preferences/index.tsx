@@ -15,54 +15,62 @@ const Preferences = () => {
       <div className="options-container">
         <h1>Preferências</h1>
 
-        <div className="minha-conta">
-          <MdOutlineManageAccounts className="icone-minha-conta">
-          </MdOutlineManageAccounts>
-          <Link to="/options/profile" className="link-minha-conta">
+        <Link to="/options/profile">
+          <div className="option-card minha-conta">
+            <MdOutlineManageAccounts className="icone-minha-conta">
+            </MdOutlineManageAccounts>
             Minha Conta
-          </Link>
-        </div>
+          </div>
+        </Link>
 
-        <div className="privacy">
-          <FcPrivacy className="icone-privacy">
-          </FcPrivacy>
-          <Link to="/options/profile" className="link-privacy">
+        <Link to="/options/profile">
+          <div className="option-card privacy">
+            <FcPrivacy className="icone-privacy">
+            </FcPrivacy>
+
             Privacidade
-          </Link>
-        </div>
 
-        <div className="moeda">
-          <ImCoinDollar className="icone-moeda">
-          </ImCoinDollar>
-          <Link to="/options/profile" className="link-moeda">
+          </div>
+        </Link>
+
+        <Link to="/options/profile">
+          <div className="option-card moeda">
+            <ImCoinDollar className="icone-moeda">
+            </ImCoinDollar>
             Moeda
-          </Link>
+          </div>
+        </Link>
 
-        </div>
+        <Link to="/options/profile">
+          <div className="option-card contas">
+            <MdAccountBalance className="icone-conta">
+            </MdAccountBalance>
 
-        <div className="contas">
-          <MdAccountBalance className="icone-conta">
-          </MdAccountBalance>          
-          <Link to="/options/profile" className="link-conta">
             Contas
-          </Link>
-        </div>
 
-        <div className="categorias">
-          <BiCategory className="icone-categorias">
-          </BiCategory>          
-          <Link to="/options/profile" className="link-categoria">
+          </div>
+        </Link>
+
+        <Link to="/options/profile">
+          <div className="option-card categorias">
+            <BiCategory className="icone-categorias">
+            </BiCategory>
+
             Categorias
-          </Link>
-        </div>        
 
-        <div className="voltar">
-          <GrLogout className="icone-voltar">
-          </GrLogout>          
-          <Link to="/options/profile" className="link-voltar">
+          </div>
+        </Link>
+
+
+        <Link to="/options/profile">
+          <div className="option-card voltar">
+            <GrLogout className="icone-voltar">
+            </GrLogout>
+
             Voltar
-          </Link>
-        </div>
+
+          </div>
+        </Link>
 
 
       </div>
