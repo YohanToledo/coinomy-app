@@ -1,8 +1,9 @@
-.colorDespesa{
-    color: red;
+.colorDespesa {
+    color: rgb(189, 0, 0);
 }
-.colorReceita{
-    color: #00A006;
+
+.colorReceita {
+    color: #007a04;
 }
 
 //Container base
@@ -40,7 +41,6 @@
 #inputs-addTransactions {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     gap: 3vh;
 }
@@ -59,7 +59,7 @@
     gap: 4vh;
     padding: 3px;
     cursor: text;
-    width: 30vw;
+
     border-bottom: transparent;
 }
 
@@ -146,15 +146,15 @@
     transition: .4s;
 }
 
-input:checked+.slider-addTransactions {
+.input-slider-addTransactions:checked+.slider-addTransactions {
     background-color: #00b4df;
 }
 
-input:focus+.slider-addTransactions {
+.input-slider-addTransactions:focus+.slider-addTransactions {
     box-shadow: 0 0 1px #00b4df;
 }
 
-input:checked+.slider-addTransactions:before {
+.input-slider-addTransactions:checked+.slider-addTransactions:before {
     -webkit-transform: translateX(11px);
     -ms-transform: translateX(11px);
     transform: translateX(11px);
@@ -171,7 +171,7 @@ input:checked+.slider-addTransactions:before {
 //Botão "Salvar"
 #save_button-addTransactions {
     border: none;
-    background-color: #00A006;
+    background-color: #007a04;
     color: white;
     padding: 0.2em;
     border-radius: 10px;
@@ -180,7 +180,7 @@ input:checked+.slider-addTransactions:before {
 }
 
 #save_button-addTransactions:hover {
-    background-color: rgb(1, 109, 1);
+    background-color: #005803;
     transition: 0.5s;
     cursor: pointer;
 }
@@ -247,7 +247,7 @@ input:checked+.slider-addTransactions:before {
 
 @media screen and (min-height: 901px) {
     #recieve-addTransactions {
-        padding: 8vh 6vw;
+        padding: 6vh 4vw;
         gap: 5vh;
     }
 
@@ -314,7 +314,7 @@ input:checked+.slider-addTransactions:before {
     }
 }
 
-@media screen and (min-height: 1080px){
+@media screen and (min-height: 1080px) {
     .list-addTransactions {
         gap: 3.75vh;
         width: 16.5vw;

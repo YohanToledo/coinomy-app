@@ -9,9 +9,9 @@ type Item = {
 }
 
 type Props = {
-    title: "RECEITA"|"DESPESA";
+    title: "RECEITA" | "DESPESA";
 }
-const Transactions = ({title}:Props) => {
+const Transactions = ({ title }: Props) => {
     const [category, setCategory] = useState({ label: "Categoria", value: "1" })
     const [bank, setBank] = useState({ label: "Banco", value: "1" })
     return (
@@ -20,7 +20,7 @@ const Transactions = ({title}:Props) => {
                 <form id="recieve-addTransactions" onSubmit={(e: any) => e.preventDefault()}>
 
                     <div id="form_header-addTransactions">
-                        <h1 className={title.toUpperCase() === "RECEITA"? "colorReceita":"colorDespesa"}>{title}</h1>
+                        <h1 className={title.toUpperCase() === "RECEITA" ? "colorReceita" : "colorDespesa"}>{title}</h1>
                     </div>
 
                     <div id="inputs-addTransactions">
@@ -40,10 +40,10 @@ const Transactions = ({title}:Props) => {
                             <label htmlFor="recebido">
                                 <div className="input-field-addTransactions">
                                     <label className="switch-addTransactions">
-                                        <input type="checkbox"></input>
+                                        <input type="checkbox" className="input-slider-addTransactions"></input>
                                         <span className="slider-addTransactions round"></span>
                                     </label>
-                                    <p className="recebido-addTransactions">{title.toUpperCase() === "RECEITA"? "Recebido":"Pago"}</p>
+                                    <p className="recebido-addTransactions">{title.toUpperCase() === "RECEITA" ? "Recebido" : "Pago"}</p>
                                 </div>
                             </label>
                         </div>
@@ -54,7 +54,7 @@ const Transactions = ({title}:Props) => {
                                     <div className="transactionIcons">
                                         <BsFillCalendarDateFill />
                                     </div>
-                                    <input type="date" id="date" name="date" placeholder="Data"/>
+                                    <input type="date" id="date" name="date" placeholder="Data" />
                                 </div>
                             </label>
                         </div>
@@ -87,12 +87,12 @@ const Transactions = ({title}:Props) => {
                         <div className="input-box-addTransactions">
                             <label htmlFor="banco-addTransactions">
                                 <div className="input-field-addTransactions">
-                                <div className="transactionIcons">
-                                    <BsFillCreditCardFill />
-                                </div>
-                                <div className="list-addTransactions dropdown-bankAccount">
-                                    <Dropdown items={Banks} selected={bank} setSelected={setBank} />
-                                </div>
+                                    <div className="transactionIcons">
+                                        <BsFillCreditCardFill />
+                                    </div>
+                                    <div className="list-addTransactions dropdown-bankAccount">
+                                        <Dropdown items={Banks} selected={bank} setSelected={setBank} />
+                                    </div>
                                 </div>
                             </label>
                         </div>
