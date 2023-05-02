@@ -15,7 +15,7 @@ const Preferences = () => {
       <div className="options-container">
         <h1>Preferências</h1>
 
-        <Link to="/options/profile">
+        <Link to="profile">
           <div className="option-card minha-conta">
             <MdOutlineManageAccounts className="icone-minha-conta">
             </MdOutlineManageAccounts>
@@ -23,7 +23,7 @@ const Preferences = () => {
           </div>
         </Link>
 
-        <Link to="/options/profile">
+        <Link to="app/options/profile">
           <div className="option-card privacy">
             <FcPrivacy className="icone-privacy">
             </FcPrivacy>
@@ -33,7 +33,7 @@ const Preferences = () => {
           </div>
         </Link>
 
-        <Link to="/options/profile">
+        <Link to="app/options/profile">
           <div className="option-card moeda">
             <ImCoinDollar className="icone-moeda">
             </ImCoinDollar>
@@ -41,7 +41,7 @@ const Preferences = () => {
           </div>
         </Link>
 
-        <Link to="/options/profile">
+        <Link to="app/options/profile">
           <div className="option-card contas">
             <MdAccountBalance className="icone-conta">
             </MdAccountBalance>
@@ -51,7 +51,7 @@ const Preferences = () => {
           </div>
         </Link>
 
-        <Link to="/options/profile">
+        <Link to="app/options/profile">
           <div className="option-card categorias">
             <BiCategory className="icone-categorias">
             </BiCategory>
@@ -62,7 +62,7 @@ const Preferences = () => {
         </Link>
 
 
-        <Link to="/options/profile">
+        <Link to="app/options/profile">
           <div className="option-card voltar">
             <GrLogout className="icone-voltar">
             </GrLogout>

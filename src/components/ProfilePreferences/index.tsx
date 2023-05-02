@@ -1,45 +1,71 @@
-import React from "react";
-import "./ProfilePreferences.scss";
-import { ImCoinDollar } from "react-icons/im";
-import { MdAccountBalance } from "react-icons/md"
 import { BiCategory } from "react-icons/bi";
 import { GrLogout } from "react-icons/gr";
-import { CgProfile } from "react-icons/cg";
-import { MdAlternateEmail } from "react-icons/md";
-import { RiLockPasswordLine } from "react-icons/ri";
+import { ImCoinDollar } from "react-icons/im";
+import { MdAccountBalance, MdOutlineManageAccounts } from "react-icons/md";
+import "../Preferences/Preferences.scss";
+import "./ProfilePreferences.scss";
+import { Link } from "react-router-dom";
 
 
 const ProfilePreferences = () => {
   return (
     <>
 
-      <div className="profile-preferences-container">
-        <h1>Preferências</h1>
+<div className="options-container">
+        <h1>Perfil</h1>
 
-        <div className="nome-completo">
-          <CgProfile className="icone-email">
-          </CgProfile>
-          <a href="#" className="link-email">Nome completo</a>
-        </div>
+        <Link to="profile">
+          <div className="option-card minha-conta">
+            <MdOutlineManageAccounts className="icone-minha-conta">
+            </MdOutlineManageAccounts>
+            Minha Conta
+          </div>
+        </Link>
 
-        <div className="email">
-          <MdAlternateEmail className="icone-email">
-          </MdAlternateEmail>
-          <a href="#" className="link-email">Email</a>
-        </div>
+        
 
-        <div className="senha">
-          <RiLockPasswordLine className="icone-senha">
-          </RiLockPasswordLine>
-          <a href="#" className="link-senha">Senha</a>
-        </div>
+        <Link to="app/options/profile">
+          <div className="option-card moeda">
+            <ImCoinDollar className="icone-moeda">
+            </ImCoinDollar>
+            Moeda
+          </div>
+        </Link>
 
-        <div className="voltar">
-          <GrLogout className="icone-voltar">
-          </GrLogout>
-          <a href="#" className="link-voltar">Voltar</a>
-        </div>
+        <Link to="app/options/profile">
+          <div className="option-card contas">
+            <MdAccountBalance className="icone-conta">
+            </MdAccountBalance>
+
+            Contas
+
+          </div>
+        </Link>
+
+        <Link to="app/options/profile">
+          <div className="option-card categorias">
+            <BiCategory className="icone-categorias">
+            </BiCategory>
+
+            Categorias
+
+          </div>
+        </Link>
+
+
+        <Link to="app/options/profile">
+          <div className="option-card voltar">
+            <GrLogout className="icone-voltar">
+            </GrLogout>
+
+            Voltar
+
+          </div>
+        </Link>
+
+
       </div>
+    
     </>
   )
 }
