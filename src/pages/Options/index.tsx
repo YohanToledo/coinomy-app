@@ -1,9 +1,8 @@
-import "./Options.scss";
-
+import Preferences from "../../components/Preferences";
 const Options = () => {
   return (
     <>
-      <div className="main-container">OPTIONS</div>
+     <Preferences/>
     </>
   );
 };
