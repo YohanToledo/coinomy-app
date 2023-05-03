@@ -1,9 +1,11 @@
 import "./New.scss";
+import Transactions from "../../components/Transactions";
+
 
 const New = () => {
   return (
     <>
-      <div className="main-container">NEEEEWWW</div>
+      <Transactions title="DESPESA" />
     </>
   );
 };
