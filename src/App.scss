@@ -2,7 +2,7 @@
   color: white;
   background-color: var(--primary-color);
   display: flex;
-  min-height: 100vh;  
+  min-height: 100vh;
 }
 
 
@@ -12,13 +12,11 @@
   }
 }
 
-
-
 .container {  
-  //padding: 12px;
+  padding: 12px;
   background-color: var(--primary-color);
   width: 100%;
-  //margin-left: 0;
+  margin-left: 0;
 
   @media screen and (min-width: 700px) {
     width: 90%;

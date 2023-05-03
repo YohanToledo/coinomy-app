@@ -11,7 +11,6 @@ import Preferences from "./components/Preferences";
 import ProfilePreferences from "./components/ProfilePreferences";
 
 function App() {
-  console.log(window.location.href)
   return (
     < div className="App" >
       <Routes>
@@ -23,7 +22,6 @@ function App() {
           <Route path="/app" element={<Navigate to={"/app/home"} />} />
           <Route path="/app/home" element={<Home />} />
           <Route path="/app/new" element={<New />} />
-          {/*<Route path="/app/options" element={<New />} />*/}
           <Route path="/app/options" element={<Preferences />} />
           <Route path="/app/options/profile" element={<ProfilePreferences />} />
         </Route>
