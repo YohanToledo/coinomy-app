@@ -1,12 +1,9 @@
-import { BiCategory } from "react-icons/bi";
 import { GrLogout } from "react-icons/gr";
-import { ImCoinDollar } from "react-icons/im";
-import { MdAccountBalance, MdOutlineManageAccounts, MdAlternateEmail, MdOutlinePassword } from "react-icons/md";
-
+import { MdOutlineManageAccounts, MdAlternateEmail, MdOutlinePassword } from "react-icons/md";
+import { ImProfile } from "react-icons/im";
 import "../Preferences/Preferences.scss";
 import "./ProfilePreferences.scss";
 import { Link } from "react-router-dom";
-
 
 const ProfilePreferences = () => {
   return (
@@ -14,25 +11,20 @@ const ProfilePreferences = () => {
       <h1 id="titulo">Perfil</h1>
       <div className="options-container options-container-profile">
 
-
-
-        
           <div className="option-card profile">
             <MdOutlineManageAccounts className="icone-minha-profile">
             </MdOutlineManageAccounts>
-            <input type="file" name="" id="" />
+            <input type="file" name="" className="profile-input" />
           </div>
-        
 
         <Link to="profile">
-          <div className="option-card minha-conta">
-            <MdOutlineManageAccounts className="icone-minha-conta">
-            </MdOutlineManageAccounts>
+          <div className="option-card nome-completo">
+            <ImProfile className="icone-minha-conta icone-nome-completo">
+            </ImProfile>
             Nome Completo
           </div>
+                    
         </Link>
-
-
 
         <Link to="app/options/profile">
           <div className="option-card moeda">
@@ -57,10 +49,7 @@ const ProfilePreferences = () => {
             Voltar
           </div>
         </Link>
-
-
       </div>
-
     </>
   )
 }

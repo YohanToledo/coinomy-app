@@ -1,0 +1,23 @@
+.reset-password{
+    margin-top: 8%;
+    
+}
+
+
+.icone-reset-password{
+    font-size: 30px;
+    color: white;
+    margin-right: 0.5rem;
+    background: rgba(215, 118, 43, 0.869);
+    border-radius: 40%;
+    margin-left: 0.7rem;
+}
+
+.reset-password:hover{
+    background: rgba(215, 118, 43, 0.845);
+    .icone-reset-password{
+        color: rgba(91, 235, 134, 0.746);
+        
+    }
+    
+}

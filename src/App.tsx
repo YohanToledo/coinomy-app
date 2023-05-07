@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Preferences from "./components/Preferences";
 import ProfilePreferences from "./components/ProfilePreferences";
+import Privacy from "./components/Privacy";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/app/new" element={<New />} />
           <Route path="/app/options" element={<Preferences />} />
           <Route path="/app/options/profile" element={<ProfilePreferences />} />
+          <Route path="/app/options/privacy" element={<Privacy />} />
         </Route>
       </Routes>
     </div >

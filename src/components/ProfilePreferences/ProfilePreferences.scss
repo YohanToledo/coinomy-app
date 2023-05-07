@@ -1,6 +1,5 @@
 .options-container-profile {
-
-    margin-top: 20%;
+    //margin-top: 20%;
 }
 
 #titulo {
@@ -12,8 +11,23 @@
 
 .profile{
     //border-radius: 100%
-    //width: 50%;
     margin-bottom: 8%;
-    width: 50%;
+    width: 50%;    
+}
+
+/*
+.profile-input{    
+    border-radius: 100%;
     height: 10rem;
+    width: 10rem;
+}
+*/
+.icone-nome-completo{
+    background: rgb(133, 133, 130);
+    border-radius: 50%;
+}
+  
+
+.nome-completo:hover{
+    background: rgb(111, 112, 114);
 }
