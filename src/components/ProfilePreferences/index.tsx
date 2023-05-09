@@ -1,6 +1,7 @@
 import { GrLogout } from "react-icons/gr";
 import { MdOutlineManageAccounts, MdAlternateEmail, MdOutlinePassword } from "react-icons/md";
 import { ImProfile } from "react-icons/im";
+import { RiPencilFill } from "react-icons/ri";
 import "../Preferences/Preferences.scss";
 import "./ProfilePreferences.scss";
 import { Link } from "react-router-dom";
@@ -10,12 +11,16 @@ const ProfilePreferences = () => {
     <>
       <h1 id="titulo">Perfil</h1>
       <div className="options-container options-container-profile">
-
-          <div className="option-card profile">
-            <MdOutlineManageAccounts className="icone-minha-profile">
-            </MdOutlineManageAccounts>
-            <input type="file" name="" className="profile-input" />
+        <div className="div-circle">
+          <div className="profile">
           </div>
+          <div className="icone-circle">
+            <input className="input-file icone-circle-label" id="file-input" type="file" />
+            <label htmlFor="file-input" className="icone-circle-label">
+              <RiPencilFill />
+            </label>
+          </div>
+        </div>
 
         <Link to="profile">
           <div className="option-card nome-completo">
@@ -23,7 +28,7 @@ const ProfilePreferences = () => {
             </ImProfile>
             Nome Completo
           </div>
-                    
+
         </Link>
 
         <Link to="app/options/profile">

@@ -1,5 +1,43 @@
-.options-container-profile {
-    //margin-top: 20%;
+.div-circle {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.input-file {
+    visibility: hidden;
+}
+
+.profile {
+    border-radius: 100%;
+    justify-content: center;
+    width: 8rem;
+    height: 8rem;
+    text-align: center;
+    background: rgb(153, 27, 27);
+}
+
+.icone-circle {
+    position: fixed;
+    margin-top: 90px;
+    margin-left: 100px;
+
+
+    background: rgb(49, 158, 177);
+    border-radius: 100%;
+    height: 2rem;
+    width: 2rem;
+    
+}
+
+.icone-circle-label{
+    height: 2rem;
+    width: 2rem;
+    position: fixed;
+    text-align: center;
+    margin-top: 4px;
+    font-size: 1.5rem;
 }
 
 #titulo {
@@ -9,25 +47,11 @@
     font-size: 2rem;
 }
 
-.profile{
-    //border-radius: 100%
-    margin-bottom: 8%;
-    width: 50%;    
-}
-
-/*
-.profile-input{    
-    border-radius: 100%;
-    height: 10rem;
-    width: 10rem;
-}
-*/
-.icone-nome-completo{
+.icone-nome-completo {
     background: rgb(133, 133, 130);
     border-radius: 50%;
 }
-  
 
-.nome-completo:hover{
+.nome-completo:hover {
     background: rgb(111, 112, 114);
 }
