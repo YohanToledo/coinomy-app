@@ -2,6 +2,8 @@ import "./Transactions.scss";
 import { useState } from "react";
 import Dropdown from "../Dropdown";
 import { BsFillCalendarDateFill, BsFillCalculatorFill, BsFillPencilFill, BsFillTagFill, BsFillCreditCardFill } from "react-icons/bs"
+import ToggleButton from "../ToggleButtonSlider";
+import InputValor from "../MoneyWrite";
 
 type Item = {
     value: string,
@@ -24,14 +26,13 @@ const Transactions = ({ title }: Props) => {
                     </div>
 
                     <div id="inputs-addTransactions">
-
                         <div className="input-box-addTransactions">
                             <label htmlFor="money-addTransactions">
                                 <div className="input-field-addTransactions">
                                     <div className="transactionIcons">
                                         <BsFillCalculatorFill />
                                     </div>
-                                    <input type="text" id="money" name="money" placeholder="R$ 00,00" />
+                                    <InputValor />
                                 </div>
                             </label>
                         </div>
@@ -39,10 +40,7 @@ const Transactions = ({ title }: Props) => {
                         <div className="input-box-addTransactions">
                             <label htmlFor="recebido">
                                 <div className="input-field-addTransactions">
-                                    <label className="switch-addTransactions">
-                                        <input type="checkbox" className="input-slider-addTransactions"></input>
-                                        <span className="slider-addTransactions round"></span>
-                                    </label>
+                                    <ToggleButton />
                                     <p className="recebido-addTransactions">{title.toUpperCase() === "RECEITA" ? "Recebido" : "Pago"}</p>
                                 </div>
                             </label>
@@ -65,7 +63,6 @@ const Transactions = ({ title }: Props) => {
                                     <div className="transactionIcons">
                                         <BsFillPencilFill />
                                     </div>
-
                                     <input type="text" id="description" name="description" placeholder="Descrição" />
                                 </div>
                             </label>
@@ -96,7 +93,6 @@ const Transactions = ({ title }: Props) => {
                                 </div>
                             </label>
                         </div>
-
                     </div>
 
                     <button type="submit" id="save_button-addTransactions">
