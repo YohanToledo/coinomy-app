@@ -17,6 +17,7 @@ function InputValor() {
   return (
     <input
       type="text"
+      placeholder='R$00,00'
       value={valor}
       onChange={handleValorChange}
     />
