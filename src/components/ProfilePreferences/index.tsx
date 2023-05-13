@@ -22,38 +22,53 @@ const ProfilePreferences = () => {
           </div>
         </div>
 
-        <Link to="profile">
-          <div className="option-card nome-completo">
-            <ImProfile className="icone-minha-conta icone-nome-completo">
-            </ImProfile>
-            Nome Completo
-          </div>
+        <div>
+          <label htmlFor="nome-Sobrenome" id="nome-Sobrenome">
+            <h1>Nome e Sobrenome</h1>
+          </label>
 
-        </Link>
+          <label htmlFor="email-Profile" id="email-Profile">
+            <h2>nome@gmail.com</h2>
+          </label>
+        </div>
 
-        <Link to="app/options/profile">
-          <div className="option-card moeda">
-            <MdAlternateEmail className="icone-moeda">
-            </MdAlternateEmail>
-            E-mail
-          </div>
-        </Link>
+        {/* A div chamada: "divs-componentes" criada para agrupar os elementos nome, email, senha, voltar, para 
+        manipulá-los nas media screens. */}
 
-        <Link to="app/options/profile">
-          <div className="option-card contas">
-            <MdOutlinePassword className="icone-conta">
-            </MdOutlinePassword>
-            Senha
-          </div>
-        </Link>
+        <div className="options-container divs-componentes">
+          <Link to="profile">
+            <div className="option-card nome-completo">
+              <ImProfile className="icone-minha-conta icone-nome-completo">
+              </ImProfile>
+              Nome Completo
+            </div>
 
-        <Link to="app/options/profile">
-          <div className="option-card voltar">
-            <GrLogout className="icone-voltar">
-            </GrLogout>
-            Voltar
-          </div>
-        </Link>
+          </Link>
+
+          <Link to="app/options/profile">
+            <div className="option-card moeda">
+              <MdAlternateEmail className="icone-moeda">
+              </MdAlternateEmail>
+              E-mail
+            </div>
+          </Link>
+
+          <Link to="app/options/profile">
+            <div className="option-card contas">
+              <MdOutlinePassword className="icone-conta">
+              </MdOutlinePassword>
+              Senha
+            </div>
+          </Link>
+
+          <Link to="app/options/profile">
+            <div className="option-card voltar">
+              <GrLogout className="icone-voltar">
+              </GrLogout>
+              Voltar
+            </div>
+          </Link>
+        </div>
       </div>
     </>
   )
