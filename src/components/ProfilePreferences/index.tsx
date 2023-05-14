@@ -22,7 +22,7 @@ const ProfilePreferences = () => {
           </div>
         </div>
 
-        <div>
+        <div className="nome-email-profile">
           <label htmlFor="nome-Sobrenome" id="nome-Sobrenome">
             <h1>Nome e Sobrenome</h1>
           </label>

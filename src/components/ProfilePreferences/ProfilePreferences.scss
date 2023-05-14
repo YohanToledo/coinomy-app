@@ -1,13 +1,7 @@
-.options-container-profile{    
-    
-}
-
-
 .div-circle {
     display: flex;
     width: 100%;
-    justify-content: center;
-    
+    justify-content: center;    
     margin-bottom: 8.5rem;
     
 }
@@ -23,9 +17,7 @@
     height: 8rem;
     text-align: center;
     background: gray;
-    position: fixed;
-    
-    
+    position: fixed;        
 }
 
 .icone-circle {
@@ -56,7 +48,6 @@
     background: rgb(111, 112, 114);
 }
 
-
 // ids
 
 #titulo {
@@ -83,5 +74,14 @@
     #titulo{
         text-align: start;
         margin-left: 3%;
+    }
+}
+
+//iphone SE
+
+@media(min-width:375px){
+    #titulo{
+        margin-top: 0;
+        font-size: 25px;
     }
 }
