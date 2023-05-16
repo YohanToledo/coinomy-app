@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 import "../styles.css";
 import { validatePassword } from "../../utils/validate";
 import Api from "../../shared/requests/Api";
-import Modal from "../Modal";
+import NotificationPopUp from "../NotificationPopUp";
 
 const RegisterForm = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [modalMsg, setModalMsg] = useState({
+  const [showNotificationPopUp, setShowNotificationPopUp] = useState(false);
+  const [NotificationPopUpMsg, setNotificationPopUpMsg] = useState({
     msg: "As senhas devem ser iguais!",
     type: "error",
   });
@@ -39,25 +39,25 @@ const RegisterForm = () => {
         console.log(response);
 
         if (response.status === 400) {
-          setModalMsg({ msg: "Email já cadastrado!", type: "error" });
-          setShowModal(true);
+          setNotificationPopUpMsg({ msg: "Email já cadastrado!", type: "error" });
+          setShowNotificationPopUp(true);
         }
 
         if (response.status === 201) {
-          setModalMsg({ msg: "Cadastrado com sucesso", type: "success" });
-          setShowModal(true);
+          setNotificationPopUpMsg({ msg: "Cadastrado com sucesso", type: "success" });
+          setShowNotificationPopUp(true);
         }
       } else {
-        setModalMsg({
+        setNotificationPopUpMsg({
           msg: "As senhas devem ser iguais!",
           type: "error",
         });
-        setShowModal(true);
+        setShowNotificationPopUp(true);
       }
     } catch (error) {
       console.log(error);
-      setModalMsg({ msg: "Erro interno! Contate o Suporte!", type: "error" });
-      setShowModal(true);
+      setNotificationPopUpMsg({ msg: "Erro interno! Contate o Suporte!", type: "error" });
+      setShowNotificationPopUp(true);
     } finally {
       setIsLoading(false);
     }
@@ -85,7 +85,7 @@ const RegisterForm = () => {
               icon="user"
               setValue={setName}
               errorMessage={error.name}
-              inputProps={{required: true, pattern: "^[^ ][A-zÀ-ž ]{3,32}$"}}
+              inputProps={{ required: true, pattern: "^[^ ][A-zÀ-ž ]{3,32}$" }}
             />
           </div>
           <div className="row">
@@ -97,8 +97,8 @@ const RegisterForm = () => {
               icon="email"
               setValue={setEmail}
               errorMessage={error.email}
-              inputProps={{required: true}}
-              
+              inputProps={{ required: true }}
+
             />
           </div>
           <div className="row">
@@ -110,7 +110,7 @@ const RegisterForm = () => {
               icon="lock"
               setValue={setPassword}
               errorMessage={error.password}
-              inputProps={{required: true, pattern: "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$"}}
+              inputProps={{ required: true, pattern: "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$" }}
             />
           </div>
           <div className="row">
@@ -122,7 +122,7 @@ const RegisterForm = () => {
               icon="lock"
               setValue={setConfirmPassword}
               errorMessage={error.confirmPassword}
-              inputProps={{required: true}}
+              inputProps={{ required: true }}
             />
           </div>
           <div className="row">
@@ -138,10 +138,10 @@ const RegisterForm = () => {
         </form>
       </div>
 
-      <Modal
-        onClose={() => setShowModal(false)}
-        show={showModal}
-        msgAndType={modalMsg}
+      <NotificationPopUp
+        onClose={() => setShowNotificationPopUp(false)}
+        show={showNotificationPopUp}
+        msgAndType={NotificationPopUpMsg}
       />
     </>
   );
