@@ -3,7 +3,7 @@ import "./Options.scss";
 const Options = () => {
   return (
     <>
-      <div className="main-container">OPTIONS</div>
+      <h1>Options</h1>
     </>
   );
 };
