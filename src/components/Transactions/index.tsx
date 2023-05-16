@@ -10,12 +10,14 @@ type Item = {
     label: string
 }
 
+
 type Props = {
     title: "RECEITA" | "DESPESA";
 }
 const Transactions = ({ title }: Props) => {
     const [category, setCategory] = useState({ label: "Categoria", value: "1" })
     const [bank, setBank] = useState({ label: "Banco", value: "1" })
+    const [selected, setSelected] = useState(false)
     return (
         <>
             <main id="containerBaseNew-addTransactions">
@@ -40,7 +42,7 @@ const Transactions = ({ title }: Props) => {
                         <div className="input-box-addTransactions">
                             <label htmlFor="recebido">
                                 <div className="input-field-addTransactions">
-                                    <ToggleButton />
+                                    <ToggleButton setSelected={setSelected}/>
                                     <p className="recebido-addTransactions">{title.toUpperCase() === "RECEITA" ? "Recebido" : "Pago"}</p>
                                 </div>
                             </label>
