@@ -61,7 +61,7 @@ const ProfilePreferences = () => {
             </div>
           </Link>
 
-          <Link to="app/options/profile">
+          <Link to="/app/options">
             <div className="option-card voltar">
               <GrLogout className="icone-voltar">
               </GrLogout>

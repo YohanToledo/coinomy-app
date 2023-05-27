@@ -31,7 +31,7 @@ const Preferences = () => {
           </div>
         </Link>
 
-        <Link to="app/options/profile">
+        <Link to="money">
           <div className="option-card moeda">
             <ImCoinDollar className="icone-moeda">
             </ImCoinDollar>
@@ -55,7 +55,7 @@ const Preferences = () => {
           </div>
         </Link>
 
-        <Link to="app/options/profile">
+        <Link to="../">
           <div className="option-card voltar">
             <GrLogout className="icone-voltar">
             </GrLogout>
