@@ -5,14 +5,14 @@ import Input from "../Input";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles.css";
 import Api from "../../shared/requests/Api";
-import Modal from "../Modal";
+import NotificationPopUp from "../NotificationPopUp";
 
 const LoginForm = () => {
-  const [modalMsg, setModalMsg] = useState({
+  const [NotificationPopUpMsg, setNotificationPopUpMsg] = useState({
     msg: "Email ou Senha Inválidos!",
     type: "error",
   });
-  const [showModal, setShowModal] = useState(false);
+  const [showNotificationPopUp, setShowNotificationPopUp] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -30,19 +30,19 @@ const LoginForm = () => {
       console.log(response);
 
       if (response.status === 201) {
-        setModalMsg({ msg: "Login efetuado com sucesso", type: "success" });
-        setShowModal(true);
+        setNotificationPopUpMsg({ msg: "Login efetuado com sucesso", type: "success" });
+        setShowNotificationPopUp(true);
 
         navigate("/app");
       }
       if (response.status === 401) {
-        setModalMsg({ msg: "Email ou Senha Inválidos!", type: "error" });
-        setShowModal(true);
+        setNotificationPopUpMsg({ msg: "Email ou Senha Inválidos!", type: "error" });
+        setShowNotificationPopUp(true);
       }
     } catch (error) {
       console.log(error);
-      setModalMsg({ msg: "Erro interno! Contate o Suporte!", type: "error" });
-      setShowModal(true);
+      setNotificationPopUpMsg({ msg: "Erro interno! Contate o Suporte!", type: "error" });
+      setShowNotificationPopUp(true);
     } finally {
       setIsLoading(false);
     }
@@ -80,10 +80,10 @@ const LoginForm = () => {
         </form>
       </div>
 
-      <Modal
-        onClose={() => setShowModal(false)}
-        show={showModal}
-        msgAndType={modalMsg}
+      <NotificationPopUp
+        onClose={() => setShowNotificationPopUp(false)}
+        show={showNotificationPopUp}
+        msgAndType={NotificationPopUpMsg}
       />
     </>
   );
