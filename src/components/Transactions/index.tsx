@@ -3,7 +3,7 @@ import { useState } from "react";
 import Dropdown from "../Dropdown";
 import { BsFillCalendarDateFill, BsFillCalculatorFill, BsFillPencilFill, BsFillTagFill, BsFillCreditCardFill } from "react-icons/bs"
 import ToggleButton from "../ToggleButtonSlider";
-import InputValor from "../MoneyWrite";
+import InputMoney from "../MoneyWrite";
 
 type Item = {
     value: string,
@@ -15,6 +15,9 @@ type Props = {
     title: "RECEITA" | "DESPESA";
 }
 const Transactions = ({ title }: Props) => {
+    const [value, setValue] = useState("")
+    const [time, setTime] = useState("")
+    const [desc, setDescription] = useState("")
     const [category, setCategory] = useState({ label: "Categoria", value: "1" })
     const [bank, setBank] = useState({ label: "Banco", value: "1" })
     const [selected, setSelected] = useState(false)
@@ -34,7 +37,7 @@ const Transactions = ({ title }: Props) => {
                                     <div className="transactionIcons">
                                         <BsFillCalculatorFill />
                                     </div>
-                                    <InputValor />
+                                    <InputMoney value={value} setValue={setValue}/>
                                 </div>
                             </label>
                         </div>
@@ -54,7 +57,7 @@ const Transactions = ({ title }: Props) => {
                                     <div className="transactionIcons">
                                         <BsFillCalendarDateFill />
                                     </div>
-                                    <input type="date" id="date" name="date" placeholder="Data" />
+                                    <input type="date" id="date" name="date" placeholder="Data" onChange={(e:any) => setTime(e.target.value)}/>
                                 </div>
                             </label>
                         </div>
@@ -65,7 +68,7 @@ const Transactions = ({ title }: Props) => {
                                     <div className="transactionIcons">
                                         <BsFillPencilFill />
                                     </div>
-                                    <input type="text" id="description" name="description" placeholder="Descrição" />
+                                    <input type="text" id="description" name="description" placeholder="Descrição" onChange={(e:any) => setDescription(e.target.value)}/>
                                 </div>
                             </label>
                         </div>
@@ -106,7 +109,8 @@ const Transactions = ({ title }: Props) => {
     );
 };
 
-const Categories = [{ label: "Categoria 1", value: "Categoria 1" }, { label: "Categoria 2", value: "Categoria 2" }, { label: "Categoria 3", value: "Categoria 3" }]
+
+const Categories = [{ label: "Lazer", value: "Lazer" }, { label: "Despesa Fixa", value: "Despesa Fixa" }, { label: "Investimentos", value: "Investimentos" }]
 const Banks = [{ label: "Bradesco", value: "Bradesco" }, { label: "Itaú", value: "Itaú" }, { label: "Next", value: "Next" }]
 
 export default Transactions;
