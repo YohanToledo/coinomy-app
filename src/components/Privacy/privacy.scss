@@ -36,10 +36,27 @@ h6{
     color: rgba(236, 10, 10, 0.822);    
 }
 
+//class modal
 
+.reset-account-modal{
+    height: 80%;
+    width: 85%;
+    margin-bottom: 6%;
+    background: rgba(255, 0, 0, 0.727);
+    align-items: center;
+    justify-content: center;
+}
+.icone-warning-privacy{
+    width: 50%;
+    height: 50%;
+    align-items: center;
+    
+    
+}
 // ids
 
 #titulo-modal{
-    color: red;
+    font-weight: 800;
+    font-size: 20px;
     margin-bottom: 10%;
 }
