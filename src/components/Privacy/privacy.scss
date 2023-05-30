@@ -1,5 +1,10 @@
+.container-privacy{
+    
+}
+
 .reset-password{
-    margin-top: 8%;
+    //margin-top: 8%;  
+    padding: 0;
     
 }
 
@@ -19,15 +24,10 @@
     }    
 }
 
-<<<<<<< HEAD
 h6{
     font-size: 11px;
     font-weight: 850;        
     color: rgba(236, 10, 10, 0.822);    
-=======
-.div-componentes-privacy{
-    
->>>>>>> 6b7b175716ed086155f35d15ddb31bbaee8cf167
 }
 
 h6{
@@ -39,3 +39,7 @@ h6{
 
 // ids
 
+#titulo-modal{
+    color: red;
+    margin-bottom: 10%;
+}
