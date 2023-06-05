@@ -1,82 +1,12 @@
-.custom-modal {
-  visibility: hidden;
-  position: fixed;
-  left: 1;
-  top: 0;
-  right: 0;
-  bottom: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 2%;
-  color: white;
-  /* animation-name: slide-from-right;
-  animation-duration: 1000ms; */
-  /* animation: slide-from-right 0.5s, slide-to-right 0.5s 2.5s; */
-}
-
-.show {
-  visibility: visible; /* Show the snackbar */
-  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
-    However, delay the fade out process for 2.5 seconds */
-  /* -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s; */
-  animation: slide-from-right 1.5s, fade-out 1s 5s;
-}
-
-@keyframes slide-from-right {
-  from {
-    right: -600px;
-    opacity: 0;
-  }
-  to {
-    right: 0px;
-    opacity: 1;
-  }
-}
-
-@keyframes fade-out {
-  from {
-    /* right: 0px; */
-    opacity: 1;
-  }
-  to {
-    /* right: -600px; */
-    opacity: 0;
-  }
-}
-
-.error {
-  background-color: rgb(243, 57, 24);
-}
-
-.success {
-  background-color: rgb(30 165 65);
-}
-
-.custom-modal-content {
-  min-width: 260px;
-  max-width: 320px;
-  border-radius: 7px;
-  max-height: 100px;
-  overflow-y: auto;
-}
-
-.custom-modal-body {
-  padding: 5px;
-  display: flex;
-  align-items: center;
-}
-
-.custom-modal-close,
-.custom-modal-close:hover {
-  z-index: 2;
-  position: absolute;
-  right: 10px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.custom-modal-container {
-  width: 90%;
-  margin: 5%;
+.modal-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
 }
