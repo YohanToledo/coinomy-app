@@ -55,13 +55,13 @@ const Preferences = () => {
           </div>
         </Link>
 
-        <Link to="../">
-          <div className="option-card voltar">
+        
+          <div className="option-card voltar" onClick={() => { window.history.back() }}>
             <GrLogout className="icone-voltar">
             </GrLogout>
             Voltar
           </div>
-        </Link>
+       
       </div>
     </>
   )

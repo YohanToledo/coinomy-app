@@ -61,13 +61,13 @@ const ProfilePreferences = () => {
             </div>
           </Link>
 
-          <Link to="/app/options">
-            <div className="option-card voltar">
+     
+            <div className="option-card voltar"onClick={() => { window.history.back() }}>
               <GrLogout className="icone-voltar">
               </GrLogout>
               Voltar
             </div>
-          </Link>
+         
         </div>
       </div>
     </>

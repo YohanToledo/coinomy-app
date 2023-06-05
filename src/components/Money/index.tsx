@@ -9,23 +9,14 @@ const Money = () => {
         <>
             <h1 id="titulo">Moedas</h1>
             <div className="options-container">
-                <Link to="/app/options">
-                    <div className="option-card voltar">
+              
+                    <div className="option-card voltar" onClick={() => { window.history.back() }}>
                         <GrLogout className="icone-voltar">
                         </GrLogout>
                         Voltar
                     </div>
-                </Link>
+       
             </div>
-
-
-
-
-
-
-
-
-
         </>
     )
 }
