@@ -39,8 +39,10 @@ const Privacy = () => {
             </div>
 
             <Modal show={show} onClose={() => { setShow(false) }} >
-                <div className="options-container reset-account-modal">
-                    <h1 id="titulo-modal">Apagar Conta</h1>
+                <div className="reset-account-modal bg-1">
+                    <div className="titulo-privacy">
+                        <h1 id="titulo-modal">Apagar Conta</h1>
+                    </div>
                     <div className="div-icone-warning-privacy">
                         <ImWarning className="icone-warning-privacy"></ImWarning>
                     </div>

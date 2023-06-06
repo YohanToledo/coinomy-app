@@ -1,7 +1,5 @@
-.reset-password{
-    //margin-top: 8%;  
-    padding: 0;
-    
+.reset-password{    
+    padding: 0;    
 }
 
 .icone-reset-password{
@@ -34,29 +32,30 @@ h6{
 
 .reset-account-modal{
     height: 85%;
-    width: 85%;
-    margin-bottom: 6%;
-    background: #00202fea;    
+    margin-bottom: 6%;    
     display: flex;
     justify-content: center;    
-    flex-direction: column;
-
-}
-.icone-warning-privacy{
-    width: 70%;
-    height: 70%;    
-    margin-top: 10%;    
+    flex-direction: column;    
 }
 
 .div-icone-warning-privacy{    
     color: red;
-    margin-top: 15%;    
-    margin-left: 20%;    
+    //margin-top: 15%;    
+    //margin-left: 20%;  
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.icone-warning-privacy{
+    font-size: 8rem;  
+    margin-top: 10%;
+    
 }
 
 .icone-verificado-privacy{
-    width: 40%;
-    height: 70%;
+    font-size: 6rem;
     color: green;    
 }
 .icone-verificado-privacy:hover{
@@ -64,8 +63,7 @@ h6{
 }
 
 .icone-cancel-privacy{
-    width: 40%;
-    height: 70%;
+    font-size: 6rem;
     color: red;
     margin-bottom: 5%;        
 }
@@ -77,15 +75,23 @@ h6{
 .icones-apagar-conta-privacy{
     margin-top: 20%;    
     display: flex;
-    margin-left: 10%;
-    
+    margin-left: 10%;    
+    justify-content: space-around;
+}
+
+.titulo-privacy{
+    //flex-direction: row-reverse;
+    display: flex;
+    //align-items: center;
 }
 // ids
 
 #titulo-modal{
     font-weight: 800;
     font-size: 20px;    
-    margin-left: 25%;
+    //margin-left: 25%;
+    
+    align-items: center;
 }
 
 #alerta-reset{
@@ -95,4 +101,13 @@ h6{
     display: flex;
     font-style: normal;
     text-align: center;   
+}
+
+//media
+
+@media screen and (min-width:458px) {
+    .options-container {
+        margin-left: 3%;
+        margin-right: 3%;
+    }
 }
