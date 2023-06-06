@@ -1,5 +1,6 @@
 import "./NewButton.scss";
 import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai"
+import Transactions from "../Transactions";
 
 const NewButton = () => {
     return (
