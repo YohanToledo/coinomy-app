@@ -10,9 +10,17 @@ import { HiDotsCircleHorizontal } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { CiCalculator2 } from 'react-icons/ci';
+import Modal from "../Modal";
+
+import { AiOutlineMinusCircle } from "react-icons/ai"
+import Transactions from "../Transactions";
 
 const NavBar = () => {
 
+  const [showTranasctionForm, setShowTranasctionForm] = useState(false)
+  const [transactionType, setTransactionType] = useState<"RECEITA" | "DESPESA">("RECEITA")
+
+  const [showTransactionOptions, setShowTransactionOptions] = useState(false)
   const [selected, setSelected] = useState({
     home: true,
     new: false,
@@ -45,16 +53,17 @@ const NavBar = () => {
             {selected.home ? <AiFillHome /> : <AiOutlineHome />}
           </div>
         </Link>
-        <Link to={`${basePath}/new`}>
-          <div
-            className="new"
-            onClick={() => {
-              select("new");
-            }}
-          >
-            {selected.new ? <AiFillPlusCircle /> : <AiOutlinePlusCircle />}
-          </div>
-        </Link>
+
+        <div
+          className="new"
+          onClick={() => {
+            select("new");
+            setShowTransactionOptions(true);
+          }}
+        >
+          {selected.new ? <AiFillPlusCircle /> : <AiOutlinePlusCircle />}
+        </div>
+
         <Link to={`${basePath}/options`}>
           <div
             className="options"
@@ -70,6 +79,41 @@ const NavBar = () => {
           </div>
         </Link>
       </div>
+
+
+      <Modal show={showTransactionOptions} onClose={() => setShowTransactionOptions(false)}>
+        <div className="new-baseContainer">
+          <div className="new-RDchoose" onClick={() => {
+            setShowTranasctionForm(true);
+            setShowTransactionOptions(false);
+            setTransactionType("RECEITA");
+          }}>
+            <button className="new-buttonRD">
+              <AiOutlinePlusCircle />
+            </button>
+            <p>Receita</p>
+          </div>
+
+          <div className="new-RDchoose" onClick={() => {
+            setShowTranasctionForm(true);
+            setShowTransactionOptions(false);
+            setTransactionType("DESPESA");
+          }}>
+            <button className="new-buttonRD">
+              <AiOutlineMinusCircle />
+            </button>
+            <p>Despesa</p>
+          </div>
+        </div>
+      </Modal>
+
+
+      <Modal show={showTranasctionForm} onClose={() => setShowTranasctionForm(false)}>
+        <div onClick={(e: any) => { e.stopPropagation() }}>
+          <Transactions title={transactionType} />
+        </div>
+      </Modal>
+
     </>
   );
 };
