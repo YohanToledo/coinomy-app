@@ -1,19 +1,18 @@
 import "./Card.scss";
 import { BiUpsideDown } from "react-icons/bi";
-import { CardInfo } from "./types/CardInfo";
-import { Icons } from "./Icons"
+import { Transaction } from "./types/Transaction";
+import { Icons } from "./Icons";
 
 type Props = {
-  cardInfo: CardInfo,
-  hideValue: boolean
-}
+  cardInfo: Transaction;
+  hideValue: boolean;
+};
 
-const Card = ({cardInfo, hideValue}: Props) => {
-
+const Card = ({ cardInfo, hideValue }: Props) => {
   const COLOR = {
     expense: "#763C40",
-    income: "#3C7672"
-  }
+    income: "#3C7672",
+  };
 
   return (
     <>
@@ -30,22 +29,14 @@ const Card = ({cardInfo, hideValue}: Props) => {
         >
           <div className="card-icon-desc">
             <div className="ci">
-            {
-              cardInfo.icon ?
-              Icons[cardInfo.icon] :
-              <BiUpsideDown />
-            }
+              {cardInfo.icon ? Icons[cardInfo.icon] : <BiUpsideDown />}
             </div>
             <div className="card-description">{cardInfo.description}</div>
           </div>
-          
+
           <div className="card-value">
-            <div>
-            {cardInfo.type === "EXPENSE" ? "- R$" : "+ R$"}
-            </div>
-            <div>
-            {hideValue ? "******" : cardInfo.value.toFixed(2) }
-            </div>
+            <div>{cardInfo.type === "EXPENSE" ? "- R$" : "+ R$"}</div>
+            <div>{hideValue ? "******" : cardInfo.value.toFixed(2)}</div>
           </div>
         </div>
       </div>
