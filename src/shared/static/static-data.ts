@@ -51,13 +51,41 @@ const transactionsExample: Transaction[] = [
 ];
 
 class StaticData {
-  static transactions: Transaction[] = transactionsExample;
+  static transactions: Transaction[] = [];
+
+  static saveToLocalStorage = () => {
+    window.localStorage.setItem(
+      "transactions",
+      JSON.stringify(this.transactions)
+    );
+  };
+
+  static loadFromLocalStorage = () => {
+    const transactionsStrVal =
+      window.localStorage.getItem("transactions") || "[]";
+
+    const transactionsParsed: any[] = JSON.parse(transactionsStrVal);
+
+    transactionsParsed.map((t) => {
+      this.transactions.push({
+        icon: t.icon,
+        description: t.description,
+        value: t.value,
+        transactionDate: new Date(t.transactionDate),
+        type: t.type,
+      });
+    });
+
+    console.log(this.transactions);
+  };
 
   static addTransaction = (transaction: Transaction) => {
     this.transactions.push(transaction);
+    this.saveToLocalStorage();
   };
 
   static findAllTransactions = () => {
+    this.loadFromLocalStorage();
     return this.transactions;
   };
 

@@ -53,10 +53,7 @@ const Transactions = ({ title }: Props) => {
   return (
     <>
       <main id="containerBaseNew-addTransactions">
-        <form
-          id="recieve-addTransactions"
-          onSubmit={(e: any) => e.preventDefault()}
-        >
+        <form id="recieve-addTransactions">
           <div id="form_header-addTransactions">
             <h1
               className={

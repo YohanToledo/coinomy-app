@@ -50,4 +50,4 @@ const List = ({ date, hideValues }: Props) => {
 
 export default List;
 
-const arr: Transaction[] = StaticData.transactions;
+const arr: Transaction[] = StaticData.findAllTransactions();
