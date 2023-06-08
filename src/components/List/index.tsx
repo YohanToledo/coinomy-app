@@ -1,9 +1,6 @@
 import Card from "../Card";
-import { Transaction } from "../Card/types/Transaction";
-import { BiSearchAlt } from "react-icons/bi";
 import { FcBinoculars } from "react-icons/fc";
 import "./List.scss";
-
 import StaticData from "../../shared/static/static-data";
 import { useEffect, useState } from "react";
 
@@ -11,8 +8,6 @@ type Props = {
   date: string;
   hideValues: boolean;
 };
-
-//let transactions = StaticData.findAllTransactions();
 
 const List = ({ date, hideValues }: Props) => {
   const [transactions, setTransactions] = useState(

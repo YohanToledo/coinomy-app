@@ -38,6 +38,19 @@ class StaticData {
     this.saveToLocalStorage();
   };
 
+  static updateTransaction = (transaction: Transaction) => {
+    const index = this.transactions.findIndex((t) => t.id === transaction.id);
+
+    if (index !== null && index !== undefined) {
+      this.transactions[index] = transaction;
+      this.saveToLocalStorage();
+
+      return;
+    } else {
+      console.log(`Index not found for transaction id: ${transaction.id}`);
+    }
+  };
+
   static deleteTransaction = (id: number) => {
     this.transactions = this.transactions.filter((t) => t.id !== id);
     this.saveToLocalStorage();

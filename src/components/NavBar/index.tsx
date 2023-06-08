@@ -9,18 +9,24 @@ import { TbDotsCircleHorizontal } from "react-icons/tb";
 import { HiDotsCircleHorizontal } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { CiCalculator2 } from 'react-icons/ci';
+import { CiCalculator2 } from "react-icons/ci";
 import Modal from "../Modal";
 
-import { AiOutlineMinusCircle } from "react-icons/ai"
+import { AiOutlineMinusCircle } from "react-icons/ai";
 import Transactions from "../Transactions";
+import { Transaction } from "../Card/types/Transaction";
+import StaticData from "../../shared/static/static-data";
 
 const NavBar = () => {
+  const [showTranasctionForm, setShowTranasctionForm] = useState(false);
+  const [transactionType, setTransactionType] = useState<"RECEITA" | "DESPESA">(
+    "RECEITA"
+  );
+  const createTransaction = (transaction: Transaction) => {
+    StaticData.addTransaction(transaction);
+  };
 
-  const [showTranasctionForm, setShowTranasctionForm] = useState(false)
-  const [transactionType, setTransactionType] = useState<"RECEITA" | "DESPESA">("RECEITA")
-
-  const [showTransactionOptions, setShowTransactionOptions] = useState(false)
+  const [showTransactionOptions, setShowTransactionOptions] = useState(false);
   const [selected, setSelected] = useState({
     home: true,
     new: false,
@@ -33,7 +39,6 @@ const NavBar = () => {
     setSelected({ ...allDisabled, [page]: true });
   };
 
-
   const basePath = "/app";
 
   return (
@@ -42,7 +47,6 @@ const NavBar = () => {
         <CiCalculator2 className="calc" />
       </div>
       <div className="nav-container">
-
         <Link to={`${basePath}/home`}>
           <div
             className="home"
@@ -80,25 +84,33 @@ const NavBar = () => {
         </Link>
       </div>
 
-
-      <Modal show={showTransactionOptions} onClose={() => setShowTransactionOptions(false)}>
+      <Modal
+        show={showTransactionOptions}
+        onClose={() => setShowTransactionOptions(false)}
+      >
         <div className="new-baseContainer">
-          <div className="new-RDchoose" onClick={() => {
-            setShowTranasctionForm(true);
-            setShowTransactionOptions(false);
-            setTransactionType("RECEITA");
-          }}>
+          <div
+            className="new-RDchoose"
+            onClick={() => {
+              setShowTranasctionForm(true);
+              setShowTransactionOptions(false);
+              setTransactionType("RECEITA");
+            }}
+          >
             <button className="new-buttonRD">
               <AiOutlinePlusCircle />
             </button>
             <p>Receita</p>
           </div>
 
-          <div className="new-RDchoose" onClick={() => {
-            setShowTranasctionForm(true);
-            setShowTransactionOptions(false);
-            setTransactionType("DESPESA");
-          }}>
+          <div
+            className="new-RDchoose"
+            onClick={() => {
+              setShowTranasctionForm(true);
+              setShowTransactionOptions(false);
+              setTransactionType("DESPESA");
+            }}
+          >
             <button className="new-buttonRD">
               <AiOutlineMinusCircle />
             </button>
@@ -107,13 +119,22 @@ const NavBar = () => {
         </div>
       </Modal>
 
-
-      <Modal show={showTranasctionForm} onClose={() => setShowTranasctionForm(false)}>
-        <div onClick={(e: any) => { e.stopPropagation() }}>
-          <Transactions title={transactionType} />
+      <Modal
+        show={showTranasctionForm}
+        onClose={() => setShowTranasctionForm(false)}
+      >
+        <div
+          onClick={(e: any) => {
+            e.stopPropagation();
+          }}
+        >
+          <Transactions
+            title={transactionType}
+            transactionId={new Date().getTime()}
+            onSave={createTransaction}
+          />
         </div>
       </Modal>
-
     </>
   );
 };

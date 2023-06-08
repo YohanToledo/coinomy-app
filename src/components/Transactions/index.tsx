@@ -21,11 +21,25 @@ type Item = {
 
 type Props = {
   title: "RECEITA" | "DESPESA";
+  transactionId: number;
+  transactionValue?: string;
+  transactionDate?: string;
+  transactionDescription?: string;
+  transactionCategory?: string;
+  transactionBank?: string;
+  onSave: (transaction: Transaction) => void;
 };
-const Transactions = ({ title }: Props) => {
-  const [value, setValue] = useState("");
-  const [time, setTime] = useState("");
-  const [desc, setDescription] = useState("");
+const Transactions = ({
+  title,
+  transactionId,
+  transactionValue,
+  transactionDescription,
+  transactionDate,
+  onSave,
+}: Props) => {
+  const [value, setValue] = useState(transactionValue || "");
+  const [time, setTime] = useState(transactionDate || "");
+  const [desc, setDescription] = useState(transactionDescription || "");
   const [category, setCategory] = useState({ label: "Categoria", value: "1" });
   const [bank, setBank] = useState({ label: "Banco", value: "1" });
   const [selected, setSelected] = useState(false);
@@ -40,7 +54,7 @@ const Transactions = ({ title }: Props) => {
         : "MdOutlineAttachMoney";
 
     const transaction: Transaction = {
-      id: new Date().getMilliseconds(),
+      id: transactionId,
       icon: _icon,
       description: desc,
       value: Number(value.slice(3).replaceAll(",", "")),
@@ -48,7 +62,7 @@ const Transactions = ({ title }: Props) => {
       type: title === "DESPESA" ? "EXPENSE" : "INCOME",
     };
 
-    StaticData.addTransaction(transaction);
+    onSave(transaction);
   };
 
   return (
@@ -101,6 +115,7 @@ const Transactions = ({ title }: Props) => {
                     id="date"
                     name="date"
                     placeholder="Data"
+                    value={time}
                     onChange={(e: any) => setTime(e.target.value)}
                   />
                 </div>
@@ -117,7 +132,7 @@ const Transactions = ({ title }: Props) => {
                     type="text"
                     id="description"
                     name="description"
-                    placeholder="Descrição"
+                    value={desc}
                     onChange={(e: any) => setDescription(e.target.value)}
                   />
                 </div>
