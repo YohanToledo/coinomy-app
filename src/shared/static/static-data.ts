@@ -1,54 +1,4 @@
-const transactionsExample: Transaction[] = [
-  {
-    icon: "BsFillCartFill",
-    description: "Mercado",
-    value: 89.5,
-    transactionDate: new Date("2023-04-17T12:00:00"),
-    type: "EXPENSE",
-  },
-  {
-    icon: "MdOutlineAttachMoney",
-    description: "Freela dev",
-    value: 750,
-    transactionDate: new Date("2023-04-05T12:00:00"),
-    type: "INCOME",
-  },
-  {
-    icon: "RiGasStationFill",
-    description: "Gasolina",
-    value: 200,
-    transactionDate: new Date("2023-03-24T12:00:00"),
-    type: "EXPENSE",
-  },
-  {
-    icon: "MdOutlineAttachMoney",
-    description: "Salario",
-    value: 10.0,
-    transactionDate: new Date(),
-    type: "INCOME",
-  },
-  {
-    icon: "BsFillCartFill",
-    description: "Mercado",
-    value: 250,
-    transactionDate: new Date(),
-    type: "EXPENSE",
-  },
-  {
-    icon: "BsFillCartFill",
-    description: "Mercado",
-    value: 27.85,
-    transactionDate: new Date(),
-    type: "EXPENSE",
-  },
-  {
-    icon: "MdOutlineAttachMoney",
-    description: "freela",
-    value: 200,
-    transactionDate: new Date(),
-    type: "INCOME",
-  },
-];
+import { Transaction } from "../../components/Card/types/Transaction";
 
 class StaticData {
   static transactions: Transaction[] = [];
@@ -61,6 +11,9 @@ class StaticData {
   };
 
   static loadFromLocalStorage = () => {
+    //reset transactions array
+    this.transactions = [];
+
     const transactionsStrVal =
       window.localStorage.getItem("transactions") || "[]";
 
@@ -68,6 +21,7 @@ class StaticData {
 
     transactionsParsed.map((t) => {
       this.transactions.push({
+        id: t.id,
         icon: t.icon,
         description: t.description,
         value: t.value,
@@ -81,6 +35,11 @@ class StaticData {
 
   static addTransaction = (transaction: Transaction) => {
     this.transactions.push(transaction);
+    this.saveToLocalStorage();
+  };
+
+  static deleteTransaction = (id: number) => {
+    this.transactions = this.transactions.filter((t) => t.id !== id);
     this.saveToLocalStorage();
   };
 
@@ -130,16 +89,3 @@ class StaticData {
 }
 
 export default StaticData;
-
-type Transaction = {
-  icon: TransactionIcon;
-  description: string;
-  value: number;
-  transactionDate: Date;
-  type: "EXPENSE" | "INCOME";
-};
-
-type TransactionIcon =
-  | "BsFillCartFill"
-  | "RiGasStationFill"
-  | "MdOutlineAttachMoney";

@@ -40,9 +40,10 @@ const Transactions = ({ title }: Props) => {
         : "MdOutlineAttachMoney";
 
     const transaction: Transaction = {
+      id: new Date().getMilliseconds(),
       icon: _icon,
       description: desc,
-      value: Number(value.slice(3).replaceAll(",", ".")),
+      value: Number(value.slice(3).replaceAll(",", "")),
       transactionDate: new Date(`${time}T12:00:00`),
       type: title === "DESPESA" ? "EXPENSE" : "INCOME",
     };

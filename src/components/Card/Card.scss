@@ -10,6 +10,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
 }
 
 .card-external-container {
@@ -21,7 +22,7 @@
   flex-direction: column;
 }
 
-.card-icon-desc{
+.card-icon-desc {
   font-size: 16px;
   display: flex;
   flex-direction: row;
@@ -29,7 +30,7 @@
   align-items: center;
 }
 
-.ci{
+.ci {
   margin-inline: 10px;
 }
 
@@ -37,8 +38,45 @@
   color: #b0b0b0;
 }
 
-.card-value{
+.card-value {
   display: flex;
   text-align: center;
   justify-content: center;
+}
+
+.delete-edit-transaction {
+  font-size: 1.2rem;
+  margin: 0 6px;
+  color: rgb(0, 0, 0, 0.8);
+  transition: all 100ms;
+
+  :active {
+    scale: calc(0.85);
+  }
+}
+
+.appear-on-hover {
+  display: none;
+}
+.card-container:hover .appear-on-hover {
+  display: block;
+}
+
+@media screen and (max-width: 700px) {
+  .appear-on-hover {
+    display: block;
+  }
+}
+
+@keyframes scaleAnimation {
+  0% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.scale-animation {
+  animation: scaleAnimation 500ms ease-in-out;
 }

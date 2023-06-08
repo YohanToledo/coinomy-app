@@ -5,18 +5,30 @@ import { FcBinoculars } from "react-icons/fc";
 import "./List.scss";
 
 import StaticData from "../../shared/static/static-data";
+import { useEffect, useState } from "react";
 
 type Props = {
   date: string;
   hideValues: boolean;
 };
 
+//let transactions = StaticData.findAllTransactions();
+
 const List = ({ date, hideValues }: Props) => {
+  const [transactions, setTransactions] = useState(
+    StaticData.findAllTransactions()
+  );
+
+  const onDelete = (id: number) => {
+    StaticData.deleteTransaction(id);
+    setTransactions(StaticData.findAllTransactions());
+  };
+
   let aux = 0;
   return (
     <>
       <div className="list-container">
-        {arr.map((item) => {
+        {transactions.map((item) => {
           if (
             item.transactionDate.toJSON().split("T")[0].slice(0, 7) === date
           ) {
@@ -25,8 +37,9 @@ const List = ({ date, hideValues }: Props) => {
               <div className="card">
                 <Card
                   cardInfo={item}
-                  key={new Date().getMilliseconds()}
+                  key={item.id}
                   hideValue={hideValues}
+                  onDelete={onDelete}
                 />
               </div>
             );
@@ -49,5 +62,3 @@ const List = ({ date, hideValues }: Props) => {
 };
 
 export default List;
-
-const arr: Transaction[] = StaticData.findAllTransactions();

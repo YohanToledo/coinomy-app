@@ -1,4 +1,5 @@
 export type Transaction = {
+  id: number;
   icon: TransactionIcon;
   description: string;
   value: number;
