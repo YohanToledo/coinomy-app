@@ -132,6 +132,7 @@ const Transactions = ({
                     type="text"
                     id="description"
                     name="description"
+                    placeholder="Descrição"
                     value={desc}
                     onChange={(e: any) => setDescription(e.target.value)}
                   />

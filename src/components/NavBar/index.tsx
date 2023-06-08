@@ -131,6 +131,7 @@ const NavBar = () => {
           <Transactions
             title={transactionType}
             transactionId={new Date().getTime()}
+            transactionDate={new Date().toISOString().split("T")[0]}
             onSave={createTransaction}
           />
         </div>
