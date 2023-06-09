@@ -1,12 +1,11 @@
 import "./NavBar.scss";
 import {
   AiOutlineHome,
-  AiFillHome,
   AiOutlinePlusCircle,
-  AiFillPlusCircle,
+  AiOutlineSetting,
 } from "react-icons/ai";
 import { TbDotsCircleHorizontal } from "react-icons/tb";
-import { HiDotsCircleHorizontal } from "react-icons/hi";
+import { BiPlus } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { CiCalculator2 } from "react-icons/ci";
@@ -33,7 +32,7 @@ const NavBar = () => {
     options: false,
   });
 
-  const select = (page: "home" | "new" | "options") => {
+  const select = (page: "home" | "options") => {
     const allDisabled = { home: false, new: false, options: false };
 
     setSelected({ ...allDisabled, [page]: true });
@@ -54,18 +53,33 @@ const NavBar = () => {
               select("home");
             }}
           >
-            {selected.home ? <AiFillHome /> : <AiOutlineHome />}
+            {selected.home ? (
+              <div className="nav-active-icon">
+                <AiOutlineHome />
+              </div>
+            ) : (
+              <div className="nav-disable-icon">
+                <AiOutlineHome />
+              </div>
+            )}
           </div>
         </Link>
 
         <div
           className="new"
           onClick={() => {
-            select("new");
             setShowTransactionOptions(true);
           }}
         >
-          {selected.new ? <AiFillPlusCircle /> : <AiOutlinePlusCircle />}
+          {/*selected.new ? (
+            <AiFillPlusCircle />
+          ) : (
+            <AiOutlinePlusCircle />
+          )*/}
+
+          <div className="elevated-button color1 bg-5">
+            <BiPlus />
+          </div>
         </div>
 
         <Link to={`${basePath}/options`}>
@@ -76,9 +90,13 @@ const NavBar = () => {
             }}
           >
             {selected.options ? (
-              <HiDotsCircleHorizontal />
+              <div className="nav-active-icon">
+                <AiOutlineSetting />
+              </div>
             ) : (
-              <TbDotsCircleHorizontal />
+              <div className="nav-disable-icon">
+                <AiOutlineSetting />
+              </div>
             )}
           </div>
         </Link>
