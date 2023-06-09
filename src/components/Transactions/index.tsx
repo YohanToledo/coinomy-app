@@ -68,7 +68,7 @@ const Transactions = ({
   return (
     <>
       <main id="containerBaseNew-addTransactions">
-        <form id="recieve-addTransactions">
+        <form id="recieve-addTransactions" className="transaction-form">
           <div id="form_header-addTransactions">
             <h1
               className={
@@ -80,7 +80,6 @@ const Transactions = ({
               {title}
             </h1>
           </div>
-
           <div id="inputs-addTransactions">
             <div className="input-box-addTransactions">
               <label htmlFor="money-addTransactions">
@@ -93,7 +92,7 @@ const Transactions = ({
               </label>
             </div>
 
-            <div className="input-box-addTransactions">
+            {/*<div className="input-box-addTransactions">
               <label htmlFor="recebido">
                 <div className="input-field-addTransactions">
                   <ToggleButton setSelected={setSelected} />
@@ -102,7 +101,7 @@ const Transactions = ({
                   </p>
                 </div>
               </label>
-            </div>
+            </div>*/}
 
             <div className="input-box-addTransactions">
               <label htmlFor="date-addTransactions">
@@ -157,7 +156,7 @@ const Transactions = ({
               </label>
             </div>
 
-            <div className="input-box-addTransactions">
+            {/*<div className="input-box-addTransactions">
               <label htmlFor="banco-addTransactions">
                 <div className="input-field-addTransactions">
                   <div className="transactionIcons">
@@ -172,9 +171,8 @@ const Transactions = ({
                   </div>
                 </div>
               </label>
-            </div>
+          </div>*/}
           </div>
-
           <button
             type="submit"
             id="save_button-addTransactions"

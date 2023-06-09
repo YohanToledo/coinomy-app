@@ -1,149 +1,163 @@
 .colorDespesa {
-    color: rgb(189, 0, 0);
+  color: rgb(189, 0, 0);
 }
 
 .colorReceita {
-    color: #007a04;
+  color: #007a04;
 }
 
 //Container base
 #containerBaseNew-addTransactions {
-    height: 100vh;
-    width: 100%;
-    background: var(--color-gradient);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 100vh;
+  width: 100%;
+  background: var(--color-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 //Container da tela Receita/Despesa
 #recieve-addTransactions {
-    background-color: #00455d;
-    display: flex;
-    flex-direction: column;
-    padding: 4vh 2vw;
-    border-radius: 10px;
-    gap: 3vh;
+  background-color: #00455d;
+  display: flex;
+  flex-direction: column;
+  padding: 4vh 2vw;
+  border-radius: 10px;
+  gap: 3vh;
+  margin: 1rem;
 }
 
 //Cabeçalho do Formulário
 #form_header-addTransactions {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #form_header-addTransactions h1 {
-    font-size: 2.5em;
-    font-weight: bold;
-    letter-spacing: 2.5px;
+  font-size: 2.5em;
+  font-weight: bold;
+  letter-spacing: 2.5px;
 }
 
 //Div onde estão os inputs (textos, icones, box de valor)
 #inputs-addTransactions {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 3vh;
-    width: 35vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2vh;
+  width: 35vw;
 }
 
 //Input para lidar com cada elemento em si, seus inputs, icone...
 .input-box-addTransactions label {
-    font-size: 0.9em;
-    color: darkgray;
+  font-size: 0.9em;
+  color: darkgray;
 }
 
 //Input direcionado aos valores em específico
 .input-field-addTransactions {
-    display: flex;
-    align-items: center;
-    justify-items: center;
-    gap: 4vh;
-    padding: 3px;
-    cursor: text;
-    border-bottom: transparent;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  gap: 2vh;
+  padding: 3px;
+  cursor: text;
+  border-bottom: transparent;
 }
 
-.input-field-addTransactions input {
+.input-field-addTransactions {
+  input {
     border: none;
     background-color: transparent;
     border-bottom: 1px solid #00b4df;
+    width: 100%;
     font-size: 1.6em;
     padding: 5px;
     color: white;
+  }
+}
+
+.transaction-form {
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    height: auto;
+    position: absolute;
+    width: inherit;
+    padding: 10px;
+  }
 }
 
 .input-field-addTransactions input::placeholder {
-    color: white;
+  color: white;
 }
 
 .input-field-addTransactions input:focus {
-    outline: none;
+  outline: none;
 }
 
 //Icones
 .transactionIcons {
-    font-size: 1.8em;
-    color: white;
+  font-size: 1.8em;
+  color: white;
 }
 
 //Select box
 .list-addTransactions {
-    width: auto;
-    font-size: 1.6em;
-    color: white;
-    margin-bottom: auto;
+  width: auto;
+  font-size: 1.6em;
+  color: white;
+  margin-bottom: auto;
 }
 
 .dropdown-category {
-    z-index: 99;
+  z-index: 99;
 }
 
 .dropdown-bankAccount {
-    z-index: 98;
+  z-index: 98;
 }
 
 //Texto do Toggle Button
 .recebido-addTransactions {
-    font-size: 1.8em;
-    color: white;
+  font-size: 1.8em;
+  color: white;
 }
 
 //Botão "Salvar"
 #save_button-addTransactions {
-    border: none;
-    background-color: #007a04;
-    color: white;
-    padding: 0.35em 0;
-    border-radius: 10px;
-    font-size: 1.5em;
-    transition: 0.5s;
+  border: none;
+  background-color: #007a04;
+  color: white;
+  padding: 0.35em 0;
+  border-radius: 10px;
+  font-size: 1.5em;
+  transition: 0.5s;
 }
 
 #save_button-addTransactions:hover {
-    background-color: #005803;
-    transition: 0.5s;
-    cursor: pointer;
+  background-color: #005803;
+  transition: 0.5s;
+  cursor: pointer;
 }
 
-@media screen and (max-width: 700px){
-    #containerBaseNew-addTransactions{
-        height: 88vh;
-    }
+@media screen and (max-width: 700px) {
+  #containerBaseNew-addTransactions {
+    height: 88vh;
+  }
 
-    .input-field-addTransactions{
-        padding: 0;
-        width: auto;
-    }
+  .input-field-addTransactions {
+    padding: 0;
+    width: auto;
+  }
 
-    #inputs-addTransactions {
-        width: auto;
-    }    
+  #inputs-addTransactions {
+    width: auto;
+  }
 }
 
-@media screen and (max-width: 1080px){
-    #inputs-addTransactions {
-        width: auto;
-    } 
+@media screen and (max-width: 1080px) {
+  #inputs-addTransactions {
+    width: auto;
+  }
 }
