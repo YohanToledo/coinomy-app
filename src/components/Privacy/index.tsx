@@ -36,9 +36,11 @@ const Privacy = () => {
                     </GrLogout>
                     Voltar
                 </div>
+
             </div>
 
             <Modal show={show} onClose={() => { setShow(false) }} >
+
                 <div className="reset-account-modal bg-1">
                     <div className="titulo-privacy">
                         <h1 id="titulo-modal">Apagar Conta</h1>
@@ -46,18 +48,19 @@ const Privacy = () => {
                     <div className="div-icone-warning-privacy">
                         <ImWarning className="icone-warning-privacy"></ImWarning>
                     </div>
+
                     <p id="alerta-reset">Esta ação irá apagar todas as transações realizadas em sua conta
                         e a mesma voltará aos padrões iniciais. <br /> <br />
                         Deseja continuar?
                     </p>
+
                     <div className="icones-apagar-conta-privacy">
-                        <TiTickOutline className="icone-verificado-privacy"></TiTickOutline>
-                        <MdCancel className="icone-cancel-privacy"></MdCancel>
+                        <TiTickOutline className="icone-verificado-privacy" />
+                        <MdCancel className="icone-cancel-privacy" />
                     </div>
                 </div>
 
             </Modal>
-
         </>
     )
 }
