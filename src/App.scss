@@ -22,3 +22,9 @@
     margin-left: 7%;
   }
 }
+
+.centeralize {
+  position: relative;
+  top: 50%;
+  transform: translate(0, -50%);
+}
