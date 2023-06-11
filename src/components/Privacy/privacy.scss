@@ -1,7 +1,6 @@
 .reset-password {
     //margin-top: 8%;  
     padding: 0;
-
 }
 
 .icone-reset-password {
@@ -10,7 +9,7 @@
     margin-right: 0.5rem;
     background: rgba(93, 77, 77, 0.947);
     border-radius: 40%;
-    margin-left: 0.7rem;    
+    margin-left: 0.7rem;
 }
 
 .reset-password:hover {
@@ -19,6 +18,15 @@
     .icone-reset-password {
         color: rgba(91, 235, 134, 0.746);
     }
+}
+
+.icone-reset-account {
+    font-size: 40px;
+    color: white;
+    margin-right: 0.5rem;
+    background: rgba(93, 77, 77, 0.947);
+    border-radius: 40%;
+    margin-left: 0.7rem;
 }
 
 h6 {
@@ -42,6 +50,10 @@ h6 {
     justify-content: center;
     flex-direction: column;
 
+}
+
+.delete-account-privacy:hover {
+    background: rgb(161, 112, 94);
 }
 
 .icone-warning-privacy {
@@ -78,10 +90,8 @@ h6 {
 }
 
 .icones-apagar-conta-privacy {
-    margin-top: 20%;
     display: flex;
     margin-left: 10%;
-
 }
 
 // ids
@@ -104,17 +114,20 @@ h6 {
 
 //media
 
-@media(max-width:375px) {
-    #titulo {        
+@media(min-width:375px) {
+    #titulo-privacy-modal {
         font-size: 25px;
-        position: fixed;
+    }
+
+    #titulo-modal {
+        margin-top: 25%;
     }
 }
 
-@media(min-width:699px) {
-    .reset-account-modal {        
+@media(max-width:701px) {
+    .reset-account-modal {
         margin-left: 5%;
-        
+
         .div-icone-warning-privacy {
             width: 30%;
             display: flex;
@@ -126,6 +139,7 @@ h6 {
 
         .icones-apagar-conta-privacy {
             width: 80%;
+            height: 21%;
             justify-content: space-between;
             margin-top: 10%;
         }
@@ -138,10 +152,8 @@ h6 {
 
 @media(max-width: 1245px) {
     .reset-account-modal {
-        height: 90%;
-        width: 90%;
-        margin-right: 2%;
-        margin-top: 8%;
+        height: 80%;        
+        margin-right: 5%;
     }
 
     .icones-apagar-conta-privacy {
@@ -155,16 +167,99 @@ h6 {
     }
 }
 
-@media (min-aspect-ratio: 16/9) and (max-aspect-ratio: 1920/1080) {
-    /* Estilos para a proporção da tela entre 16:9 e 1920x1080 */
-    /* Adicione aqui os estilos desejados */
+//media principal-transição
+
+@media(min-width: 701px) and (max-width:1170px) {
+    .reset-account-modal {
+        margin-left: 12%;
+        //height: 75%;
+        .div-icone-warning-privacy {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-left: 35%;
+        }
+
+        .icones-apagar-conta-privacy {
+            width: 80%;
+            height: 21%;
+            justify-content: space-between;
+        }
+
+        #titulo-modal {
+            margin-left: 37%;                        
+        }
+
+        #titulo-privacy-modal{
+            width: 10%;
+            height: 10%;
+        }
+    }
+
+    @media(min-width:801px){
+        .reset-account-modal{
+            margin-top: 6%;
+            margin-left: 10%;
+        }
+    }
+
+    @media(min-width:1169x){
+        .titulo-privacy-modal{
+            margin-top: 10%;
+        }
+
+        .div-icone-warning-privacy{
+            height: 20%;
+            margin-bottom: 7%;            
+        }                
+    }
 
 }
 
-@media (min-aspect-ratio: 1920/1080) {
+@media(min-width: 1170px){
+    .reset-account-modal{        
+        margin-top: 5%;
+        margin-left: 8%;
+    }
 
+    .div-icone-warning-privacy{
+        margin-bottom: -7%; // adaptação técnica, precisa de correção.        
+    }
+    
+    .icone-warning-privacy{
+        height: 50%;
+        margin-top: -0;
+    }
+
+    .icones-apagar-conta-privacy{
+        height: 0;        
+    }
+    
+    .titulo-privacy-modal{
+        height: 10%;
+        margin-left: 10%;
+    }
+}
+
+
+@media(max-widht: 550px) {
+    .reset-account-modal {
+        height: 30%;
+    }
+}
+
+@media(max-widht: 550px) {
+    .reset-account-modal {
+        height: 30%;
+    }
+}
+
+@media (min-aspect-ratio: 1920/1080) {
     /* Estilos para a proporção da tela maior ou igual a 1920x1080 */
     /* Adicione aqui os estilos desejados */
+
     .reset-account-modal {
         height: 90%;
         width: 90%;
@@ -178,14 +273,19 @@ h6 {
         height: 30%;
     }
 
+    .div-icone-warning-privacy {
+        height: 30%;
+        margin-top: 30%;
+    }
+
+    .titulo-privacy {
+        height: 20%;
+
+    }
+
     #alerta-reset {
         flex-direction: column;
         font-size: 15px;
     }
 }
 
-@media (max-aspect-ratio: 16/9) {
-    /* Estilos para a proporção da tela menor que 16:9 */
-    /* Adicione aqui os estilos desejados */
-
-}

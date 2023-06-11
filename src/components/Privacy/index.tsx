@@ -11,6 +11,7 @@ import { useState } from "react";
 import "../Preferences/Preferences.scss";
 import { Link } from "react-router-dom";
 import Modal from "../Modal";
+import React from "react";
 
 const Privacy = () => {
     const [show, setShow] = useState(false);
@@ -19,8 +20,8 @@ const Privacy = () => {
             <div className="options-container container-privacy">
                 <h1 id="titulo" className="titulo-privacy">Privacidade</h1>
 
-                <div className="option-card  " onClick={() => setShow(true)} >
-                    <MdDelete className="icone-reset-password" />
+                <div className="option-card  delete-account-privacy" onClick={() => setShow(true)} >
+                    <MdDelete className="icone-reset-account" />
                     <h3>Apagar conta
                         <h6> Isso apagará todas as informações da conta. Voltará ao estado inicial.</h6>
                     </h3>
@@ -42,7 +43,7 @@ const Privacy = () => {
             <Modal show={show} onClose={() => { setShow(false) }} >
 
                 <div className="reset-account-modal bg-1">
-                    <div className="titulo-privacy">
+                    <div className="titulo-privacy-modal">
                         <h1 id="titulo-modal">Apagar Conta</h1>
                     </div>
                     <div className="div-icone-warning-privacy">
