@@ -11,13 +11,7 @@ import {
 import ToggleButton from "../ToggleButtonSlider";
 import InputMoney from "../MoneyWrite";
 
-import StaticData from "../../shared/static/static-data";
 import { Transaction } from "../Card/types/Transaction";
-
-type Item = {
-  value: string;
-  label: string;
-};
 
 type Props = {
   title: "RECEITA" | "DESPESA";

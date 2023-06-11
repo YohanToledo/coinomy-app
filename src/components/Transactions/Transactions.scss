@@ -8,8 +8,7 @@
 
 //Container base
 #containerBaseNew-addTransactions {
-  height: 100vh;
-  width: 100%;
+  height: inherit;
   background: var(--color-gradient);
   display: flex;
   align-items: center;
@@ -142,10 +141,6 @@
 }
 
 @media screen and (max-width: 700px) {
-  #containerBaseNew-addTransactions {
-    height: 88vh;
-  }
-
   .input-field-addTransactions {
     padding: 0;
     width: auto;

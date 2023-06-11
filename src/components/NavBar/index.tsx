@@ -1,16 +1,11 @@
 import "./NavBar.scss";
-import {
-  AiOutlineHome,
-  AiOutlinePlusCircle,
-  AiOutlineSetting,
-} from "react-icons/ai";
+import { AiOutlineHome, AiOutlineSetting } from "react-icons/ai";
 import {
   BsFillArrowUpCircleFill,
   BsFillArrowDownCircleFill,
 } from "react-icons/bs";
 import { BiPlus } from "react-icons/bi";
 import { CiCalculator2 } from "react-icons/ci";
-import { AiOutlineMinusCircle } from "react-icons/ai";
 
 import { Link } from "react-router-dom";
 import { useState } from "react";
