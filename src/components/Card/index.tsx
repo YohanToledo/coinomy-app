@@ -1,8 +1,7 @@
 import "./Card.scss";
 import { useState } from "react";
-import { BiUpsideDown } from "react-icons/bi";
-import { FaTrashAlt } from "react-icons/fa";
-import { BsPencilSquare } from "react-icons/bs";
+import { BiUpsideDown, BiPencil, BiTrash } from "react-icons/bi";
+import { FaTrashAlt, FaPen } from "react-icons/fa";
 import { Transaction } from "./types/Transaction";
 import { Icons } from "./Icons";
 import Modal from "../Modal";
@@ -50,18 +49,20 @@ const Card = ({ cardInfo, hideValue, onDelete }: Props) => {
           <div className="card-value">
             <div>{cardInfo.type === "EXPENSE" ? "- R$" : "+ R$"}</div>
             <div>{hideValue ? "******" : cardInfo.value.toFixed(2)}</div>
-            <div
+            <button
+              type="button"
               className="appear-on-hover delete-edit-transaction"
               onClick={() => setShowTranasctionForm(true)}
             >
-              <BsPencilSquare />
-            </div>
-            <div
+              <BiPencil />
+            </button>
+            <button
+              type="button"
               className="appear-on-hover delete-edit-transaction"
               onClick={() => onDelete(cardInfo.id)}
             >
-              <FaTrashAlt />
-            </div>
+              <BiTrash />
+            </button>
           </div>
         </div>
       </div>

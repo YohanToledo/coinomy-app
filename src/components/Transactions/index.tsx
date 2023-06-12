@@ -11,13 +11,7 @@ import {
 import ToggleButton from "../ToggleButtonSlider";
 import InputMoney from "../MoneyWrite";
 
-import StaticData from "../../shared/static/static-data";
 import { Transaction } from "../Card/types/Transaction";
-
-type Item = {
-  value: string;
-  label: string;
-};
 
 type Props = {
   title: "RECEITA" | "DESPESA";
@@ -57,7 +51,9 @@ const Transactions = ({
       id: transactionId,
       icon: _icon,
       description: desc,
-      value: Number(value.slice(3).replaceAll(",", "")),
+      value: Number(
+        value.replaceAll(",", "").replaceAll("R$", "").replaceAll(" ", "")
+      ),
       transactionDate: new Date(`${time}T12:00:00`),
       type: title === "DESPESA" ? "EXPENSE" : "INCOME",
     };
@@ -68,7 +64,7 @@ const Transactions = ({
   return (
     <>
       <main id="containerBaseNew-addTransactions">
-        <form id="recieve-addTransactions">
+        <form id="recieve-addTransactions" className="transaction-form">
           <div id="form_header-addTransactions">
             <h1
               className={
@@ -80,7 +76,6 @@ const Transactions = ({
               {title}
             </h1>
           </div>
-
           <div id="inputs-addTransactions">
             <div className="input-box-addTransactions">
               <label htmlFor="money-addTransactions">
@@ -93,7 +88,7 @@ const Transactions = ({
               </label>
             </div>
 
-            <div className="input-box-addTransactions">
+            {/*<div className="input-box-addTransactions">
               <label htmlFor="recebido">
                 <div className="input-field-addTransactions">
                   <ToggleButton setSelected={setSelected} />
@@ -102,7 +97,7 @@ const Transactions = ({
                   </p>
                 </div>
               </label>
-            </div>
+            </div>*/}
 
             <div className="input-box-addTransactions">
               <label htmlFor="date-addTransactions">
@@ -157,7 +152,7 @@ const Transactions = ({
               </label>
             </div>
 
-            <div className="input-box-addTransactions">
+            {/*<div className="input-box-addTransactions">
               <label htmlFor="banco-addTransactions">
                 <div className="input-field-addTransactions">
                   <div className="transactionIcons">
@@ -172,9 +167,8 @@ const Transactions = ({
                   </div>
                 </div>
               </label>
-            </div>
+          </div>*/}
           </div>
-
           <button
             type="submit"
             id="save_button-addTransactions"

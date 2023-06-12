@@ -1,12 +1,35 @@
 .modal-container {
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.close-modal-btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 2.2rem;
+  cursor: pointer;
+  color: red;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  :hover {
+    font-size: 2.5rem;
+    transition: all 0.1s;
+  }
+
+  @media screen and (min-width: 700px) {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
 }

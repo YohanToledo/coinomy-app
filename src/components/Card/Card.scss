@@ -42,17 +42,24 @@
   display: flex;
   text-align: center;
   justify-content: center;
+  align-items: center;
 }
 
 .delete-edit-transaction {
-  font-size: 1.2rem;
+  all: unset;
+  font-size: 1rem;
   margin: 0 6px;
-  color: rgb(0, 0, 0, 0.8);
   transition: all 100ms;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  color: rgba(255, 255, 255, 0.8);
+  background-color: var(--primary-color-darker);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
 
-  :active {
-    scale: calc(0.85);
-  }
+.delete-edit-transaction:active {
+  transform: scale(0.85);
 }
 
 .appear-on-hover {

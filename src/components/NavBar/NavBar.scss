@@ -22,8 +22,6 @@
     bottom: auto;
     left: 0;
     top: 0;
-    /*border-right: 1px solid var(--secondary-color);*/
-
     min-height: 100%;
     width: 60px;
     display: flex;
@@ -81,26 +79,30 @@
   color: rgb(128, 128, 128, 1);
 }
 
-//add transaction buttons
+//add transaction options
 .new-baseContainer {
-  height: 100vh;
+  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 5em;
-  margin-right: 80%;
+  gap: 6em;
+  left: 15rem;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .new-RDchoose {
   display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 1em;
-}
-
-.new-RDchoose p {
-  font-size: 1.5em;
-  font-weight: bold;
-  letter-spacing: 2px;
+  p {
+    font-size: 1.5em;
+    font-weight: 800;
+    letter-spacing: 2px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.877);
+  }
 }
 
 .new-buttonRD {
@@ -108,12 +110,46 @@
   font-size: 3em;
   background-color: transparent;
   border-style: none;
-  color: white;
+  color: inherit;
   transition: 0.4s all;
+  display: flex;
+  align-items: center;
 }
 
 .new-buttonRD:hover {
   cursor: pointer;
   font-size: 3.5em;
   transition: 0.4s all;
+}
+
+.add-new-income {
+  color: #00a006;
+}
+
+.add-new-expense {
+  color: red;
+}
+
+@media screen and (min-width: 700px) {
+}
+
+@media screen and (max-width: 700px) {
+  .new-baseContainer {
+    display: flex;
+    flex-direction: row-reverse;
+    left: 50%;
+    top: 70%;
+  }
+
+  .new-buttonRD {
+    font-size: 2.5rem;
+  }
+  .new-buttonRD:hover {
+    font-size: 3rem;
+  }
+
+  .new-RDchoose {
+    display: flex;
+    flex-direction: column;
+  }
 }

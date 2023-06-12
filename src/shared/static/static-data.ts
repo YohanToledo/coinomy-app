@@ -29,8 +29,6 @@ class StaticData {
         type: t.type,
       });
     });
-
-    console.log(this.transactions);
   };
 
   static addTransaction = (transaction: Transaction) => {

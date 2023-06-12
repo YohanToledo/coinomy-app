@@ -1,19 +1,19 @@
 import "./NavBar.scss";
+import { AiOutlineHome, AiOutlineSetting } from "react-icons/ai";
 import {
-  AiOutlineHome,
-  AiOutlinePlusCircle,
-  AiOutlineSetting,
-} from "react-icons/ai";
-import { TbDotsCircleHorizontal } from "react-icons/tb";
+  BsFillArrowUpCircleFill,
+  BsFillArrowDownCircleFill,
+} from "react-icons/bs";
 import { BiPlus } from "react-icons/bi";
+import { CiCalculator2 } from "react-icons/ci";
+
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { CiCalculator2 } from "react-icons/ci";
+
+import { Transaction } from "../Card/types/Transaction";
+import Transactions from "../Transactions";
 import Modal from "../Modal";
 
-import { AiOutlineMinusCircle } from "react-icons/ai";
-import Transactions from "../Transactions";
-import { Transaction } from "../Card/types/Transaction";
 import StaticData from "../../shared/static/static-data";
 
 const NavBar = () => {
@@ -71,12 +71,6 @@ const NavBar = () => {
             setShowTransactionOptions(true);
           }}
         >
-          {/*selected.new ? (
-            <AiFillPlusCircle />
-          ) : (
-            <AiOutlinePlusCircle />
-          )*/}
-
           <div className="elevated-button color1 bg-5">
             <BiPlus />
           </div>
@@ -108,7 +102,7 @@ const NavBar = () => {
       >
         <div className="new-baseContainer">
           <div
-            className="new-RDchoose"
+            className="new-RDchoose add-new-income"
             onClick={() => {
               setShowTranasctionForm(true);
               setShowTransactionOptions(false);
@@ -116,13 +110,13 @@ const NavBar = () => {
             }}
           >
             <button className="new-buttonRD">
-              <AiOutlinePlusCircle />
+              <BsFillArrowUpCircleFill />
             </button>
             <p>Receita</p>
           </div>
 
           <div
-            className="new-RDchoose"
+            className="new-RDchoose add-new-expense"
             onClick={() => {
               setShowTranasctionForm(true);
               setShowTransactionOptions(false);
@@ -130,7 +124,7 @@ const NavBar = () => {
             }}
           >
             <button className="new-buttonRD">
-              <AiOutlineMinusCircle />
+              <BsFillArrowDownCircleFill />
             </button>
             <p>Despesa</p>
           </div>
