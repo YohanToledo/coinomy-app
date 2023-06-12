@@ -51,13 +51,17 @@ const Transactions = ({
       id: transactionId,
       icon: _icon,
       description: desc,
-      value: Number(value.slice(3).replaceAll(",", "")),
+      value: Number(
+        value.replaceAll(",", "").replaceAll("R$", "").replaceAll(" ", "")
+      ),
       transactionDate: new Date(`${time}T12:00:00`),
       type: title === "DESPESA" ? "EXPENSE" : "INCOME",
     };
 
     onSave(transaction);
   };
+
+  console.log("Transaction", value);
 
   return (
     <>
