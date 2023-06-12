@@ -1,18 +1,29 @@
 .nav-container {
-  position: absolute;
+  position: fixed;
   color: var(--secondary-color);
+  background-color: var(--primary-color-darker);
+  justify-content: space-around;
 
   a {
     all: unset;
   }
 
-  justify-content: space-between;
+  .elevated-button {
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    box-shadow: 6px 6px 3px black;
+    padding: 0.5rem;
+    font-size: 3rem;
+    cursor: pointer;
+  }
 
   @media screen and (min-width: 700px) {
     bottom: auto;
     left: 0;
     top: 0;
-    border-right: 2px solid var(--secondary-color);
+    /*border-right: 1px solid var(--secondary-color);*/
+
     min-height: 100%;
     width: 60px;
     display: flex;
@@ -22,11 +33,19 @@
 
   @media screen and (max-width: 700px) {
     bottom: 0;
-    min-height: 70px;
+    height: 60px;
     min-width: 100%;
-    border-top: 2px solid var(--secondary-color);
     display: flex;
     flex-direction: row;
+
+    .elevated-button {
+      position: fixed;
+      width: 4rem;
+      height: 4rem;
+      padding: 0.5rem;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 }
 
@@ -34,6 +53,7 @@
   font-size: 55px;
   color: var(--secondary-color);
   position: fixed;
+  z-index: 99;
   left: 0px;
   top: 30px;
 
@@ -51,4 +71,49 @@
   :hover {
     cursor: pointer;
   }
+}
+
+.nav-active-icon {
+  color: inherit;
+}
+
+.nav-disable-icon {
+  color: rgb(128, 128, 128, 1);
+}
+
+//add transaction buttons
+.new-baseContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5em;
+  margin-right: 80%;
+}
+
+.new-RDchoose {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.new-RDchoose p {
+  font-size: 1.5em;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.new-buttonRD {
+  margin-top: auto;
+  font-size: 3em;
+  background-color: transparent;
+  border-style: none;
+  color: white;
+  transition: 0.4s all;
+}
+
+.new-buttonRD:hover {
+  cursor: pointer;
+  font-size: 3.5em;
+  transition: 0.4s all;
 }

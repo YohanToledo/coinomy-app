@@ -1,13 +1,8 @@
 import "./New.scss";
 import Transactions from "../../components/Transactions";
 
-
 const New = () => {
-  return (
-    <>
-      <Transactions title="DESPESA" />
-    </>
-  );
+  return <></>;
 };
 
 export default New;

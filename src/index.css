@@ -1,5 +1,6 @@
 :root {
   --primary-color: #00202f;
+  --primary-color-darker: #011620;
   --logo-container: #00ffffe0;
   --secondary-color: #00ffffe0;
 
@@ -67,7 +68,7 @@
 }
 
 * {
-  box-sizing: border-box;  
+  box-sizing: border-box;
 }
 
 body {

@@ -34,7 +34,9 @@
 }
 
 #form_header-addTransactions h1 {
-    font-size: 5em;
+    font-size: 2.5em;
+    font-weight: bold;
+    letter-spacing: 2.5px;
 }
 
 //Div onde estão os inputs (textos, icones, box de valor)
@@ -43,6 +45,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 3vh;
+    width: 35vw;
 }
 
 //Input para lidar com cada elemento em si, seus inputs, icone...
@@ -55,11 +58,10 @@
 .input-field-addTransactions {
     display: flex;
     align-items: center;
-    justify-items: space-between;
+    justify-items: center;
     gap: 4vh;
     padding: 3px;
     cursor: text;
-
     border-bottom: transparent;
 }
 
@@ -67,7 +69,7 @@
     border: none;
     background-color: transparent;
     border-bottom: 1px solid #00b4df;
-    font-size: 0.9em;
+    font-size: 1.6em;
     padding: 5px;
     color: white;
 }
@@ -88,7 +90,7 @@
 
 //Select box
 .list-addTransactions {
-    width: 35vw;
+    width: auto;
     font-size: 1.6em;
     color: white;
     margin-bottom: auto;
@@ -108,74 +110,14 @@
     color: white;
 }
 
-//Toggle Button - Slider
-.switch-addTransactions {
-    position: relative;
-    display: inline-block;
-    width: 26px;
-    height: 20px;
-}
-
-.switch-addTransactions input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider-addTransactions {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-.slider-addTransactions:before {
-    position: absolute;
-    content: "";
-    height: 13px;
-    width: 11px;
-    left: 1.5px;
-    bottom: 3px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-.input-slider-addTransactions:checked+.slider-addTransactions {
-    background-color: #00b4df;
-}
-
-.input-slider-addTransactions:focus+.slider-addTransactions {
-    box-shadow: 0 0 1px #00b4df;
-}
-
-.input-slider-addTransactions:checked+.slider-addTransactions:before {
-    -webkit-transform: translateX(11px);
-    -ms-transform: translateX(11px);
-    transform: translateX(11px);
-}
-
-.slider-addTransactions.round {
-    border-radius: 34px;
-}
-
-.slider-addTransactions.round:before {
-    border-radius: 50%;
-}
-
 //Botão "Salvar"
 #save_button-addTransactions {
     border: none;
     background-color: #007a04;
     color: white;
-    padding: 0.2em;
+    padding: 0.35em 0;
     border-radius: 10px;
-    font-size: 0.9em;
+    font-size: 1.5em;
     transition: 0.5s;
 }
 
@@ -185,138 +127,23 @@
     cursor: pointer;
 }
 
-//Tratando responsividade
-@media screen and (max-width: 700px) {
-    #recieve-addTransactions {
-        margin-bottom: 75px;
-        padding: 8vh 6vw;
-    }
-}
-
-@media screen and (max-width: 382px) {
-    #recieve-addTransactions {
-        padding: 8vh 6vw;
+@media screen and (max-width: 700px){
+    #containerBaseNew-addTransactions{
+        height: 88vh;
     }
 
-    .input-field-addTransactions {
-        gap: 3vh;
-    }
-
-    .input-field-addTransactions select {
-        font-size: 1.6em;
-    }
-
-    .list-addTransactions {
-        gap: 3.75vh;
-        width: 16.5vw;
-    }
-}
-
-@media screen and (max-height: 900px) {
-    #recieve-addTransactions {
-        padding: 8vh 6vw;
-    }
-
-    #form_header-addTransactions h1 {
-        font-size: 5em;
-    }
-
-    .input-field-addTransactions {
-        gap: 6vh;
-    }
-
-    .input-field-addTransactions input {
-        font-size: 1.75em;
+    .input-field-addTransactions{
+        padding: 0;
+        width: auto;
     }
 
     #inputs-addTransactions {
-        gap: 3vh;
-    }
-
-    .list-addTransactions {
-        gap: 3.75vh;
-        width: 16.5vw;
-    }
-
-    #save_button-addTransactions {
-        padding: 0.2em;
-        border-radius: 10px;
-        font-size: 1.75em;
-    }
+        width: auto;
+    }    
 }
 
-@media screen and (min-height: 901px) {
-    #recieve-addTransactions {
-        padding: 6vh 4vw;
-        gap: 5vh;
-    }
-
-    #form_header-addTransactions h1 {
-        font-size: 5em;
-    }
-
-    .input-field-addTransactions {
-        gap: 5vh;
-    }
-
-    .input-field-addTransactions input {
-        font-size: 1.75em;
-    }
-
+@media screen and (max-width: 1080px){
     #inputs-addTransactions {
-        gap: 3vh;
-    }
-
-    .list-addTransactions {
-        gap: 3.75vh;
-        width: 16.5vw;
-    }
-
-    #save_button-addTransactions {
-        padding: 0.2em;
-        border-radius: 10px;
-        font-size: 1.75em;
-    }
-}
-
-@media screen and (max-height: 1000px) {
-    #recieve-addTransactions {
-        padding: 6vh 4vw;
-        gap: 3vh;
-    }
-
-    #form_header-addTransactions h1 {
-        font-size: 5em;
-    }
-
-    .input-field-addTransactions {
-        gap: 4vh;
-    }
-
-    .input-field-addTransactions input {
-        font-size: 1.75em;
-        padding: 0px 5px;
-    }
-
-    #inputs-addTransactions {
-        gap: 3vh;
-    }
-
-    .list-addTransactions {
-        gap: 3.75vh;
-        width: 16.5vw;
-    }
-
-    #save_button-addTransactions {
-        padding: 0.2em;
-        border-radius: 10px;
-        font-size: 1.75em;
-    }
-}
-
-@media screen and (min-height: 1080px) {
-    .list-addTransactions {
-        gap: 3.75vh;
-        width: 16.5vw;
-    }
+        width: auto;
+    } 
 }
