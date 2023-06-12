@@ -6,8 +6,6 @@ type Props = {
 };
 
 const InputMoney = ({ value, setValue }: Props) => {
-  console.log("InputMoney", value);
-
   const formatCurrency = (inputValue: string) => {
     // Remove non-numeric characters
     const numericValue = inputValue.replace(/\D/g, "");

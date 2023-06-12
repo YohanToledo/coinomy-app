@@ -61,8 +61,6 @@ const Transactions = ({
     onSave(transaction);
   };
 
-  console.log("Transaction", value);
-
   return (
     <>
       <main id="containerBaseNew-addTransactions">
