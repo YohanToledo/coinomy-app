@@ -23,17 +23,15 @@ const Preferences = () => {
           </div>
         </Link>
 
-        <Link to="app/options/profile">
+        <Link to="privacy">
           <div className="option-card privacy">
             <FcPrivacy className="icone-privacy">
             </FcPrivacy>
-
             Privacidade
-
           </div>
         </Link>
 
-        <Link to="app/options/profile">
+        <Link to="money">
           <div className="option-card moeda">
             <ImCoinDollar className="icone-moeda">
             </ImCoinDollar>
@@ -45,9 +43,7 @@ const Preferences = () => {
           <div className="option-card contas">
             <MdAccountBalance className="icone-conta">
             </MdAccountBalance>
-
             Contas
-
           </div>
         </Link>
 
@@ -55,24 +51,17 @@ const Preferences = () => {
           <div className="option-card categorias">
             <BiCategory className="icone-categorias">
             </BiCategory>
-
             Categorias
-
           </div>
         </Link>
 
-
-        <Link to="app/options/profile">
-          <div className="option-card voltar">
+        
+          <div className="option-card voltar" onClick={() => { window.history.back() }}>
             <GrLogout className="icone-voltar">
             </GrLogout>
-
             Voltar
-
           </div>
-        </Link>
-
-
+       
       </div>
     </>
   )

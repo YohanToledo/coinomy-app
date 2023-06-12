@@ -1,0 +1,291 @@
+.reset-password {
+    //margin-top: 8%;  
+    padding: 0;
+}
+
+.icone-reset-password {
+    font-size: 40px;
+    color: white;
+    margin-right: 0.5rem;
+    background: rgba(93, 77, 77, 0.947);
+    border-radius: 40%;
+    margin-left: 0.7rem;
+}
+
+.reset-password:hover {
+    background: rgba(215, 118, 43, 0.845);
+
+    .icone-reset-password {
+        color: rgba(91, 235, 134, 0.746);
+    }
+}
+
+.icone-reset-account {
+    font-size: 40px;
+    color: white;
+    margin-right: 0.5rem;
+    background: rgba(93, 77, 77, 0.947);
+    border-radius: 40%;
+    margin-left: 0.7rem;
+}
+
+h6 {
+    font-size: 11px;
+    font-weight: 850;
+    color: rgba(236, 10, 10, 0.822);
+}
+
+h6 {
+    font-size: 12px;
+    font-weight: 900;
+    color: rgba(236, 10, 10, 0.822);
+}
+
+.reset-account-modal {
+    height: 85%;
+    width: 85%;
+    margin-bottom: 12%;
+    background: #00202f;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.delete-account-privacy:hover {
+    background: rgb(161, 112, 94);
+}
+
+.icone-warning-privacy {
+    width: 70%;
+    height: 70%;
+    margin-top: 10%;
+}
+
+.div-icone-warning-privacy {
+    color: red;
+    margin-top: 15%;
+    margin-left: 20%;
+}
+
+.icone-verificado-privacy {
+    width: 40%;
+    height: 70%;
+    color: green;
+}
+
+.icone-verificado-privacy:hover {
+    color: yellowgreen;
+}
+
+.icone-cancel-privacy {
+    width: 40%;
+    height: 70%;
+    color: red;
+    margin-bottom: 5%;
+}
+
+.icone-cancel-privacy:hover {
+    color: rgb(243, 99, 16);
+}
+
+.icones-apagar-conta-privacy {
+    display: flex;
+    margin-left: 10%;
+}
+
+// ids
+
+#titulo-modal {
+    font-weight: 800;
+    font-size: 20px;
+    margin-left: 25%;
+    margin-top: 10%;
+}
+
+#alerta-reset {
+    font-weight: 600;
+    font-size: 20px;
+    align-items: center;
+    display: flex;
+    font-style: normal;
+    text-align: center;
+}
+
+//media
+
+@media(min-width:375px) {
+    #titulo-privacy-modal {
+        font-size: 25px;
+    }
+
+    #titulo-modal {
+        margin-top: 25%;
+    }
+}
+
+@media(max-width:701px) {
+    .reset-account-modal {
+        margin-left: 5%;
+
+        .div-icone-warning-privacy {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-left: 35%;
+        }
+
+        .icones-apagar-conta-privacy {
+            width: 80%;
+            height: 21%;
+            justify-content: space-between;
+            margin-top: 10%;
+        }
+
+        #titulo-modal {
+            margin-left: 37%;
+        }
+    }
+}
+
+@media(max-width: 1245px) {
+    .reset-account-modal {
+        height: 80%;        
+        margin-right: 5%;
+    }
+
+    .icones-apagar-conta-privacy {
+        height: 50%;
+        margin-bottom: 20%;
+    }
+
+    #alerta-reset {
+        flex-direction: column;
+        font-size: 15px;
+    }
+}
+
+//media principal-transição
+
+@media(min-width: 701px) and (max-width:1170px) {
+    .reset-account-modal {
+        margin-left: 12%;
+        //height: 75%;
+        .div-icone-warning-privacy {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-left: 35%;
+        }
+
+        .icones-apagar-conta-privacy {
+            width: 80%;
+            height: 21%;
+            justify-content: space-between;
+        }
+
+        #titulo-modal {
+            margin-left: 37%;                        
+        }
+
+        #titulo-privacy-modal{
+            width: 10%;
+            height: 10%;
+        }
+    }
+
+    @media(min-width:801px){
+        .reset-account-modal{
+            margin-top: 6%;
+            margin-left: 10%;
+        }
+    }
+
+    @media(min-width:1169x){
+        .titulo-privacy-modal{
+            margin-top: 10%;
+        }
+
+        .div-icone-warning-privacy{
+            height: 20%;
+            margin-bottom: 7%;            
+        }                
+    }
+
+}
+
+@media(min-width: 1170px){
+    .reset-account-modal{        
+        margin-top: 5%;
+        margin-left: 8%;
+    }
+
+    .div-icone-warning-privacy{
+        margin-bottom: -7%; // adaptação técnica, precisa de correção.        
+    }
+    
+    .icone-warning-privacy{
+        height: 50%;
+        margin-top: -0;
+    }
+
+    .icones-apagar-conta-privacy{
+        height: 0;        
+    }
+    
+    .titulo-privacy-modal{
+        height: 10%;
+        margin-left: 10%;
+    }
+}
+
+
+@media(max-widht: 550px) {
+    .reset-account-modal {
+        height: 30%;
+    }
+}
+
+@media(max-widht: 550px) {
+    .reset-account-modal {
+        height: 30%;
+    }
+}
+
+@media (min-aspect-ratio: 1920/1080) {
+    /* Estilos para a proporção da tela maior ou igual a 1920x1080 */
+    /* Adicione aqui os estilos desejados */
+
+    .reset-account-modal {
+        height: 90%;
+        width: 90%;
+        margin-right: 3%;
+        margin-top: 8%;
+    }
+
+    .icones-apagar-conta-privacy {
+        height: 50%;
+        margin-bottom: 30%;
+        height: 30%;
+    }
+
+    .div-icone-warning-privacy {
+        height: 30%;
+        margin-top: 30%;
+    }
+
+    .titulo-privacy {
+        height: 20%;
+
+    }
+
+    #alerta-reset {
+        flex-direction: column;
+        font-size: 15px;
+    }
+}
+

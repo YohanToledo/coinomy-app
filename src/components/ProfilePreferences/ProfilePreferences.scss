@@ -1,0 +1,86 @@
+.div-circle {
+    display: flex;
+    width: 100%;
+    justify-content: center;    
+    margin-bottom: 8.5rem;    
+}
+
+.input-file {
+    visibility: hidden;
+}
+
+.profile {
+    border-radius: 100%;
+    justify-content: center;
+    width: 8rem;
+    height: 8rem;
+    text-align: center;
+    background: gray;
+    position: fixed;        
+}
+
+.icone-circle {
+    position: fixed;
+    margin-top: 90px;
+    margin-left: 100px;
+    background: rgb(49, 158, 177);    
+    border-radius: 100%;
+    height: 3rem;
+    width: 3rem;    
+}
+
+.icone-circle-label{
+    height: 3rem;
+    width: 3rem;
+    position: fixed;
+    text-align: center;
+    margin-top: 8px;
+    font-size: 2rem;    
+}
+
+.icone-nome-completo {
+    background: rgb(133, 133, 130);
+    border-radius: 50%;
+}
+
+.nome-completo:hover {
+    background: rgb(111, 112, 114);
+}
+
+// ids
+
+#titulo {
+    margin-top: 5%;
+    margin-bottom: 1rem;
+    font-weight: 800px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+#nome-Sobrenome{
+    text-align: center;
+    font-size: large;
+}
+
+#email-Profile{
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+// medias
+
+@media (min-width:701px){    
+    #titulo{
+        text-align: start;
+        margin-left: 3%;
+    }
+}
+
+//iphone SE
+
+@media(min-width:375px){
+    #titulo{
+        margin-top: 0;
+        font-size: 25px;
+    }
+}

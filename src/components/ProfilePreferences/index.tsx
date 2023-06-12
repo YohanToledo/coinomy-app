@@ -1,71 +1,75 @@
-import { BiCategory } from "react-icons/bi";
 import { GrLogout } from "react-icons/gr";
-import { ImCoinDollar } from "react-icons/im";
-import { MdAccountBalance, MdOutlineManageAccounts } from "react-icons/md";
+import { MdOutlineManageAccounts, MdAlternateEmail, MdOutlinePassword } from "react-icons/md";
+import { ImProfile } from "react-icons/im";
+import { RiPencilFill } from "react-icons/ri";
 import "../Preferences/Preferences.scss";
 import "./ProfilePreferences.scss";
 import { Link } from "react-router-dom";
 
-
 const ProfilePreferences = () => {
   return (
     <>
-
-<div className="options-container">
-        <h1>Perfil</h1>
-
-        <Link to="profile">
-          <div className="option-card minha-conta">
-            <MdOutlineManageAccounts className="icone-minha-conta">
-            </MdOutlineManageAccounts>
-            Minha Conta
+      <h1 id="titulo">Perfil</h1>
+      <div className="options-container options-container-profile">
+        <div className="div-circle">
+          <div className="profile">
           </div>
-        </Link>
-
-        
-
-        <Link to="app/options/profile">
-          <div className="option-card moeda">
-            <ImCoinDollar className="icone-moeda">
-            </ImCoinDollar>
-            Moeda
+          <div className="icone-circle">
+            <input className="input-file icone-circle-label" id="file-input" type="file" />
+            <label htmlFor="file-input" className="icone-circle-label">
+              <RiPencilFill />
+            </label>
           </div>
-        </Link>
+        </div>
 
-        <Link to="app/options/profile">
-          <div className="option-card contas">
-            <MdAccountBalance className="icone-conta">
-            </MdAccountBalance>
+        <div className="nome-email-profile">
+          <label htmlFor="nome-Sobrenome" id="nome-Sobrenome">
+            <h1>Nome e Sobrenome</h1>
+          </label>
 
-            Contas
+          <label htmlFor="email-Profile" id="email-Profile">
+            <h2>nome@gmail.com</h2>
+          </label>
+        </div>
 
-          </div>
-        </Link>
+        {/* A div chamada: "divs-componentes" criada para agrupar os elementos nome, email, senha, voltar, para 
+        manipulá-los nas media screens. */}
 
-        <Link to="app/options/profile">
-          <div className="option-card categorias">
-            <BiCategory className="icone-categorias">
-            </BiCategory>
+        <div className="options-container divs-componentes">
+          <Link to="profile">
+            <div className="option-card nome-completo">
+              <ImProfile className="icone-minha-conta icone-nome-completo">
+              </ImProfile>
+              Nome Completo
+            </div>
 
-            Categorias
+          </Link>
 
-          </div>
-        </Link>
+          <Link to="app/options/profile">
+            <div className="option-card moeda">
+              <MdAlternateEmail className="icone-moeda">
+              </MdAlternateEmail>
+              E-mail
+            </div>
+          </Link>
 
+          <Link to="app/options/profile">
+            <div className="option-card contas">
+              <MdOutlinePassword className="icone-conta">
+              </MdOutlinePassword>
+              Senha
+            </div>
+          </Link>
 
-        <Link to="app/options/profile">
-          <div className="option-card voltar">
-            <GrLogout className="icone-voltar">
-            </GrLogout>
-
-            Voltar
-
-          </div>
-        </Link>
-
-
+     
+            <div className="option-card voltar"onClick={() => { window.history.back() }}>
+              <GrLogout className="icone-voltar">
+              </GrLogout>
+              Voltar
+            </div>
+         
+        </div>
       </div>
-    
     </>
   )
 }
