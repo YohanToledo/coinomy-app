@@ -1,291 +1,119 @@
 .reset-password {
-    //margin-top: 8%;  
-    padding: 0;
+  padding: 0;
 }
 
 .icone-reset-password {
-    font-size: 40px;
-    color: white;
-    margin-right: 0.5rem;
-    background: rgba(93, 77, 77, 0.947);
-    border-radius: 40%;
-    margin-left: 0.7rem;
+  font-size: 40px;
+  color: rgb(37, 116, 0);
+  margin-right: 0.5rem;
+  margin-left: 0.7rem;
 }
 
 .reset-password:hover {
-    background: rgba(215, 118, 43, 0.845);
-
-    .icone-reset-password {
-        color: rgba(91, 235, 134, 0.746);
-    }
+  background: rgba(50, 128, 72, 0.746);
 }
 
 .icone-reset-account {
-    font-size: 40px;
-    color: white;
-    margin-right: 0.5rem;
-    background: rgba(93, 77, 77, 0.947);
-    border-radius: 40%;
-    margin-left: 0.7rem;
-}
-
-h6 {
-    font-size: 11px;
-    font-weight: 850;
-    color: rgba(236, 10, 10, 0.822);
-}
-
-h6 {
-    font-size: 12px;
-    font-weight: 900;
-    color: rgba(236, 10, 10, 0.822);
-}
-
-.reset-account-modal {
-    height: 85%;
-    width: 85%;
-    margin-bottom: 12%;
-    background: #00202f;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-
+  font-size: 40px;
+  color: red;
+  margin-right: 0.5rem;
+  margin-left: 0.7rem;
 }
 
 .delete-account-privacy:hover {
-    background: rgb(161, 112, 94);
+  background: rgba(173, 66, 66, 0.596);
+}
+
+.reset-account-warn {
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(112, 0, 0, 0.822);
+}
+
+.delete-account-privacy:hover .reset-account-warn {
+  color: red;
+}
+
+.reset-account-modal {
+  height: 60%;
+  width: 80%;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .icone-warning-privacy {
-    width: 70%;
-    height: 70%;
-    margin-top: 10%;
-}
-
-.div-icone-warning-privacy {
-    color: red;
-    margin-top: 15%;
-    margin-left: 20%;
+  font-size: 6rem;
+  color: red;
+  text-align: center;
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .icone-verificado-privacy {
-    width: 40%;
-    height: 70%;
-    color: green;
-}
-
-.icone-verificado-privacy:hover {
+  color: green;
+  :hover {
     color: yellowgreen;
+    cursor: pointer;
+  }
 }
 
 .icone-cancel-privacy {
-    width: 40%;
-    height: 70%;
-    color: red;
-    margin-bottom: 5%;
-}
-
-.icone-cancel-privacy:hover {
+  color: red;
+  :hover {
     color: rgb(243, 99, 16);
+    cursor: pointer;
+  }
 }
 
 .icones-apagar-conta-privacy {
-    display: flex;
-    margin-left: 10%;
+  font-size: 5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0.5rem;
 }
 
 // ids
 
 #titulo-modal {
-    font-weight: 800;
-    font-size: 20px;
-    margin-left: 25%;
-    margin-top: 10%;
+  margin: 1rem;
+  font-weight: 600;
+  font-size: 2rem;
+  text-align: center;
 }
 
 #alerta-reset {
-    font-weight: 600;
-    font-size: 20px;
-    align-items: center;
-    display: flex;
-    font-style: normal;
-    text-align: center;
+  padding: 0.8rem;
+  font-size: 1rem;
+  margin: 0.8rem;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
-//media
+@media screen and (min-width: 700px) {
+  .reset-account-modal {
+    height: 70%;
+    width: 50%;
+  }
 
-@media(min-width:375px) {
-    #titulo-privacy-modal {
-        font-size: 25px;
-    }
+  .icones-apagar-conta-privacy {
+    font-size: 7rem;
+  }
 
-    #titulo-modal {
-        margin-top: 25%;
-    }
+  .icone-warning-privacy {
+    font-size: 9rem;
+  }
+
+  #alerta-reset {
+    padding: 1rem;
+    font-size: 1.5rem;
+    margin: 1rem;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
 }
-
-@media(max-width:701px) {
-    .reset-account-modal {
-        margin-left: 5%;
-
-        .div-icone-warning-privacy {
-            width: 30%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-left: 35%;
-        }
-
-        .icones-apagar-conta-privacy {
-            width: 80%;
-            height: 21%;
-            justify-content: space-between;
-            margin-top: 10%;
-        }
-
-        #titulo-modal {
-            margin-left: 37%;
-        }
-    }
-}
-
-@media(max-width: 1245px) {
-    .reset-account-modal {
-        height: 80%;        
-        margin-right: 5%;
-    }
-
-    .icones-apagar-conta-privacy {
-        height: 50%;
-        margin-bottom: 20%;
-    }
-
-    #alerta-reset {
-        flex-direction: column;
-        font-size: 15px;
-    }
-}
-
-//media principal-transição
-
-@media(min-width: 701px) and (max-width:1170px) {
-    .reset-account-modal {
-        margin-left: 12%;
-        //height: 75%;
-        .div-icone-warning-privacy {
-            width: 30%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-left: 35%;
-        }
-
-        .icones-apagar-conta-privacy {
-            width: 80%;
-            height: 21%;
-            justify-content: space-between;
-        }
-
-        #titulo-modal {
-            margin-left: 37%;                        
-        }
-
-        #titulo-privacy-modal{
-            width: 10%;
-            height: 10%;
-        }
-    }
-
-    @media(min-width:801px){
-        .reset-account-modal{
-            margin-top: 6%;
-            margin-left: 10%;
-        }
-    }
-
-    @media(min-width:1169x){
-        .titulo-privacy-modal{
-            margin-top: 10%;
-        }
-
-        .div-icone-warning-privacy{
-            height: 20%;
-            margin-bottom: 7%;            
-        }                
-    }
-
-}
-
-@media(min-width: 1170px){
-    .reset-account-modal{        
-        margin-top: 5%;
-        margin-left: 8%;
-    }
-
-    .div-icone-warning-privacy{
-        margin-bottom: -7%; // adaptação técnica, precisa de correção.        
-    }
-    
-    .icone-warning-privacy{
-        height: 50%;
-        margin-top: -0;
-    }
-
-    .icones-apagar-conta-privacy{
-        height: 0;        
-    }
-    
-    .titulo-privacy-modal{
-        height: 10%;
-        margin-left: 10%;
-    }
-}
-
-
-@media(max-widht: 550px) {
-    .reset-account-modal {
-        height: 30%;
-    }
-}
-
-@media(max-widht: 550px) {
-    .reset-account-modal {
-        height: 30%;
-    }
-}
-
-@media (min-aspect-ratio: 1920/1080) {
-    /* Estilos para a proporção da tela maior ou igual a 1920x1080 */
-    /* Adicione aqui os estilos desejados */
-
-    .reset-account-modal {
-        height: 90%;
-        width: 90%;
-        margin-right: 3%;
-        margin-top: 8%;
-    }
-
-    .icones-apagar-conta-privacy {
-        height: 50%;
-        margin-bottom: 30%;
-        height: 30%;
-    }
-
-    .div-icone-warning-privacy {
-        height: 30%;
-        margin-top: 30%;
-    }
-
-    .titulo-privacy {
-        height: 20%;
-
-    }
-
-    #alerta-reset {
-        flex-direction: column;
-        font-size: 15px;
-    }
-}
-
