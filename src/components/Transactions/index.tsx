@@ -34,7 +34,12 @@ const Transactions = ({
   const [desc, setDescription] = useState(transactionDescription || "");
   const [category, setCategory] = useState({ label: "Categoria", value: "1" });
 
+  const [disabledSaveButton, setDisabledSaveButton] = useState(false);
+
   const saveTransaction = () => {
+    setDisabledSaveButton(true);
+    setDisabledSaveButton(false);
+
     const _category = category.label.toLowerCase();
     const _icon =
       _category === "mercado"
@@ -113,6 +118,7 @@ const Transactions = ({
                     id="description"
                     name="description"
                     placeholder="Descrição"
+                    required
                     value={desc}
                     onChange={(e: any) => setDescription(e.target.value)}
                   />
@@ -141,6 +147,7 @@ const Transactions = ({
             type="submit"
             id="save_button-addTransactions"
             onClick={saveTransaction}
+            disabled={disabledSaveButton}
           >
             Salvar
           </button>

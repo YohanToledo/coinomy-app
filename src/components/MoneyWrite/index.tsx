@@ -43,6 +43,7 @@ const InputMoney = ({ value, setValue }: Props) => {
       type="text"
       value={value}
       onChange={handleChange}
+      required
       placeholder="R$ 0,00"
     />
   );
