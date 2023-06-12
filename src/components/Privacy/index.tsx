@@ -1,4 +1,4 @@
-import { GrLogout } from "react-icons/gr";
+import { TfiBackLeft } from "react-icons/tfi";
 import { ImWarning } from "react-icons/im";
 import { MdCancel } from "react-icons/md";
 import { TiTickOutline } from "react-icons/ti";
@@ -42,7 +42,7 @@ const Privacy = () => {
             window.history.back();
           }}
         >
-          <GrLogout className="icone-voltar" />
+          <TfiBackLeft className="icone-voltar" />
           Voltar
         </div>
       </div>

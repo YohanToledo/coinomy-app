@@ -1,4 +1,4 @@
-import { GrLogout } from "react-icons/gr";
+import { TfiBackLeft } from "react-icons/tfi";
 import { MdAlternateEmail, MdOutlinePassword } from "react-icons/md";
 import { HiIdentification } from "react-icons/hi";
 import { RiPencilFill } from "react-icons/ri";
@@ -52,7 +52,7 @@ const ProfilePreferences = () => {
         manipulá-los nas media screens. */}
 
         <div className="options-container divs-componentes">
-          <Link to="profile">
+          <Link to="">
             <div className="option-card nome-completo">
               <HiIdentification className="icone-nome-completo" />
               Nome Completo
@@ -79,7 +79,7 @@ const ProfilePreferences = () => {
               window.history.back();
             }}
           >
-            <GrLogout className="icone-voltar" />
+            <TfiBackLeft className="icone-voltar" />
             Voltar
           </div>
         </div>

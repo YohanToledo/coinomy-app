@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Preferences.scss";
 import { ImCoinDollar } from "react-icons/im";
+import { TfiBackLeft } from "react-icons/tfi";
 import { MdAccountBalance } from "react-icons/md";
 import { BiCategory } from "react-icons/bi";
-import { GrLogout } from "react-icons/gr";
+import { BiLogOut } from "react-icons/bi";
 import { MdOutlineManageAccounts } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { FcPrivacy } from "react-icons/fc";
+import { AuthContext } from "../../context/AuthContext";
 
 const Preferences = () => {
+  const { logout } = useContext(AuthContext);
+
   return (
     <>
       <div className="options-container">
@@ -49,13 +53,18 @@ const Preferences = () => {
           </div>
         </Link>
 
+        <div className="option-card logout-option" onClick={logout}>
+          <BiLogOut className="icone-logout" />
+          Sair
+        </div>
+
         <div
           className="option-card voltar"
           onClick={() => {
             window.history.back();
           }}
         >
-          <GrLogout className="icone-voltar" />
+          <TfiBackLeft className="icone-voltar" />
           Voltar
         </div>
       </div>
