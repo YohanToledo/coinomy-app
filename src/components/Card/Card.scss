@@ -2,7 +2,7 @@
   width: 100%;
   margin-left: 0%;
   padding: 10px;
-  height: 60px;
+  height: 70px;
   background-color: red;
   margin-top: 5px;
   border-radius: 10px;
@@ -10,13 +10,12 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  cursor: pointer;
 }
 
 .card-external-container {
   width: 100%;
   padding: 2px;
-  height: 80px;
+  height: 90px;
   margin-top: 10px;
   display: flex;
   flex-direction: column;
@@ -28,6 +27,14 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+}
+
+.card-description {
+  position: relative;
+  width: 30vw;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .ci {
@@ -56,6 +63,7 @@
   color: rgba(255, 255, 255, 0.8);
   background-color: var(--primary-color-darker);
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
 }
 
 .delete-edit-transaction:active {
