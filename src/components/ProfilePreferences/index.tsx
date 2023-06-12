@@ -1,18 +1,23 @@
 import { GrLogout } from "react-icons/gr";
 import { MdAlternateEmail, MdOutlinePassword } from "react-icons/md";
-import { ImProfile } from "react-icons/im";
+import { HiIdentification } from "react-icons/hi";
 import { RiPencilFill } from "react-icons/ri";
 import "../Preferences/Preferences.scss";
 import "./ProfilePreferences.scss";
 import { Link } from "react-router-dom";
+import { FaUser } from "react-icons/fa";
 
 const ProfilePreferences = () => {
+  const userInfo: any = JSON.parse(localStorage.getItem("userInfo") || "");
+
   return (
     <>
       <h1 id="titulo">Perfil</h1>
       <div className="options-container options-container-profile">
         <div className="div-circle">
-          <div className="profile"></div>
+          <div className="profile">
+            <FaUser />
+          </div>
           <div className="icone-circle">
             <input
               className="input-file icone-circle-label"
@@ -26,12 +31,20 @@ const ProfilePreferences = () => {
         </div>
 
         <div className="nome-email-profile">
-          <label htmlFor="nome-Sobrenome" id="nome-Sobrenome">
-            <h1>Nome e Sobrenome</h1>
+          <label id="nome-Sobrenome">
+            <h1>{userInfo.name || "Nome e Sobrenome"}</h1>
           </label>
 
-          <label htmlFor="email-Profile" id="email-Profile">
-            <h2>nome@gmail.com</h2>
+          <label id="email-Profile">
+            <h2>{userInfo.email || "nome@gmail.com"}</h2>
+          </label>
+
+          <label htmlFor="" className="created-account-date">
+            <h2>
+              Conta criada em:
+              {" " + new Date(userInfo.createdAt).toLocaleDateString() ||
+                " 01/01/2023"}
+            </h2>
           </label>
         </div>
 
@@ -41,7 +54,7 @@ const ProfilePreferences = () => {
         <div className="options-container divs-componentes">
           <Link to="profile">
             <div className="option-card nome-completo">
-              <ImProfile className="icone-minha-conta icone-nome-completo" />
+              <HiIdentification className="icone-nome-completo" />
               Nome Completo
             </div>
           </Link>
