@@ -1,0 +1,113 @@
+//classes
+
+.container-categoria {
+    display: flex;
+    align-items: center;
+
+}
+
+.categoria-receitas {}
+
+//animações
+
+.categoria-receitas:hover {
+    background: green;
+
+    @keyframes clickAnimation {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.035);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    animation: clickAnimation 0.6s 1;
+
+    .icone-receitas {
+        color: white;
+    }
+
+    .icone-receita {
+        color: white;
+    }
+}
+
+.categoria-despesas:hover {
+    background: rgba(201, 45, 6, 0.89);
+
+    @keyframes clickAnimation {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.035);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    animation: clickAnimation 0.6s 1;
+
+    .icone-despesa {
+        color: white;
+    }
+}
+
+.voltar-categoria:hover {
+    background: grey;
+
+    @keyframes clickAnimation {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.035);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    animation: clickAnimation 0.6s 1;
+
+    .icone-voltar {
+        color: white;
+    }
+
+}
+
+//ids
+
+//modais
+
+//media
+
+
+
+
+// icones
+
+.icone-receita {
+    color: green;
+    margin-left: 4px;
+}
+
+.icone-despesa {
+    color: red;
+    margin-left: 4px;
+}
+
+.icone-voltar {
+    font: bold;
+}

@@ -8,6 +8,7 @@ import Preferences from "./components/Preferences";
 import ProfilePreferences from "./components/ProfilePreferences";
 import Privacy from "./components/Privacy";
 import Money from "./components/Money";
+import Categoria from "./components/Categoria";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/app/options/profile" element={<ProfilePreferences />} />
           <Route path="/app/options/privacy" element={<Privacy />} />
           <Route path="/app/options/money" element={<Money />} />
+          <Route path="/app/options/categoria" element={<Categoria />} />
         </Route>
       </Routes>
     </div>
