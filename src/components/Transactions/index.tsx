@@ -45,8 +45,12 @@ const Transactions = ({
 
   const loadCategoriesSelect = () => {
     const categorySelectOptions: Item[] = []
+
+    const _type = title === "RECEITA" ? "INCOME" : "EXPENSE"
+
     categories.map(c => {
-      categorySelectOptions.push({ label: c.description, value: String(c.id) })
+      if (c.type === _type)
+        categorySelectOptions.push({ label: c.description, value: String(c.id) })
     })
 
     return categorySelectOptions;
@@ -187,11 +191,5 @@ const Transactions = ({
     </>
   );
 };
-
-const Categories = [
-  { label: "Mercado", value: "Mercado" },
-  { label: "Salario", value: "Salario" },
-  { label: "Combustivel", value: "Combustivel" },
-];
 
 export default Transactions;
