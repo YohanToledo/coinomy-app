@@ -2,8 +2,8 @@ import "./Card.scss";
 import { useState } from "react";
 import { BiUpsideDown, BiPencil, BiTrash } from "react-icons/bi";
 import { FaTrashAlt, FaPen } from "react-icons/fa";
-import { Transaction } from "./types/Transaction";
-import { Icons } from "./Icons";
+import { Transaction } from "../../ts/types/transaction.types";
+import { CategoryIconsMapper } from "../../ts/mappers/category-icons.mapper";
 import Modal from "../Modal";
 import Transactions from "../Transactions";
 import StaticData from "../../shared/static/static-data";
@@ -28,7 +28,7 @@ const Card = ({ cardInfo, hideValue, onDelete }: Props) => {
 
   return (
     <>
-      <div className="card-external-container scale-animation">
+      <div className="card-external-container scale-animation" >
         <div className="card-date">
           {cardInfo.transactionDate.toLocaleDateString()}
         </div>
@@ -41,7 +41,7 @@ const Card = ({ cardInfo, hideValue, onDelete }: Props) => {
         >
           <div className="card-icon-desc">
             <div className="ci">
-              {cardInfo.icon ? Icons[cardInfo.icon] : <BiUpsideDown />}
+              {cardInfo.icon ? CategoryIconsMapper[cardInfo.icon] : <BiUpsideDown />}
             </div>
             <div className="card-description">{cardInfo.description}</div>
           </div>

@@ -8,7 +8,7 @@ type AuthContextType = {
 
 export const AuthContext = createContext<AuthContextType>({
   isAuthenticated: false,
-  logout: () => {},
+  logout: () => { },
 });
 
 type AuthProviderProps = {
@@ -40,21 +40,26 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     return JSON.parse(jsonPayload);
   };
 
+  const token = localStorage.getItem("coinomy_token");
+
   useEffect(() => {
-    const token = localStorage.getItem("coinomy_token");
-
     if (token) {
-      setIsAuthenticated(true);
-
       const decoded = parseJwt(token);
       localStorage.setItem("userInfo", JSON.stringify(decoded));
+      const expiredToken = Date.now() / 1000 > decoded.exp;
 
-      if (window.location.href.slice(-5) === "login") {
-        console.log("redirect");
-        navigate("/app/home");
+      if (expiredToken) {
+        setIsAuthenticated(false);
+        navigate("/");
       }
+
+      setIsAuthenticated(Boolean(token && !expiredToken));
     }
-  }, [navigate, setIsAuthenticated]);
+
+    if (token && window.location.href.slice(-5) === "login") {
+      navigate("/app/home");
+    }
+  }, [token]);
 
   return (
     <AuthContext.Provider value={{ isAuthenticated, logout }}>

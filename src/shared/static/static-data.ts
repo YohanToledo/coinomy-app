@@ -1,7 +1,16 @@
-import { Transaction } from "../../components/Card/types/Transaction";
+import { Transaction } from "../../ts/types/transaction.types";
+import { Category } from "../../ts/types/category.types";
 
 class StaticData {
   static transactions: Transaction[] = [];
+  static categories: Category[] = [];
+
+  static saveCategories = () => {
+    window.localStorage.setItem(
+      "categories",
+      JSON.stringify(this.categories)
+    );
+  };
 
   static saveToLocalStorage = () => {
     window.localStorage.setItem(
@@ -14,10 +23,10 @@ class StaticData {
     //reset transactions array
     this.transactions = [];
 
-    const transactionsStrVal =
+    const transactionsStrJson =
       window.localStorage.getItem("transactions") || "[]";
 
-    const transactionsParsed: any[] = JSON.parse(transactionsStrVal);
+    const transactionsParsed: any[] = JSON.parse(transactionsStrJson);
 
     transactionsParsed.map((t) => {
       this.transactions.push({
@@ -31,9 +40,47 @@ class StaticData {
     });
   };
 
+
+  static loadCategories = () => {
+    //reset categories array
+    this.categories = [];
+
+    const categoriesStrJson =
+      window.localStorage.getItem("categories") || "[]";
+
+    const categoriesParsed: any[] = JSON.parse(categoriesStrJson);
+
+    categoriesParsed.map((c) => {
+      this.categories.push({
+        id: c.id,
+        icon: c.icon,
+        description: c.description,
+        type: c.type,
+      });
+    });
+  };
+
+  static addCategory = (category: Category) => {
+    this.categories.push(category);
+    this.saveCategories();
+  };
+
   static addTransaction = (transaction: Transaction) => {
     this.transactions.push(transaction);
     this.saveToLocalStorage();
+  };
+
+  static updateCategory = (category: Category) => {
+    const index = this.categories.findIndex((c) => c.id === category.id);
+
+    if (index !== null && index !== undefined) {
+      this.categories[index] = category;
+      this.saveCategories();
+
+      return;
+    } else {
+      console.log(`Index not found for category id: ${category.id}`);
+    }
   };
 
   static updateTransaction = (transaction: Transaction) => {
@@ -54,9 +101,19 @@ class StaticData {
     this.saveToLocalStorage();
   };
 
+  static deleteCategory = (id: number) => {
+    this.categories = this.categories.filter((c) => c.id !== id);
+    this.saveCategories();
+  };
+
   static findAllTransactions = () => {
     this.loadFromLocalStorage();
     return this.transactions;
+  };
+
+  static findAllCategories = () => {
+    this.loadCategories();
+    return this.categories;
   };
 
   static totalExpenseValue = (date: Date) => {

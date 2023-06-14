@@ -4,12 +4,14 @@ import {
   BsFillPencilFill,
   BsFillTagFill,
 } from "react-icons/bs";
-
+import { useEffect } from "react";
 import InputMoney from "../MoneyWrite";
-import Dropdown from "../Dropdown";
-import { Transaction } from "../Card/types/Transaction";
+import Dropdown, { Item } from "../Dropdown";
+import { Transaction } from "../../ts/types/transaction.types";
 import "./Transactions.scss";
 import { useState } from "react";
+import Api from "../../shared/requests/Api";
+import { Category } from "../../ts/types/category.types";
 
 type Props = {
   title: "RECEITA" | "DESPESA";
@@ -34,7 +36,34 @@ const Transactions = ({
   const [desc, setDescription] = useState(transactionDescription || "");
   const [category, setCategory] = useState({ label: "Categoria", value: "1" });
 
+  const [categories, setCategories] = useState<Category[]>([])
+
   const [disabledSaveButton, setDisabledSaveButton] = useState(false);
+
+
+  const api = new Api();
+
+  const loadCategoriesSelect = () => {
+    const categorySelectOptions: Item[] = []
+    categories.map(c => {
+      categorySelectOptions.push({ label: c.description, value: String(c.id) })
+    })
+
+    return categorySelectOptions;
+  }
+
+  useEffect(() => {
+    const findCategories = async () => {
+      const response = await api.findAllCategories();
+
+      setCategories(response.data);
+      loadCategoriesSelect()
+    }
+
+    findCategories()
+
+
+  }, [])
 
   const saveTransaction = () => {
     setDisabledSaveButton(true);
@@ -45,8 +74,8 @@ const Transactions = ({
       _category === "mercado"
         ? "BsFillCartFill"
         : _category === "combustivel"
-        ? "RiGasStationFill"
-        : "MdOutlineAttachMoney";
+          ? "RiGasStationFill"
+          : "MdOutlineAttachMoney";
 
     const transaction: Transaction = {
       id: transactionId,
@@ -73,6 +102,8 @@ const Transactions = ({
                   ? "colorReceita"
                   : "colorDespesa"
               }
+
+              onClick={() => console.log(categories)}
             >
               {title}
             </h1>
@@ -134,7 +165,7 @@ const Transactions = ({
                   </div>
                   <div className="list-addTransactions dropdown-category">
                     <Dropdown
-                      items={Categories}
+                      items={loadCategoriesSelect()}
                       selected={category}
                       setSelected={setCategory}
                     />

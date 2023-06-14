@@ -10,7 +10,7 @@ import { CiCalculator2 } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-import { Transaction } from "../Card/types/Transaction";
+import { Transaction } from "../../ts/types/transaction.types";
 import Transactions from "../Transactions";
 import Modal from "../Modal";
 

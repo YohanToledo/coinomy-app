@@ -5,7 +5,7 @@ import {
   MdOutlineKeyboardArrowUp,
 } from "react-icons/md";
 
-type Item = {
+export type Item = {
   value: string;
   label: string;
 };
