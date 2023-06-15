@@ -8,6 +8,7 @@ import { TiTickOutline } from "react-icons/ti";
 import { FaArrowCircleUp } from "react-icons/fa";
 import { FaArrowCircleDown } from "react-icons/fa";
 import { TfiBackLeft } from "react-icons/tfi";
+import Voltar from "../Voltar";
 
 
 const Categoria = () => {
@@ -37,12 +38,15 @@ const Categoria = () => {
                     &nbsp;Categoria de despesas
                 </div>
 
-                <div className="option-card voltar-categoria">
-                    <TfiBackLeft className="icone-voltar" />
-                    Voltar
+                <div className="option-card voltar-categoria ">
+                    
+                    <Voltar />
+                    
+                    
                 </div>
 
 
+                
 
 
 
