@@ -12,22 +12,7 @@
 
 .categoria-receitas:hover {
     background: green;
-
-    @keyframes clickAnimation {
-        0% {
-            transform: scale(1);
-        }
-
-        50% {
-            transform: scale(1.035);
-        }
-
-        100% {
-            transform: scale(1);
-        }
-    }
-
-    animation: clickAnimation 0.6s 1;
+    transform: scale(1.014);
 
     .icone-receitas {
         color: white;
@@ -40,22 +25,7 @@
 
 .categoria-despesas:hover {
     background: rgba(201, 45, 6, 0.89);
-
-    @keyframes clickAnimation {
-        0% {
-            transform: scale(1);
-        }
-
-        50% {
-            transform: scale(1.035);
-        }
-
-        100% {
-            transform: scale(1);
-        }
-    }
-
-    animation: clickAnimation 0.6s 1;
+    transform: scale(1.014);
 
     .icone-despesa {
         color: white;
@@ -64,27 +34,11 @@
 
 .voltar-categoria:hover {
     background: grey;
-
-    @keyframes clickAnimation {
-        0% {
-            transform: scale(1);
-        }
-
-        50% {
-            transform: scale(1.035);
-        }
-
-        100% {
-            transform: scale(1);
-        }
-    }
-
-    animation: clickAnimation 0.6s 1;
+    transform: scale(1.014);
 
     .icone-voltar {
-        color: white;
+        color: rgb(16, 199, 159);
     }
-
 }
 
 //ids

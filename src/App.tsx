@@ -10,6 +10,7 @@ import Privacy from "./components/Privacy";
 import Money from "./components/Money";
 import Categoria from "./components/Categoria";
 
+
 function App() {
   return (
     <div className="App">
