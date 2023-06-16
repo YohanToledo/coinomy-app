@@ -95,3 +95,52 @@
 .scale-animation {
   animation: scaleAnimation 500ms ease-in-out;
 }
+
+//confirmation dialog box
+
+.delete-transaction-confirmation {
+  background-color: var(--primary-color-darker);
+  max-width: 340px;
+  max-height: 320px;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.delete-transaction-title {
+  font-size: 1.7rem;
+  padding: 1rem;
+}
+
+.delete-transaction-warn {
+  font-weight: 100;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.74);
+  letter-spacing: 1px;
+  line-height: 150%;
+  padding: 1rem;
+}
+
+.delete-transaction-buttons {
+  margin: 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+
+  button {
+    all: unset;
+    width: 70px;
+    height: 30px;
+    padding: 0.2rem;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-left: 1.5rem;
+    border-radius: 5px;
+  }
+
+  .delete-transaction-cancel {
+    background-color: rgba(62, 190, 240, 0.616);
+  }
+}

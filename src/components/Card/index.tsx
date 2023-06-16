@@ -16,6 +16,7 @@ type Props = {
 
 const Card = ({ cardInfo, hideValue, onDelete }: Props) => {
   const [showTranasctionForm, setShowTranasctionForm] = useState(false);
+  const [showConfirmDialog, setShowConfirmDialog] = useState(false);
 
   const updateTransaction = (transaction: Transaction) => {
     StaticData.updateTransaction(transaction);
@@ -28,7 +29,7 @@ const Card = ({ cardInfo, hideValue, onDelete }: Props) => {
 
   return (
     <>
-      <div className="card-external-container scale-animation" >
+      <div className="card-external-container scale-animation">
         <div className="card-date">
           {cardInfo.transactionDate.toLocaleDateString()}
         </div>
@@ -41,7 +42,11 @@ const Card = ({ cardInfo, hideValue, onDelete }: Props) => {
         >
           <div className="card-icon-desc">
             <div className="ci">
-              {cardInfo.icon ? CategoryIconsMapper[cardInfo.icon] : <BiUpsideDown />}
+              {cardInfo.icon ? (
+                CategoryIconsMapper[cardInfo.icon]
+              ) : (
+                <BiUpsideDown />
+              )}
             </div>
             <div className="card-description">{cardInfo.description}</div>
           </div>
@@ -59,7 +64,7 @@ const Card = ({ cardInfo, hideValue, onDelete }: Props) => {
             <button
               type="button"
               className="appear-on-hover delete-edit-transaction"
-              onClick={() => onDelete(cardInfo.id)}
+              onClick={() => setShowConfirmDialog(true)}
             >
               <BiTrash />
             </button>
@@ -86,6 +91,47 @@ const Card = ({ cardInfo, hideValue, onDelete }: Props) => {
             }
             onSave={updateTransaction}
           />
+        </div>
+      </Modal>
+
+      <Modal
+        show={showConfirmDialog}
+        onClose={() => setShowConfirmDialog(false)}
+      >
+        <div
+          onClick={(e: any) => {
+            e.stopPropagation();
+          }}
+        >
+          <div className="delete-transaction-confirmation">
+            <div>
+              <h2 className="delete-transaction-title">Excluir transação?</h2>
+            </div>
+            <div>
+              <h3 className="delete-transaction-warn">
+                Essa transação será excluida permanentemente e não será possível
+                desfazer essa ação.
+              </h3>
+            </div>
+            <div className="delete-transaction-buttons">
+              <div>
+                <button
+                  type="button"
+                  className="delete-transaction-confirm"
+                  onClick={() => onDelete(cardInfo.id)}
+                >
+                  SIM
+                </button>
+                <button
+                  type="button"
+                  className="delete-transaction-cancel"
+                  onClick={() => setShowConfirmDialog(false)}
+                >
+                  NÃO
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </Modal>
     </>
