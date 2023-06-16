@@ -42,7 +42,7 @@ class StaticData {
 
   static saveToLocalStorage = () => {
     window.localStorage.setItem(
-      "transactions",
+      "_transactions",
       JSON.stringify(this.transactions)
     );
   };
@@ -52,7 +52,7 @@ class StaticData {
     this.transactions = [];
 
     const transactionsStrJson =
-      window.localStorage.getItem("transactions") || "[]";
+      window.localStorage.getItem("_transactions") || "[]";
 
     const transactionsParsed: any[] = JSON.parse(transactionsStrJson);
 
