@@ -4,14 +4,13 @@ import {
   BsFillPencilFill,
   BsFillTagFill,
 } from "react-icons/bs";
-import { useEffect } from "react";
 import InputMoney from "../MoneyWrite";
 import Dropdown, { Item } from "../Dropdown";
 import { Transaction } from "../../ts/types/transaction.types";
 import "./Transactions.scss";
 import { useState } from "react";
-import Api from "../../shared/requests/Api";
 import { Category } from "../../ts/types/category.types";
+import StaticData from "../../shared/static/static-data";
 
 type Props = {
   title: "RECEITA" | "DESPESA";
@@ -19,7 +18,7 @@ type Props = {
   transactionValue?: string;
   transactionDate?: string;
   transactionDescription?: string;
-  transactionCategory?: string;
+  transactionCategory?: Category;
   transactionBank?: string;
   onSave: (transaction: Transaction) => void;
 };
@@ -29,61 +28,53 @@ const Transactions = ({
   transactionValue,
   transactionDescription,
   transactionDate,
+  transactionCategory,
   onSave,
 }: Props) => {
   const [value, setValue] = useState(transactionValue || "");
   const [time, setTime] = useState(transactionDate || "");
   const [desc, setDescription] = useState(transactionDescription || "");
-  const [category, setCategory] = useState({ label: "Categoria", value: "1" });
+  const [category, setCategory] = useState({
+    label: transactionCategory?.description || "Categoria",
+    value: String(transactionCategory?.id) || "0",
+  });
 
-  const [categories, setCategories] = useState<Category[]>([])
+  StaticData.saveCategoriesToLocalStorage();
+  const categories: Category[] = StaticData.findAllCategories();
 
   const [disabledSaveButton, setDisabledSaveButton] = useState(false);
 
-
-  const api = new Api();
-
   const loadCategoriesSelect = () => {
-    const categorySelectOptions: Item[] = []
+    const categorySelectOptions: Item[] = [];
 
-    const _type = title === "RECEITA" ? "INCOME" : "EXPENSE"
+    const _type = title === "RECEITA" ? "INCOME" : "EXPENSE";
 
-    categories.map(c => {
+    categories.map((c) => {
       if (c.type === _type)
-        categorySelectOptions.push({ label: c.description, value: String(c.id) })
-    })
+        categorySelectOptions.push({
+          label: c.description,
+          value: String(c.id),
+        });
+    });
 
     return categorySelectOptions;
-  }
-
-  useEffect(() => {
-    const findCategories = async () => {
-      const response = await api.findAllCategories();
-
-      setCategories(response.data);
-      loadCategoriesSelect()
-    }
-
-    findCategories()
-
-
-  }, [])
+  };
 
   const saveTransaction = () => {
     setDisabledSaveButton(true);
     setDisabledSaveButton(false);
 
-    const _category = category.label.toLowerCase();
-    const _icon =
-      _category === "mercado"
-        ? "BsFillCartFill"
-        : _category === "combustivel"
-          ? "RiGasStationFill"
-          : "MdOutlineAttachMoney";
+    console.log(category);
+    console.log(Number(category.value));
+
+    const _defaultCategory = categories[0];
+    const _category = categories.find((c) => c.id === Number(category.value));
+
+    console.log(_category);
 
     const transaction: Transaction = {
       id: transactionId,
-      icon: _icon,
+      category: _category || _defaultCategory,
       description: desc,
       value: Number(
         value.replaceAll(",", "").replaceAll("R$", "").replaceAll(" ", "")
@@ -106,7 +97,6 @@ const Transactions = ({
                   ? "colorReceita"
                   : "colorDespesa"
               }
-
               onClick={() => console.log(categories)}
             >
               {title}

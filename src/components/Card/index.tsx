@@ -42,11 +42,7 @@ const Card = ({ cardInfo, hideValue, onDelete }: Props) => {
         >
           <div className="card-icon-desc">
             <div className="ci">
-              {cardInfo.icon ? (
-                CategoryIconsMapper[cardInfo.icon]
-              ) : (
-                <BiUpsideDown />
-              )}
+              {CategoryIconsMapper[cardInfo.category.icon]}
             </div>
             <div className="card-description">{cardInfo.description}</div>
           </div>
@@ -86,6 +82,7 @@ const Card = ({ cardInfo, hideValue, onDelete }: Props) => {
             transactionId={cardInfo.id}
             transactionValue={cardInfo.value.toString()}
             transactionDescription={cardInfo.description}
+            transactionCategory={cardInfo.category}
             transactionDate={
               cardInfo.transactionDate.toISOString().split("T")[0]
             }

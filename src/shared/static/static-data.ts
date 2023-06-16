@@ -3,13 +3,41 @@ import { Category } from "../../ts/types/category.types";
 
 class StaticData {
   static transactions: Transaction[] = [];
-  static categories: Category[] = [];
+  static categories: Category[] = [
+    {
+      description: "Outros",
+      icon: "MdOutlineAttachMoney",
+      type: "EXPENSE",
+      id: 11,
+    },
+    {
+      description: "Mercado",
+      icon: "AiFillShop",
+      type: "EXPENSE",
+      id: 23,
+    },
+    {
+      description: "Combustível",
+      icon: "RiGasStationFill",
+      type: "EXPENSE",
+      id: 54,
+    },
+    {
+      description: "Salário",
+      icon: "MdOutlineAttachMoney",
+      type: "INCOME",
+      id: 28,
+    },
+    {
+      description: "Presente",
+      icon: "AiFillGift",
+      type: "INCOME",
+      id: 90,
+    },
+  ];
 
-  static saveCategories = () => {
-    window.localStorage.setItem(
-      "categories",
-      JSON.stringify(this.categories)
-    );
+  static saveCategoriesToLocalStorage = () => {
+    window.localStorage.setItem("categories", JSON.stringify(this.categories));
   };
 
   static saveToLocalStorage = () => {
@@ -31,7 +59,7 @@ class StaticData {
     transactionsParsed.map((t) => {
       this.transactions.push({
         id: t.id,
-        icon: t.icon,
+        category: t.category,
         description: t.description,
         value: t.value,
         transactionDate: new Date(t.transactionDate),
@@ -40,13 +68,11 @@ class StaticData {
     });
   };
 
-
   static loadCategories = () => {
     //reset categories array
     this.categories = [];
 
-    const categoriesStrJson =
-      window.localStorage.getItem("categories") || "[]";
+    const categoriesStrJson = window.localStorage.getItem("categories") || "[]";
 
     const categoriesParsed: any[] = JSON.parse(categoriesStrJson);
 
@@ -62,7 +88,7 @@ class StaticData {
 
   static addCategory = (category: Category) => {
     this.categories.push(category);
-    this.saveCategories();
+    this.saveCategoriesToLocalStorage();
   };
 
   static addTransaction = (transaction: Transaction) => {
@@ -75,7 +101,7 @@ class StaticData {
 
     if (index !== null && index !== undefined) {
       this.categories[index] = category;
-      this.saveCategories();
+      this.saveCategoriesToLocalStorage();
 
       return;
     } else {
@@ -103,7 +129,7 @@ class StaticData {
 
   static deleteCategory = (id: number) => {
     this.categories = this.categories.filter((c) => c.id !== id);
-    this.saveCategories();
+    this.saveCategoriesToLocalStorage();
   };
 
   static findAllTransactions = () => {
