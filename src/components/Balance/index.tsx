@@ -67,7 +67,7 @@ const Balance = ({ setDate, hideValues, setHideValues }: Props) => {
               <BsFillArrowDownCircleFill className="arrow-down" />
             </div>
             <div className="value">
-              {hideValues ? "*******" : `R$${totalExpense}`}
+              {hideValues ? "*******" : `- R$${totalExpense}`}
             </div>
           </div>
         </div>

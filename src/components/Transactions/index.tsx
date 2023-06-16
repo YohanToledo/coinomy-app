@@ -8,7 +8,7 @@ import InputMoney from "../MoneyWrite";
 import Dropdown, { Item } from "../Dropdown";
 import { Transaction } from "../../ts/types/transaction.types";
 import "./Transactions.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Category } from "../../ts/types/category.types";
 import StaticData from "../../shared/static/static-data";
 
@@ -33,16 +33,16 @@ const Transactions = ({
 }: Props) => {
   const [value, setValue] = useState(transactionValue || "");
   const [time, setTime] = useState(transactionDate || "");
-  const [desc, setDescription] = useState(transactionDescription || "");
+  const [description, setDescription] = useState(transactionDescription || "");
   const [category, setCategory] = useState({
     label: transactionCategory?.description || "Categoria",
-    value: String(transactionCategory?.id) || "0",
+    value: String(transactionCategory?.id || 0),
   });
 
   StaticData.saveCategoriesToLocalStorage();
   const categories: Category[] = StaticData.findAllCategories();
 
-  const [disabledSaveButton, setDisabledSaveButton] = useState(false);
+  const [disabledSaveButton, setDisabledSaveButton] = useState(true);
 
   const loadCategoriesSelect = () => {
     const categorySelectOptions: Item[] = [];
@@ -61,21 +61,17 @@ const Transactions = ({
   };
 
   const saveTransaction = () => {
+    //prevent double click (temporary)
     setDisabledSaveButton(true);
     setDisabledSaveButton(false);
-
-    console.log(category);
-    console.log(Number(category.value));
 
     const _defaultCategory = categories[0];
     const _category = categories.find((c) => c.id === Number(category.value));
 
-    console.log(_category);
-
     const transaction: Transaction = {
       id: transactionId,
       category: _category || _defaultCategory,
-      description: desc,
+      description: description,
       value: Number(
         value.replaceAll(",", "").replaceAll("R$", "").replaceAll(" ", "")
       ),
@@ -86,10 +82,28 @@ const Transactions = ({
     onSave(transaction);
   };
 
+  const handleFieldsNotEmpty = () => {
+    const isDescriptionEmpty = description === "";
+    const isValueEmpty = value === "";
+    const isCategoryNotSelected = category.value === "0";
+
+    setDisabledSaveButton(
+      isDescriptionEmpty || isValueEmpty || isCategoryNotSelected
+    );
+  };
+
+  useEffect(() => {
+    handleFieldsNotEmpty();
+  }, [description, category, value]);
+
   return (
     <>
       <main id="containerBaseNew-addTransactions">
-        <form id="recieve-addTransactions" className="transaction-form">
+        <form
+          id="recieve-addTransactions"
+          className="transaction-form"
+          onSubmit={saveTransaction}
+        >
           <div id="form_header-addTransactions">
             <h1
               className={
@@ -144,7 +158,7 @@ const Transactions = ({
                     name="description"
                     placeholder="Descrição"
                     required
-                    value={desc}
+                    value={description}
                     onChange={(e: any) => setDescription(e.target.value)}
                   />
                 </div>
@@ -171,8 +185,8 @@ const Transactions = ({
           <button
             type="submit"
             id="save_button-addTransactions"
-            onClick={saveTransaction}
             disabled={disabledSaveButton}
+            className={disabledSaveButton ? "disabled-btn" : ""}
           >
             Salvar
           </button>
