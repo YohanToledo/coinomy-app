@@ -19,6 +19,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 
   .icon {
     font-size: 1.2rem;
@@ -26,7 +27,8 @@
   }
 }
 
-.icons-grid-item:hover {
+.icons-grid-item:hover,
+.icon-grid-item-selected {
   background-color: #1463a3;
 }
 
@@ -42,16 +44,3 @@
   background-color: rgba(0, 0, 0, 0.418);
   border-radius: 20px;
 }
-
-// /* Hide scrollbar for Chrome, Safari and Opera */
-// .icons-grid-container::-webkit-scrollbar {
-//   display: none;
-// }
-
-// /* Hide scrollbar for IE, Edge and Firefox */
-// .icons-grid-container {
-//   -ms-overflow-style: none;
-//   /* IE and Edge */
-//   scrollbar-width: none;
-//   /* Firefox */
-// }

@@ -12,12 +12,13 @@ import {
   AiOutlineBank,
 } from "react-icons/ai";
 import "./IconsSelectBox.scss";
+import { useState } from "react";
 
 const ICONS = [
+  "MdOutlineAttachMoney",
   "BsFillCartFill",
   "BsFillHouseDoorFill",
   "RiGasStationFill",
-  "MdOutlineAttachMoney",
   "AiFillCloud",
   "AiFillCar",
   "AiFillCreditCard",
@@ -29,10 +30,10 @@ const ICONS = [
 ];
 
 const Icons: any = {
+  MdOutlineAttachMoney: <MdOutlineAttachMoney />,
   BsFillCartFill: <BsFillCartFill />,
   BsFillHouseDoorFill: <BsFillHouseDoorFill />,
   RiGasStationFill: <RiGasStationFill />,
-  MdOutlineAttachMoney: <MdOutlineAttachMoney />,
   AiFillCloud: <AiFillCloud />,
   AiFillCar: <AiFillCar />,
   AiFillCreditCard: <AiFillCreditCard />,
@@ -43,12 +44,26 @@ const Icons: any = {
   AiOutlineBank: <AiOutlineBank />,
 };
 
-const IconsSelectBox = () => {
+type Props = {
+  setIconSelected: (icon: string) => void;
+};
+
+const IconsSelectBox = ({ setIconSelected }: Props) => {
+  const [selected, setSelected] = useState<number>(0);
   return (
     <div className="icons-grid-container">
-      {ICONS.map((i) => (
-        <div className="icons-grid-item" onClick={(e: any) => console.log(i)}>
-          <div className="icon">{Icons[i]}</div>
+      {ICONS.map((icon, index) => (
+        <div
+          key={index}
+          className={`icons-grid-item ${
+            selected === index && "icon-grid-item-selected"
+          }`}
+          onClick={() => {
+            setIconSelected(icon);
+            setSelected(index);
+          }}
+        >
+          <div className="icon">{Icons[icon]}</div>
         </div>
       ))}
     </div>
