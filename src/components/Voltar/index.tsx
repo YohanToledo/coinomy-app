@@ -3,7 +3,7 @@ const Voltar = () => {
     return (
         <>
             <div
-                className="option-card component-voltar"
+                className="option-card component-voltar voltar-categoria"
                 onClick={() => {
                     window.history.back();
                 }}

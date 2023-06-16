@@ -8,19 +8,26 @@ import { TiTickOutline } from "react-icons/ti";
 import { FaArrowCircleUp } from "react-icons/fa";
 import { FaArrowCircleDown } from "react-icons/fa";
 import { TfiBackLeft } from "react-icons/tfi";
+import { HiOutlineCurrencyDollar } from "react-icons/hi";
 import Voltar from "../Voltar";
+import { BsFillCreditCard2BackFill, BsGift } from "react-icons/bs";
+import { IoIosAddCircleOutline } from "react-icons/io";
 
 
 const Categoria = () => {
     const { logout } = useContext(AuthContext);
     const [show, setShow] = useState(false);
+    const [show2, setShow2] = useState(false);
+
 
     return (
         <>
             <div className="options-container container-categoria">
                 <h1 id="titulo-categoria">Categoria</h1>
 
-                <div className="option-card categoria-receitas">
+                <div className="option-card categoria-receitas"
+                    onClick={() => setShow(true)}
+                >
                     <FaArrowCircleUp className="icone-receita" />
 
                     {/*
@@ -38,18 +45,7 @@ const Categoria = () => {
                     &nbsp;Categoria de despesas
                 </div>
 
-                <div className="option-card voltar-categoria ">
-                    
-                    <Voltar />
-                    
-                    
-                </div>
-
-
-                
-
-
-
+                <Voltar/>
 
                 <Modal
                     show={show}
@@ -57,29 +53,38 @@ const Categoria = () => {
                         setShow(false);
                     }}
                 >
-                    <div className="reset-account-modal bg-1">
-                        <div className="titulo-privacy-modal">
-                            <h1 id="titulo-modal">Reset da Conta</h1>
-                        </div>
-                        <div className="icone-warning-privacy">
-                            <ImWarning />
+
+                    <div className="categoria-receita-modal">
+                        <h1>Categoria receitas</h1>
+                        <div className="option-card modal-salario" >
+                            <HiOutlineCurrencyDollar className="icone-logout icone-salario" />
+                            Salário
                         </div>
 
-                        <p id="alerta-reset">
-                            Esta ação irá apagar todas as transações realizadas em sua conta e a
-                            mesma voltará aos padrões iniciais. <br /> <br />
-                            Confirma a exlusão dos dados?
-                        </p>
+                        <div className="option-card modal-presente" >
+                            <BsGift className="icone-logout icone-presente" />
+                            Presente
 
-                        <div className="icones-apagar-conta-privacy">
-                            <div className="icone-verificado-privacy">
-                                <TiTickOutline />
-                            </div>
-                            <div className="icone-cancel-privacy">
-                                <MdCancel />
-                            </div>
                         </div>
+                        <div className="option-card modal-beneficio" >
+                            <BsFillCreditCard2BackFill className="icone-logout icone-beneficio" />
+                            Benefício
+                        </div>
+
+                        <div className="option-card modal-adicionar" >
+                            <IoIosAddCircleOutline className="icone-logout icone-adicionar" />
+                            Adicionar
+                        </div>
+
+                        <Voltar />
                     </div>
+
+
+
+
+
+
+
                 </Modal>
             </div>
         </>
