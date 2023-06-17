@@ -46,7 +46,7 @@ const Preferences = () => {
           </div>
         </Link>
 
-        <Link to="">
+        <Link to="/app/options/categoria">
           <div className="option-card categorias">
             <BiCategory className="icone-categorias" />
             Categorias

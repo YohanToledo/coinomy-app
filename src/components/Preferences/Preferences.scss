@@ -22,7 +22,7 @@
   border-radius: 12px;
   margin: 0.5rem 0;
   color: black;
-  font-weight: bolder;
+  //font-weight: bolder;
   font-size: 1.5rem;
   width: 100%;
   display: flex;
@@ -31,6 +31,7 @@
 
 .option-card:hover {
   cursor: pointer;
+  transform: scale(1.014);
 }
 
 .privacy:hover {
@@ -76,6 +77,12 @@
 
 .contas:hover {
   background-color: rgba(159, 149, 186, 0.897);
+}
+
+// escondendo a div contas, implementação em outro momento.
+
+.contas{
+  display: none;
 }
 
 .icone-conta {
