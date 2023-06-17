@@ -1,67 +1,144 @@
 import Voltar from "../Voltar";
-import { BsGift, BsFillCreditCard2BackFill } from "react-icons/bs";
-import { TbCurrencyGuarani, TbCurrencyPeso, TbCurrencyReal } from "react-icons/tb";
+import {
+  BsGift,
+  BsFillCreditCard2BackFill,
+  BsCurrencyDollar,
+  BsCurrencyEuro,
+} from "react-icons/bs";
+import {
+  TbCurrencyGuarani,
+  TbCurrencyDollarCanadian,
+  TbCurrencyReal,
+} from "react-icons/tb";
 import { HiOutlineCurrencyDollar } from "react-icons/hi";
-import { IoIosAddCircleOutline } from "react-icons/io";
-import Modal from "../Modal";
 import { useState } from "react";
 import "./Moneytype.scss";
 import { AiOutlineEuroCircle } from "react-icons/ai";
+import StaticData from "../../shared/static/static-data";
+import Modal from "../Modal";
 const MoneyType = () => {
-    const [show, setShow] = useState(false);
-    const [show2, setShow2] = useState(false);
-    return (
-        <>
-            <div className="options-container container-money-type">
-                <div className="money-types"
-                    onClick={(e: any) => {
-                        e.stopPropagation();
-                    }}>
+  const [showConfirmDialog, setShowConfirmDialog] = useState(false);
 
-                    <h1>Escolher a moeda</h1>
+  const DEFAULT_CURRENCY = "R$";
+  const [currency, setCurrency] = useState(DEFAULT_CURRENCY);
+  const currentCurrency = StaticData.getCurrency();
 
-                    <div className="option-card modal-real-money-type">
-                        <TbCurrencyReal className="icone-logout icone-real" />
-                        Real
-                    </div>
+  const updateCurrencyUsed = () => {
+    StaticData.saveCurrency(currency);
+  };
 
-                    <div className="option-card modal-dolar-money-type" >
-                        <HiOutlineCurrencyDollar className="icone-logout icone-dolar" />
-                        Dolar
-                    </div>
+  return (
+    <>
+      <div className="options-container container-money-type">
+        <div
+          className="money-types"
+          onClick={(e: any) => {
+            e.stopPropagation();
+          }}
+        >
+          <h1>Escolha a moeda</h1>
 
-                    <div className="option-card modal-euro-money-type" >
-                        <AiOutlineEuroCircle className="icone-logout icone-moneytype" />
-                        Euro
-                    </div>
-                    <div className="option-card modal-peso-moneyType" >
-                        <TbCurrencyPeso className="icone-logout icone-pesos" />
-                        Pesos
-                    </div>
+          <h5>Atual: {currentCurrency}</h5>
 
-                    <div className="option-card modal-real-money-type" >
-                        <TbCurrencyGuarani className="icone-logout icone-real" />
-                        Guaraní PY
-                    </div>                    
-                </div>
+          <div
+            className="option-card modal-real-money-type"
+            onClick={() => {
+              setCurrency("R$");
+              setShowConfirmDialog(true);
+            }}
+          >
+            <TbCurrencyReal className="icone-logout icone-real" />
+            Real
+          </div>
 
-                <Modal
-                    show={show}
-                    onClose={() => {
-                        setShow(false);
-                    }}
-                >
+          <div
+            className="option-card modal-dolar-money-type"
+            onClick={() => {
+              setCurrency("$");
+              setShowConfirmDialog(true);
+            }}
+          >
+            <BsCurrencyDollar className="icone-logout icone-dolar" />
+            Dolar
+          </div>
+          <div
+            className="option-card modal-peso-moneyType"
+            onClick={() => {
+              setCurrency("C$");
+              setShowConfirmDialog(true);
+            }}
+          >
+            <TbCurrencyDollarCanadian className="icone-logout icone-pesos" />
+            Dolar Canadense
+          </div>
+          <div
+            className="option-card modal-euro-money-type"
+            onClick={() => {
+              setCurrency("€");
+              setShowConfirmDialog(true);
+            }}
+          >
+            <BsCurrencyEuro className="icone-logout icone-moneytype" />
+            Euro
+          </div>
 
-                    <div className="categoria-receita-modal"
-                        onClick={(e: any) => {
-                            e.stopPropagation();
-                        }}>
+          <div
+            className="option-card modal-real-money-type"
+            onClick={() => {
+              setCurrency("₲");
+              setShowConfirmDialog(true);
+            }}
+          >
+            <TbCurrencyGuarani className="icone-logout icone-real" />
+            Guaraní PY
+          </div>
+        </div>
+      </div>
 
-                    </div>
-
-                </Modal>
+      <Modal
+        show={showConfirmDialog}
+        onClose={() => setShowConfirmDialog(false)}
+      >
+        <div
+          onClick={(e: any) => {
+            e.stopPropagation();
+          }}
+        >
+          <div className="delete-transaction-confirmation">
+            <div>
+              <h2 className="delete-transaction-title">Alterar moeda</h2>
             </div>
-        </>
-    )
-}
+            <div>
+              <h3 className="delete-transaction-warn">
+                Deseja realmente alterar a moeda utilizada? {currentCurrency}{" "}
+                &#x2192; {currency}
+              </h3>
+            </div>
+            <div className="delete-transaction-buttons">
+              <div>
+                <button
+                  type="button"
+                  className="delete-transaction-confirm"
+                  onClick={() => {
+                    updateCurrencyUsed();
+                    setShowConfirmDialog(false);
+                  }}
+                >
+                  SIM
+                </button>
+                <button
+                  type="button"
+                  className="delete-transaction-cancel"
+                  onClick={() => setShowConfirmDialog(false)}
+                >
+                  NÃO
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Modal>
+    </>
+  );
+};
 export default MoneyType;
