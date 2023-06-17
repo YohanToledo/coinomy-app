@@ -1,225 +1,144 @@
 //classes
 
 .container-categoria {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
-.categoria-receitas {}
+.categoria-receitas {
+}
 
 //animações
 
 .categoria-receitas:hover {
-    background: green;
-    transform: scale(1.012);
+  background: green;
+  transform: scale(1.012);
 
-    .icone-receitas {
-        color: white;
-    }
+  .icone-receitas {
+    color: white;
+  }
 
-    .icone-receita {
-        color: white;
-    }
+  .icone-receita {
+    color: white;
+  }
 }
 
 .categoria-despesas:hover {
-    background: rgba(201, 45, 6, 0.89);
-    transform: scale(1.012);
+  background: rgba(201, 45, 6, 0.89);
+  transform: scale(1.012);
 
-    .icone-despesa {
-        color: white;
-    }
+  .icone-despesa {
+    color: white;
+  }
 }
 
 .voltar-categoria:hover {
-    background: grey;
-    transform: scale(1.012);
+  background: grey;
+  transform: scale(1.012);
 
-    .icone-voltar {
-        color: rgb(83, 199, 16);
-    }
+  .icone-voltar {
+    color: rgb(83, 199, 16);
+  }
 }
-
-//modais
-
-.categoria-receita-modal {
-    width: 80%;
-    backdrop-filter: blur(600px);
-    height: 50%;
-    margin-bottom: 85%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-.modal-salario:hover {
-    background: rgb(191, 228, 136);
-}
-
-.modal-presente:hover {
-    background: rgb(211, 195, 104);
-    color: white;
-}
-
-.modal-beneficio:hover {
-    background: rgb(119, 119, 185);
-    color: white;
-}
-
-.modal-adicionar:hover {
-    color: white;
-    background: rgb(230, 113, 136);
-}
-
-.titulo {
-    margin-bottom: 10%;
-}
-
-//media
-
-@media screen and (min-width: 300px) {
-    .categoria-receita-modal {
-        margin-top: 60%;
-        align-items: center;
-        width: 80%;
-        height: 80%;
-        backdrop-filter: blur(5px);
-
-    }
-}
-
-@media screen and (min-width: 700px) {
-    .categoria-receita-modal {
-        margin-top: 80%;
-        align-items: center;
-        width: 80%;
-        height: 80%;
-        backdrop-filter: blur(5px);
-    }
-}
-
-@media screen and (min-height: 900px) {
-    .categoria-receita-modal {
-        margin-top: 60%;
-        align-items: center;
-        width: 80%;
-        height: 80%;
-        backdrop-filter: blur(5px);
-    }
-}
-
-@media screen and (min-width: 1200px) {
-    .categoria-receita-modal {
-        margin-top: 70%;
-        align-items: center;
-        width: 80%;
-        backdrop-filter: blur(5px);
-    }
-}
-
-// icones
 
 .icone-receita {
-    color: green;
-    margin-left: 4px;
+  color: green;
+  margin-left: 4px;
 }
 
 .icone-despesa {
-    color: red;
-    margin-left: 4px;
+  color: red;
+  margin-left: 4px;
 }
 
 .icone-voltar {
-    font: bold;
+  font: bold;
 }
-
-.icone-salario {
-    color: green;
-}
-
-.icone-presente {
-    color: rgb(197, 126, 44);
-}
-
-.icone-beneficio {
-    color: rgb(54, 105, 216);
-}
-
-.icone-adicionar {
-    color: crimson;
-}
-
-
 
 // modal cadastrar despesas
 
+.w-100 {
+  width: 100%;
+}
+
 .modal-nomeCategoria {
-    background: var(--primary-color-darker);
-    width: 500px;
-    height: 350px;
-    border-radius: 8px;
-    padding: 1rem;
-    margin: 2rem;    
+  background: var(--primary-color-darker);
+  width: 500px;
+  height: 300px;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: auto;
+
+  @media screen and (max-width: 700px) {
+    width: 80%;
+  }
 }
 
 .categoria-modal-titulo {
-    text-align: center;
-    padding: 0.5rem;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.titulo-criar-categoria {
+  font-size: 1.5rem;
 }
 
 .categoria-modal-section input {
-    all: unset; // resetando todos os estilos
-    width: 100%;
-    padding: 2px;
-    border-bottom: 2px solid var(--secondary-color);
+  all: unset; // resetando todos os estilos
+  width: 100%;
+  padding: 2px;
+  border-bottom: 2px solid var(--secondary-color);
 }
 
-.categoria-selecionar-icone{
-    position: fixed;
+.categoria-selecionar-icone {
+  position: fixed;
 }
 
 .p-m-1 {
-    padding: 1rem;
-    margin: 0.5rem;
+  padding: 1rem;
+  margin: 0.5rem;
 }
 
-.categoria-modal-icones button{
-    all:unset;
-    height: 40px;
-    border-radius: 8px;
-    background: transparent;
-    border: 1px solid var(--secondary-color);
-    width: 160px;
-    padding: 0.2rem;
-    text-align: center;
-    cursor: pointer;
+.categoria-modal-icones button {
+  all: unset;
+  height: 40px;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid var(--secondary-color);
+  width: 160px;
+  padding: 0.2rem;
+  text-align: center;
+  cursor: pointer;
+
+  @media screen and (max-width: 700px) {
+    width: 120px;
+  }
 }
-
-.categoria-modal-salvar {}
-
-
 
 .categoria-modal-salvar {
-    margin: 0.5rem;
-    display: flex;
-    justify-content: flex-end;
-  
-    button {
-      all: unset;
-      width: 70px;
-      height: 30px;
-      padding: 0.2rem;
-      text-align: center;
-      font-size: 1.1rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      cursor: pointer;
-      margin-left: 1.5rem;
-      border-radius: 5px;
-      background-color: rgba(62, 190, 240, 0.616);
-    }      
-  }
+}
 
-.showIcons{
-    display: none;
+.categoria-modal-salvar {
+  margin: 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+
+  button {
+    all: unset;
+    width: 70px;
+    height: 30px;
+    padding: 0.2rem;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-left: 1.5rem;
+    border-radius: 5px;
+    background-color: rgba(62, 190, 240, 0.616);
+  }
+}
+
+.hideIcons {
+  display: none;
 }

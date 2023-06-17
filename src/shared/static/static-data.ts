@@ -12,7 +12,7 @@ class StaticData {
     },
     {
       description: "Mercado",
-      icon: "AiFillShop",
+      icon: "BsFillCartFill",
       type: "EXPENSE",
       id: 23,
     },
@@ -36,8 +36,16 @@ class StaticData {
     },
   ];
 
+  static saveDefaultCategoriesToLocalStorage = () => {
+    if (window.localStorage.getItem("_categories")) {
+      return;
+    }
+
+    window.localStorage.setItem("_categories", JSON.stringify(this.categories));
+  };
+
   static saveCategoriesToLocalStorage = () => {
-    window.localStorage.setItem("categories", JSON.stringify(this.categories));
+    window.localStorage.setItem("_categories", JSON.stringify(this.categories));
   };
 
   static saveToLocalStorage = () => {
@@ -72,7 +80,8 @@ class StaticData {
     //reset categories array
     this.categories = [];
 
-    const categoriesStrJson = window.localStorage.getItem("categories") || "[]";
+    const categoriesStrJson =
+      window.localStorage.getItem("_categories") || "[]";
 
     const categoriesParsed: any[] = JSON.parse(categoriesStrJson);
 
@@ -87,6 +96,7 @@ class StaticData {
   };
 
   static addCategory = (category: Category) => {
+    this.loadCategories();
     this.categories.push(category);
     this.saveCategoriesToLocalStorage();
   };
@@ -179,6 +189,20 @@ class StaticData {
       date1.getMonth() === date2.getMonth() &&
       date1.getFullYear() === date2.getFullYear()
     );
+  };
+
+  static getCurrency = () => {
+    return window.localStorage.getItem("currency");
+  };
+
+  static saveCurrency = (currency: string) => {
+    window.localStorage.setItem("currency", currency);
+  };
+
+  static saveDefaultCurrency = (currency: string) => {
+    if (!this.getCurrency()) {
+      window.localStorage.setItem("currency", currency);
+    }
   };
 }
 

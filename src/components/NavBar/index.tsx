@@ -8,7 +8,7 @@ import { BiPlus } from "react-icons/bi";
 import { CiCalculator2 } from "react-icons/ci";
 
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Transaction } from "../../ts/types/transaction.types";
 import Transactions from "../Transactions";
@@ -28,12 +28,11 @@ const NavBar = () => {
   const [showTransactionOptions, setShowTransactionOptions] = useState(false);
   const [selected, setSelected] = useState({
     home: true,
-    new: false,
     options: false,
   });
 
   const select = (page: "home" | "options") => {
-    const allDisabled = { home: false, new: false, options: false };
+    const allDisabled = { home: false, options: false };
 
     setSelected({ ...allDisabled, [page]: true });
   };

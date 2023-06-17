@@ -1,58 +1,20 @@
-import { BsFillCartFill, BsFillHouseDoorFill } from "react-icons/bs";
-import { RiGasStationFill } from "react-icons/ri";
-import { MdOutlineAttachMoney } from "react-icons/md";
-import {
-  AiFillCloud,
-  AiFillCar,
-  AiFillCreditCard,
-  AiFillGift,
-  AiFillMedicineBox,
-  AiFillShop,
-  AiFillSkin,
-  AiOutlineBank,
-} from "react-icons/ai";
 import "./IconsSelectBox.scss";
 import { useState } from "react";
-
-const ICONS = [
-  "MdOutlineAttachMoney",
-  "BsFillCartFill",
-  "BsFillHouseDoorFill",
-  "RiGasStationFill",
-  "AiFillCloud",
-  "AiFillCar",
-  "AiFillCreditCard",
-  "AiFillGift",
-  "AiFillMedicineBox",
-  "AiFillShop",
-  "AiFillSkin",
-  "AiOutlineBank",
-];
-
-const Icons: any = {
-  MdOutlineAttachMoney: <MdOutlineAttachMoney />,
-  BsFillCartFill: <BsFillCartFill />,
-  BsFillHouseDoorFill: <BsFillHouseDoorFill />,
-  RiGasStationFill: <RiGasStationFill />,
-  AiFillCloud: <AiFillCloud />,
-  AiFillCar: <AiFillCar />,
-  AiFillCreditCard: <AiFillCreditCard />,
-  AiFillGift: <AiFillGift />,
-  AiFillMedicineBox: <AiFillMedicineBox />,
-  AiFillShop: <AiFillShop />,
-  AiFillSkin: <AiFillSkin />,
-  AiOutlineBank: <AiOutlineBank />,
-};
+import { CategoryIcon } from "../../ts/types/category-icon.types";
+import {
+  CategoryIconsMapper,
+  IconsList,
+} from "../../ts/mappers/category-icons.mapper";
 
 type Props = {
-  setIconSelected: (icon: string) => void;
+  setIconSelected: (icon: CategoryIcon) => void;
 };
 
 const IconsSelectBox = ({ setIconSelected }: Props) => {
   const [selected, setSelected] = useState<number>(0);
   return (
     <div className="icons-grid-container">
-      {ICONS.map((icon, index) => (
+      {IconsList.map((icon, index) => (
         <div
           key={index}
           className={`icons-grid-item ${
@@ -63,7 +25,7 @@ const IconsSelectBox = ({ setIconSelected }: Props) => {
             setSelected(index);
           }}
         >
-          <div className="icon">{Icons[icon]}</div>
+          <div className="icon">{CategoryIconsMapper[icon]}</div>
         </div>
       ))}
     </div>

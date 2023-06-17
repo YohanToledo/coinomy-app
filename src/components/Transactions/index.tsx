@@ -11,6 +11,8 @@ import "./Transactions.scss";
 import { useEffect, useState } from "react";
 import { Category } from "../../ts/types/category.types";
 import StaticData from "../../shared/static/static-data";
+import { CategoryIconsMapper } from "../../ts/mappers/category-icons.mapper";
+import { formatCurrency } from "../../utils/format-currency";
 
 type Props = {
   title: "RECEITA" | "DESPESA";
@@ -39,7 +41,7 @@ const Transactions = ({
     value: String(transactionCategory?.id || 0),
   });
 
-  StaticData.saveCategoriesToLocalStorage();
+  StaticData.saveDefaultCategoriesToLocalStorage();
   const categories: Category[] = StaticData.findAllCategories();
 
   const [disabledSaveButton, setDisabledSaveButton] = useState(true);
@@ -86,15 +88,26 @@ const Transactions = ({
     const isDescriptionEmpty = description === "";
     const isValueEmpty = value === "";
     const isCategoryNotSelected = category.value === "0";
+    const isDateEmpty = time === "";
 
     setDisabledSaveButton(
-      isDescriptionEmpty || isValueEmpty || isCategoryNotSelected
+      isDescriptionEmpty || isValueEmpty || isCategoryNotSelected || isDateEmpty
     );
   };
 
   useEffect(() => {
     handleFieldsNotEmpty();
-  }, [description, category, value]);
+  }, [description, category, value, time]);
+
+  const getIconCategorySelected = () => {
+    let c = categories.find((c) => c.id === Number(category.value))?.icon;
+
+    if (c) {
+      return CategoryIconsMapper[c];
+    } else {
+      return <BsFillTagFill />;
+    }
+  };
 
   return (
     <>
@@ -123,7 +136,10 @@ const Transactions = ({
                   <div className="transactionIcons">
                     <BsFillCalculatorFill />
                   </div>
-                  <InputMoney value={value} setValue={setValue} />
+                  <InputMoney
+                    value={formatCurrency(value)}
+                    setValue={setValue}
+                  />
                 </div>
               </label>
             </div>
@@ -169,7 +185,7 @@ const Transactions = ({
               <label htmlFor="categoria-addTransactions">
                 <div className="input-field-addTransactions">
                   <div className="transactionIcons">
-                    <BsFillTagFill />
+                    {getIconCategorySelected()}
                   </div>
                   <div className="list-addTransactions dropdown-category">
                     <Dropdown

@@ -1,12 +1,12 @@
 import "./Card.scss";
 import { useState } from "react";
-import { BiUpsideDown, BiPencil, BiTrash } from "react-icons/bi";
-import { FaTrashAlt, FaPen } from "react-icons/fa";
+import { BiPencil, BiTrash } from "react-icons/bi";
 import { Transaction } from "../../ts/types/transaction.types";
 import { CategoryIconsMapper } from "../../ts/mappers/category-icons.mapper";
 import Modal from "../Modal";
 import Transactions from "../Transactions";
 import StaticData from "../../shared/static/static-data";
+import { formatCurrency } from "../../utils/format-currency";
 
 type Props = {
   cardInfo: Transaction;
@@ -41,15 +41,20 @@ const Card = ({ cardInfo, hideValue, onDelete }: Props) => {
           }}
         >
           <div className="card-icon-desc">
-            <div className="ci">
+            <div
+              className="ci desc-on-hover"
+              title={cardInfo.category.description}
+            >
               {CategoryIconsMapper[cardInfo.category.icon]}
             </div>
             <div className="card-description">{cardInfo.description}</div>
           </div>
 
           <div className="card-value">
-            <div>{cardInfo.type === "EXPENSE" ? "- R$" : "+ R$"}</div>
-            <div>{hideValue ? "******" : cardInfo.value.toFixed(2)}</div>
+            <div>{cardInfo.type === "EXPENSE" ? "-" : "+"}</div>
+            <div>
+              {hideValue ? "******" : formatCurrency(cardInfo.value.toFixed(2))}
+            </div>
             <button
               type="button"
               className="appear-on-hover delete-edit-transaction"
