@@ -134,6 +134,7 @@ const Categoria = () => {
                   </section>
                 </div>
               </form>
+
             </div>
           </div>
         </Modal>
