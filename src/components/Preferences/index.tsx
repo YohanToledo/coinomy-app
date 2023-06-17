@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./Preferences.scss";
 import { ImCoinDollar } from "react-icons/im";
 import { TfiBackLeft } from "react-icons/tfi";
@@ -9,10 +9,12 @@ import { MdOutlineManageAccounts } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { FcPrivacy } from "react-icons/fc";
 import { AuthContext } from "../../context/AuthContext";
+import MoneyType from "../MoneyType";
+import Modal from "../Modal";
 
 const Preferences = () => {
   const { logout } = useContext(AuthContext);
-
+  const [show, setShow] = useState(false);
   return (
     <>
       <div className="options-container">
@@ -32,12 +34,20 @@ const Preferences = () => {
           </div>
         </Link>
 
-        <Link to="money">
-          <div className="option-card moeda">
-            <ImCoinDollar className="icone-moeda" />
-            Moeda
-          </div>
-        </Link>
+        <div className="option-card moeda" onClick={() => setShow(true)}>
+          <ImCoinDollar className="icone-moeda" />
+          Moeda
+        </div>
+
+        <Modal
+          show={show}
+          onClose={() => {
+            setShow(false);
+          }}
+        >
+          <MoneyType />
+
+        </Modal>
 
         <Link to="">
           <div className="option-card contas">

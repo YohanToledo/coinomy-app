@@ -15,7 +15,7 @@ const Categoria = () => {
     const [typeCategory, setTypeCategory] = useState<"INCOME" | "EXPENSE">("INCOME");
     const [iconeSelected, setIconSelected] = useState("");
     console.log(iconeSelected);
-    
+
     const [showIcons, setShowIcons] = useState(false);
 
     return (
@@ -89,7 +89,7 @@ const Categoria = () => {
                                         </button>
                                     </section>
 
-                                    <div className={`categoria-selecionar-icone ${showIcons ? "showIcons" : "" }` }>
+                                    <div className={`categoria-selecionar-icone ${showIcons ? "showIcons" : ""}`}>
                                         <IconsSelectBox setIconSelected={setIconSelected} />
                                     </div>
 
@@ -105,10 +105,6 @@ const Categoria = () => {
                         </div>
 
                     </div>
-
-
-
-
                 </Modal>
             </div>
         </>
