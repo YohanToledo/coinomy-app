@@ -2,8 +2,8 @@ import "./Card.scss";
 import { useState } from "react";
 import { BiUpsideDown, BiPencil, BiTrash } from "react-icons/bi";
 import { FaTrashAlt, FaPen } from "react-icons/fa";
-import { Transaction } from "./types/Transaction";
-import { Icons } from "./Icons";
+import { Transaction } from "../../ts/types/transaction.types";
+import { CategoryIconsMapper } from "../../ts/mappers/category-icons.mapper";
 import Modal from "../Modal";
 import Transactions from "../Transactions";
 import StaticData from "../../shared/static/static-data";
@@ -16,6 +16,7 @@ type Props = {
 
 const Card = ({ cardInfo, hideValue, onDelete }: Props) => {
   const [showTranasctionForm, setShowTranasctionForm] = useState(false);
+  const [showConfirmDialog, setShowConfirmDialog] = useState(false);
 
   const updateTransaction = (transaction: Transaction) => {
     StaticData.updateTransaction(transaction);
@@ -41,7 +42,7 @@ const Card = ({ cardInfo, hideValue, onDelete }: Props) => {
         >
           <div className="card-icon-desc">
             <div className="ci">
-              {cardInfo.icon ? Icons[cardInfo.icon] : <BiUpsideDown />}
+              {CategoryIconsMapper[cardInfo.category.icon]}
             </div>
             <div className="card-description">{cardInfo.description}</div>
           </div>
@@ -59,7 +60,7 @@ const Card = ({ cardInfo, hideValue, onDelete }: Props) => {
             <button
               type="button"
               className="appear-on-hover delete-edit-transaction"
-              onClick={() => onDelete(cardInfo.id)}
+              onClick={() => setShowConfirmDialog(true)}
             >
               <BiTrash />
             </button>
@@ -81,11 +82,53 @@ const Card = ({ cardInfo, hideValue, onDelete }: Props) => {
             transactionId={cardInfo.id}
             transactionValue={cardInfo.value.toString()}
             transactionDescription={cardInfo.description}
+            transactionCategory={cardInfo.category}
             transactionDate={
               cardInfo.transactionDate.toISOString().split("T")[0]
             }
             onSave={updateTransaction}
           />
+        </div>
+      </Modal>
+
+      <Modal
+        show={showConfirmDialog}
+        onClose={() => setShowConfirmDialog(false)}
+      >
+        <div
+          onClick={(e: any) => {
+            e.stopPropagation();
+          }}
+        >
+          <div className="delete-transaction-confirmation">
+            <div>
+              <h2 className="delete-transaction-title">Excluir transação?</h2>
+            </div>
+            <div>
+              <h3 className="delete-transaction-warn">
+                Essa transação será excluida permanentemente e não será possível
+                desfazer essa ação.
+              </h3>
+            </div>
+            <div className="delete-transaction-buttons">
+              <div>
+                <button
+                  type="button"
+                  className="delete-transaction-confirm"
+                  onClick={() => onDelete(cardInfo.id)}
+                >
+                  SIM
+                </button>
+                <button
+                  type="button"
+                  className="delete-transaction-cancel"
+                  onClick={() => setShowConfirmDialog(false)}
+                >
+                  NÃO
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </Modal>
     </>

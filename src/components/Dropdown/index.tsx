@@ -5,7 +5,7 @@ import {
   MdOutlineKeyboardArrowUp,
 } from "react-icons/md";
 
-type Item = {
+export type Item = {
   value: string;
   label: string;
 };
@@ -41,14 +41,10 @@ const Dropdown = ({ items, selected, setSelected }: Props) => {
         <ul className="dropdown-menu bg-3">
           {items.map((item) => (
             <li
+              key={item.value}
               className="dropdown-item s-c bottom"
-              value={`${item.value}`}
-              accessKey={item.label}
-              onClick={(e: any) => {
-                setSelected({
-                  label: e.target.accessKey,
-                  value: String(e.target.value),
-                });
+              onClick={() => {
+                setSelected(item);
                 setShowDropdown(!showDropdown);
               }}
             >

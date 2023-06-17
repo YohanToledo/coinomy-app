@@ -6,7 +6,6 @@ import NavBar from "../NavBar";
 const PrivateRoute = () => {
   const { isAuthenticated } = useContext(AuthContext);
 
-  console.log({ isAuthenticated });
   return isAuthenticated ? (
     <>
       <div className="container">

@@ -4,12 +4,13 @@ import {
   BsFillPencilFill,
   BsFillTagFill,
 } from "react-icons/bs";
-
 import InputMoney from "../MoneyWrite";
-import Dropdown from "../Dropdown";
-import { Transaction } from "../Card/types/Transaction";
+import Dropdown, { Item } from "../Dropdown";
+import { Transaction } from "../../ts/types/transaction.types";
 import "./Transactions.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Category } from "../../ts/types/category.types";
+import StaticData from "../../shared/static/static-data";
 
 type Props = {
   title: "RECEITA" | "DESPESA";
@@ -17,7 +18,7 @@ type Props = {
   transactionValue?: string;
   transactionDate?: string;
   transactionDescription?: string;
-  transactionCategory?: string;
+  transactionCategory?: Category;
   transactionBank?: string;
   onSave: (transaction: Transaction) => void;
 };
@@ -27,31 +28,50 @@ const Transactions = ({
   transactionValue,
   transactionDescription,
   transactionDate,
+  transactionCategory,
   onSave,
 }: Props) => {
   const [value, setValue] = useState(transactionValue || "");
   const [time, setTime] = useState(transactionDate || "");
-  const [desc, setDescription] = useState(transactionDescription || "");
-  const [category, setCategory] = useState({ label: "Categoria", value: "1" });
+  const [description, setDescription] = useState(transactionDescription || "");
+  const [category, setCategory] = useState({
+    label: transactionCategory?.description || "Categoria",
+    value: String(transactionCategory?.id || 0),
+  });
 
-  const [disabledSaveButton, setDisabledSaveButton] = useState(false);
+  StaticData.saveCategoriesToLocalStorage();
+  const categories: Category[] = StaticData.findAllCategories();
+
+  const [disabledSaveButton, setDisabledSaveButton] = useState(true);
+
+  const loadCategoriesSelect = () => {
+    const categorySelectOptions: Item[] = [];
+
+    const _type = title === "RECEITA" ? "INCOME" : "EXPENSE";
+
+    categories.map((c) => {
+      if (c.type === _type)
+        categorySelectOptions.push({
+          label: c.description,
+          value: String(c.id),
+        });
+    });
+
+    return categorySelectOptions;
+  };
 
   const saveTransaction = () => {
+    //prevent double click (temporary)
     setDisabledSaveButton(true);
     setDisabledSaveButton(false);
 
-    const _category = category.label.toLowerCase();
-    const _icon =
-      _category === "mercado"
-        ? "BsFillCartFill"
-        : _category === "combustivel"
-        ? "RiGasStationFill"
-        : "MdOutlineAttachMoney";
+    const _defaultCategory = categories[0];
+    const _category = categories.find((c) => c.id === Number(category.value));
 
     const transaction: Transaction = {
       id: transactionId,
-      icon: _icon,
-      description: desc,
+      category: _category || _defaultCategory,
+      description: description,
       value: Number(
         value.replaceAll(",", "").replaceAll("R$", "").replaceAll(" ", "")
       ),
@@ -62,10 +82,28 @@ const Transactions = ({
     onSave(transaction);
   };
 
+  const handleFieldsNotEmpty = () => {
+    const isDescriptionEmpty = description === "";
+    const isValueEmpty = value === "";
+    const isCategoryNotSelected = category.value === "0";
+
+    setDisabledSaveButton(
+      isDescriptionEmpty || isValueEmpty || isCategoryNotSelected
+    );
+  };
+
+  useEffect(() => {
+    handleFieldsNotEmpty();
+  }, [description, category, value]);
+
   return (
     <>
       <main id="containerBaseNew-addTransactions">
-        <form id="recieve-addTransactions" className="transaction-form">
+        <form
+          id="recieve-addTransactions"
+          className="transaction-form"
+          onSubmit={saveTransaction}
+        >
           <div id="form_header-addTransactions">
             <h1
               className={
@@ -73,6 +111,7 @@ const Transactions = ({
                   ? "colorReceita"
                   : "colorDespesa"
               }
+              onClick={() => console.log(categories)}
             >
               {title}
             </h1>
@@ -119,7 +158,7 @@ const Transactions = ({
                     name="description"
                     placeholder="Descrição"
                     required
-                    value={desc}
+                    value={description}
                     onChange={(e: any) => setDescription(e.target.value)}
                   />
                 </div>
@@ -134,7 +173,7 @@ const Transactions = ({
                   </div>
                   <div className="list-addTransactions dropdown-category">
                     <Dropdown
-                      items={Categories}
+                      items={loadCategoriesSelect()}
                       selected={category}
                       setSelected={setCategory}
                     />
@@ -146,8 +185,8 @@ const Transactions = ({
           <button
             type="submit"
             id="save_button-addTransactions"
-            onClick={saveTransaction}
             disabled={disabledSaveButton}
+            className={disabledSaveButton ? "disabled-btn" : ""}
           >
             Salvar
           </button>
@@ -156,11 +195,5 @@ const Transactions = ({
     </>
   );
 };
-
-const Categories = [
-  { label: "Mercado", value: "Mercado" },
-  { label: "Salario", value: "Salario" },
-  { label: "Combustivel", value: "Combustivel" },
-];
 
 export default Transactions;

@@ -1,11 +1,48 @@
-import { Transaction } from "../../components/Card/types/Transaction";
+import { Transaction } from "../../ts/types/transaction.types";
+import { Category } from "../../ts/types/category.types";
 
 class StaticData {
   static transactions: Transaction[] = [];
+  static categories: Category[] = [
+    {
+      description: "Outros",
+      icon: "MdOutlineAttachMoney",
+      type: "EXPENSE",
+      id: 11,
+    },
+    {
+      description: "Mercado",
+      icon: "AiFillShop",
+      type: "EXPENSE",
+      id: 23,
+    },
+    {
+      description: "Combustível",
+      icon: "RiGasStationFill",
+      type: "EXPENSE",
+      id: 54,
+    },
+    {
+      description: "Salário",
+      icon: "MdOutlineAttachMoney",
+      type: "INCOME",
+      id: 28,
+    },
+    {
+      description: "Presente",
+      icon: "AiFillGift",
+      type: "INCOME",
+      id: 90,
+    },
+  ];
+
+  static saveCategoriesToLocalStorage = () => {
+    window.localStorage.setItem("categories", JSON.stringify(this.categories));
+  };
 
   static saveToLocalStorage = () => {
     window.localStorage.setItem(
-      "transactions",
+      "_transactions",
       JSON.stringify(this.transactions)
     );
   };
@@ -14,15 +51,15 @@ class StaticData {
     //reset transactions array
     this.transactions = [];
 
-    const transactionsStrVal =
-      window.localStorage.getItem("transactions") || "[]";
+    const transactionsStrJson =
+      window.localStorage.getItem("_transactions") || "[]";
 
-    const transactionsParsed: any[] = JSON.parse(transactionsStrVal);
+    const transactionsParsed: any[] = JSON.parse(transactionsStrJson);
 
     transactionsParsed.map((t) => {
       this.transactions.push({
         id: t.id,
-        icon: t.icon,
+        category: t.category,
         description: t.description,
         value: t.value,
         transactionDate: new Date(t.transactionDate),
@@ -31,9 +68,45 @@ class StaticData {
     });
   };
 
+  static loadCategories = () => {
+    //reset categories array
+    this.categories = [];
+
+    const categoriesStrJson = window.localStorage.getItem("categories") || "[]";
+
+    const categoriesParsed: any[] = JSON.parse(categoriesStrJson);
+
+    categoriesParsed.map((c) => {
+      this.categories.push({
+        id: c.id,
+        icon: c.icon,
+        description: c.description,
+        type: c.type,
+      });
+    });
+  };
+
+  static addCategory = (category: Category) => {
+    this.categories.push(category);
+    this.saveCategoriesToLocalStorage();
+  };
+
   static addTransaction = (transaction: Transaction) => {
     this.transactions.push(transaction);
     this.saveToLocalStorage();
+  };
+
+  static updateCategory = (category: Category) => {
+    const index = this.categories.findIndex((c) => c.id === category.id);
+
+    if (index !== null && index !== undefined) {
+      this.categories[index] = category;
+      this.saveCategoriesToLocalStorage();
+
+      return;
+    } else {
+      console.log(`Index not found for category id: ${category.id}`);
+    }
   };
 
   static updateTransaction = (transaction: Transaction) => {
@@ -54,9 +127,19 @@ class StaticData {
     this.saveToLocalStorage();
   };
 
+  static deleteCategory = (id: number) => {
+    this.categories = this.categories.filter((c) => c.id !== id);
+    this.saveCategoriesToLocalStorage();
+  };
+
   static findAllTransactions = () => {
     this.loadFromLocalStorage();
     return this.transactions;
+  };
+
+  static findAllCategories = () => {
+    this.loadCategories();
+    return this.categories;
   };
 
   static totalExpenseValue = (date: Date) => {

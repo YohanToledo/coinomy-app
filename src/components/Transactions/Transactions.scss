@@ -17,13 +17,13 @@
 
 //Container da tela Receita/Despesa
 #recieve-addTransactions {
-  background-color: #00455d;
+  background-color: var(--primary-color);
   display: flex;
   flex-direction: column;
-  padding: 4vh 2vw;
+  padding: 1.8rem;
   border-radius: 10px;
   gap: 3vh;
-  margin: 1rem;
+  margin: 2rem;
 }
 
 //Cabeçalho do Formulário
@@ -34,7 +34,7 @@
 }
 
 #form_header-addTransactions h1 {
-  font-size: 2.5em;
+  font-size: 2rem;
   font-weight: bold;
   letter-spacing: 2.5px;
 }
@@ -44,13 +44,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 2vh;
+  gap: 1rem;
   width: 35vw;
 }
 
 //Input para lidar com cada elemento em si, seus inputs, icone...
 .input-box-addTransactions label {
-  font-size: 0.9em;
+  font-size: 0.8rem;
   color: darkgray;
 }
 
@@ -59,9 +59,8 @@
   display: flex;
   align-items: center;
   justify-items: center;
-  gap: 2vh;
+  gap: 0.5rem;
   padding: 3px;
-  cursor: text;
   border-bottom: transparent;
 }
 
@@ -88,7 +87,7 @@
 }
 
 .input-field-addTransactions input::placeholder {
-  color: white;
+  color: rgba(255, 255, 255, 0.808);
 }
 
 .input-field-addTransactions input:focus {
@@ -97,7 +96,7 @@
 
 //Icones
 .transactionIcons {
-  font-size: 1.8em;
+  font-size: 1.5em;
   color: white;
 }
 
@@ -129,7 +128,8 @@
   background-color: #007a04;
   color: white;
   padding: 0.35em 0;
-  border-radius: 10px;
+  border-radius: 8px;
+  height: 3.2rem;
   font-size: 1.5em;
   transition: 0.5s;
 }
@@ -138,6 +138,15 @@
   background-color: #005803;
   transition: 0.5s;
   cursor: pointer;
+}
+
+#save_button-addTransactions:disabled {
+  background-color: #007a0431;
+  cursor: default;
+  color: rgba(255, 255, 255, 0.582);
+}
+
+.disabled-btn {
 }
 
 @media screen and (max-width: 700px) {
