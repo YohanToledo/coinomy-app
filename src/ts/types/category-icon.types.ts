@@ -9,7 +9,6 @@ export type CategoryIcon =
   | "AiFillMedicineBox"
   | "AiFillSkin"
   | "AiOutlineBank"
-  | "BsFillCartFill"
   | "BsFillHouseDoorFill"
   | "BsBusFrontFill"
   | "BsFillLightningFill"

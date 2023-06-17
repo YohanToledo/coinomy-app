@@ -37,15 +37,15 @@ class StaticData {
   ];
 
   static saveDefaultCategoriesToLocalStorage = () => {
-    if (window.localStorage.getItem("categories")) {
+    if (window.localStorage.getItem("_categories")) {
       return;
     }
 
-    window.localStorage.setItem("categories", JSON.stringify(this.categories));
+    window.localStorage.setItem("_categories", JSON.stringify(this.categories));
   };
 
   static saveCategoriesToLocalStorage = () => {
-    window.localStorage.setItem("categories", JSON.stringify(this.categories));
+    window.localStorage.setItem("_categories", JSON.stringify(this.categories));
   };
 
   static saveToLocalStorage = () => {
@@ -80,7 +80,8 @@ class StaticData {
     //reset categories array
     this.categories = [];
 
-    const categoriesStrJson = window.localStorage.getItem("categories") || "[]";
+    const categoriesStrJson =
+      window.localStorage.getItem("_categories") || "[]";
 
     const categoriesParsed: any[] = JSON.parse(categoriesStrJson);
 
