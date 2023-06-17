@@ -1,24 +1,22 @@
 import { useContext, useState } from "react";
 import "./Categoria.scss";
-import { ImWarning } from "react-icons/im";
-import { MdCancel } from "react-icons/md";
 import { AuthContext } from "../../context/AuthContext";
 import Modal from "../Modal";
-import { TiTickOutline } from "react-icons/ti";
 import { FaArrowCircleUp } from "react-icons/fa";
 import { FaArrowCircleDown } from "react-icons/fa";
-import { TfiBackLeft } from "react-icons/tfi";
-import { HiOutlineCurrencyDollar } from "react-icons/hi";
+import { HiOutlinePlus } from "react-icons/hi";
 import Voltar from "../Voltar";
-import { BsFillCreditCard2BackFill, BsGift } from "react-icons/bs";
-import { IoIosAddCircleOutline } from "react-icons/io";
+import IconsSelectBox from "../IconsSelectBox";
 
 
 const Categoria = () => {
     const { logout } = useContext(AuthContext);
-    const [show, setShow] = useState(false);
-    const [show2, setShow2] = useState(false);
-
+    const [showCategoryForm, setShowCategoryForm] = useState(false);
+    const [typeCategory, setTypeCategory] = useState<"INCOME" | "EXPENSE">("INCOME");
+    const [iconeSelected, setIconSelected] = useState("");
+    console.log(iconeSelected);
+    
+    const [showIcons, setShowIcons] = useState(false);
 
     return (
         <>
@@ -26,7 +24,10 @@ const Categoria = () => {
                 <h1 id="titulo-categoria">Categoria</h1>
 
                 <div className="option-card categoria-receitas"
-                    onClick={() => setShow(true)}
+                    onClick={() => {
+                        setShowCategoryForm(true);
+                        setTypeCategory("INCOME");
+                    }}
                 >
                     <FaArrowCircleUp className="icone-receita" />
 
@@ -40,47 +41,70 @@ const Categoria = () => {
                     &nbsp;Categoria de receitas
                 </div>
 
-                <div className="option-card categoria-despesas">
+                <div className="option-card categoria-despesas"
+                    onClick={() => {
+                        setShowCategoryForm(true);
+                        setTypeCategory("EXPENSE");
+                    }}
+                >
                     <FaArrowCircleDown className="icone-despesa" />
                     &nbsp;Categoria de despesas
                 </div>
 
-                <Voltar/>
+                <Voltar />
 
                 <Modal
-                    show={show}
+                    show={showCategoryForm}
                     onClose={() => {
-                        setShow(false);
+                        setShowCategoryForm(false);
                     }}
                 >
 
-                    <div className="categoria-receita-modal">
-                        <h1>Categoria receitas</h1>
-                        <div className="option-card modal-salario" >
-                            <HiOutlineCurrencyDollar className="icone-logout icone-salario" />
-                            Salário
+                    <div
+                        onClick={(e: any) => {
+                            e.stopPropagation();
+                        }}
+                    >
+                        <div className="modal-nomeCategoria">
+                            <form action="" className="modal-formulario-receitas_despesas">
+                                <div className="modal-opcoesFormulario">
+
+                                    <div className="categoria-modal-titulo">
+                                        <h1>Categoria {typeCategory === "INCOME" ? "Receitas" : "Despesas"} </h1>
+                                    </div>
+
+                                    <section className="p-m-1 categoria-modal-section">
+                                        <input type="text" name="" id="" placeholder="Descrição" />
+                                    </section>
+
+                                    <section className="p-m-1 categoria-modal-icones">
+                                        <button type="button"
+
+                                            onClick={() => {
+                                                setShowIcons(!showIcons);
+                                            }}
+                                        >
+                                            <HiOutlinePlus className="modal-icone-btn" /> Selecionar ícone
+
+                                        </button>
+                                    </section>
+
+                                    <div className={`categoria-selecionar-icone ${showIcons ? "showIcons" : "" }` }>
+                                        <IconsSelectBox setIconSelected={setIconSelected} />
+                                    </div>
+
+                                    <section className="p-m-1 categoria-modal-salvar">
+                                        <button type="button">
+                                            Salvar
+                                        </button>
+                                    </section>
+
+                                </div>
+
+                            </form>
                         </div>
 
-                        <div className="option-card modal-presente" >
-                            <BsGift className="icone-logout icone-presente" />
-                            Presente
-
-                        </div>
-                        <div className="option-card modal-beneficio" >
-                            <BsFillCreditCard2BackFill className="icone-logout icone-beneficio" />
-                            Benefício
-                        </div>
-
-                        <div className="option-card modal-adicionar" >
-                            <IoIosAddCircleOutline className="icone-logout icone-adicionar" />
-                            Adicionar
-                        </div>
-
-                        <Voltar />
                     </div>
-
-
-
 
 
 

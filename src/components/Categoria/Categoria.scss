@@ -12,7 +12,7 @@
 .categoria-receitas:hover {
     background: green;
     transform: scale(1.012);
-    
+
     .icone-receitas {
         color: white;
     }
@@ -52,16 +52,8 @@
     justify-content: space-around;
 }
 
-.icone-salario {
-    color: green;
-}
-
 .modal-salario:hover {
     background: rgb(191, 228, 136);
-}
-
-.icone-presente {
-    color: rgb(197, 126, 44);
 }
 
 .modal-presente:hover {
@@ -72,14 +64,6 @@
 .modal-beneficio:hover {
     background: rgb(119, 119, 185);
     color: white;
-}
-
-.icone-beneficio {
-    color: rgb(54, 105, 216);
-}
-
-.icone-adicionar {
-    color: crimson;
 }
 
 .modal-adicionar:hover {
@@ -147,4 +131,95 @@
 
 .icone-voltar {
     font: bold;
+}
+
+.icone-salario {
+    color: green;
+}
+
+.icone-presente {
+    color: rgb(197, 126, 44);
+}
+
+.icone-beneficio {
+    color: rgb(54, 105, 216);
+}
+
+.icone-adicionar {
+    color: crimson;
+}
+
+
+
+// modal cadastrar despesas
+
+.modal-nomeCategoria {
+    background: var(--primary-color-darker);
+    width: 500px;
+    height: 350px;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 2rem;    
+}
+
+.categoria-modal-titulo {
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.categoria-modal-section input {
+    all: unset; // resetando todos os estilos
+    width: 100%;
+    padding: 2px;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.categoria-selecionar-icone{
+    position: fixed;
+}
+
+.p-m-1 {
+    padding: 1rem;
+    margin: 0.5rem;
+}
+
+.categoria-modal-icones button{
+    all:unset;
+    height: 40px;
+    border-radius: 8px;
+    background: transparent;
+    border: 1px solid var(--secondary-color);
+    width: 160px;
+    padding: 0.2rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.categoria-modal-salvar {}
+
+
+
+.categoria-modal-salvar {
+    margin: 0.5rem;
+    display: flex;
+    justify-content: flex-end;
+  
+    button {
+      all: unset;
+      width: 70px;
+      height: 30px;
+      padding: 0.2rem;
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      cursor: pointer;
+      margin-left: 1.5rem;
+      border-radius: 5px;
+      background-color: rgba(62, 190, 240, 0.616);
+    }      
+  }
+
+.showIcons{
+    display: none;
 }
