@@ -1,118 +1,144 @@
-import { useContext, useState } from "react";
+import { useEffect, useState } from "react";
 import "./Categoria.scss";
-import { AuthContext } from "../../context/AuthContext";
 import Modal from "../Modal";
 import { FaArrowCircleUp } from "react-icons/fa";
 import { FaArrowCircleDown } from "react-icons/fa";
 import { HiOutlinePlus } from "react-icons/hi";
 import Voltar from "../Voltar";
 import IconsSelectBox from "../IconsSelectBox";
-
+import { Category } from "../../ts/types/category.types";
+import { CategoryIcon } from "../../ts/types/category-icon.types";
+import StaticData from "../../shared/static/static-data";
+import { CategoryIconsMapper } from "../../ts/mappers/category-icons.mapper";
 
 const Categoria = () => {
-    const { logout } = useContext(AuthContext);
-    const [showCategoryForm, setShowCategoryForm] = useState(false);
-    const [typeCategory, setTypeCategory] = useState<"INCOME" | "EXPENSE">("INCOME");
-    const [iconeSelected, setIconSelected] = useState("");
-    console.log(iconeSelected);
-    
-    const [showIcons, setShowIcons] = useState(false);
+  const [showCategoryForm, setShowCategoryForm] = useState(false);
+  const [typeCategory, setTypeCategory] = useState<"INCOME" | "EXPENSE">(
+    "INCOME"
+  );
+  const [description, setDescription] = useState("");
 
-    return (
-        <>
-            <div className="options-container container-categoria">
-                <h1 id="titulo-categoria">Categoria</h1>
+  const DEFAULT_ICON = "MdOutlineAttachMoney";
+  const [iconeSelected, setIconSelected] = useState<CategoryIcon>(DEFAULT_ICON);
+  const [hideIcons, setHideIcons] = useState(true);
 
-                <div className="option-card categoria-receitas"
-                    onClick={() => {
-                        setShowCategoryForm(true);
-                        setTypeCategory("INCOME");
-                    }}
-                >
-                    <FaArrowCircleUp className="icone-receita" />
+  const handleSaveCategory = () => {
+    const category: Category = {
+      id: Date.now(),
+      description: description,
+      icon: iconeSelected,
+      type: typeCategory,
+    };
 
-                    {/*
-                        " &nbsp; " este comando significa "Espaço"
-                        Alerta: Areranjo técnico profissional.
-                        Utilizei esse comando para setar um espaço entre 
-                        os ícones Categoria e receita. Caso for colocado
-                        mais espaços, vai respeitas os espaços fornecidos.                        
-                    */}
-                    &nbsp;Categoria de receitas
-                </div>
+    StaticData.addCategory(category);
+  };
 
-                <div className="option-card categoria-despesas"
-                    onClick={() => {
-                        setShowCategoryForm(true);
-                        setTypeCategory("EXPENSE");
-                    }}
-                >
-                    <FaArrowCircleDown className="icone-despesa" />
-                    &nbsp;Categoria de despesas
-                </div>
+  const handleSelecetIcon = () => setHideIcons(true);
+  useEffect(() => {
+    handleSelecetIcon();
+  }, [iconeSelected]);
 
-                <Voltar />
+  return (
+    <>
+      <div className="options-container container-categoria">
+        <h1 id="titulo-categoria">Categoria</h1>
 
-                <Modal
-                    show={showCategoryForm}
-                    onClose={() => {
-                        setShowCategoryForm(false);
-                    }}
-                >
+        <div
+          className="option-card categoria-receitas"
+          onClick={() => {
+            setShowCategoryForm(true);
+            setTypeCategory("INCOME");
+          }}
+        >
+          <FaArrowCircleUp className="icone-receita" />
+          &nbsp;Adicionar Categoria de Receita
+        </div>
 
-                    <div
-                        onClick={(e: any) => {
-                            e.stopPropagation();
-                        }}
+        <div
+          className="option-card categoria-despesas"
+          onClick={() => {
+            setShowCategoryForm(true);
+            setTypeCategory("EXPENSE");
+          }}
+        >
+          <FaArrowCircleDown className="icone-despesa" />
+          &nbsp;Adicionar Categoria de Despesa
+        </div>
+
+        <Voltar />
+
+        <Modal
+          show={showCategoryForm}
+          onClose={() => {
+            setShowCategoryForm(false);
+          }}
+        >
+          <div
+            onClick={(e: any) => {
+              e.stopPropagation();
+            }}
+            className="w-100"
+          >
+            <div className="modal-nomeCategoria">
+              <form
+                action=""
+                className="modal-formulario-receitas_despesas"
+                onSubmit={handleSaveCategory}
+              >
+                <div className="modal-opcoesFormulario">
+                  <div className="categoria-modal-titulo">
+                    <h2 className="titulo-criar-categoria">
+                      Categoria de{" "}
+                      {typeCategory === "INCOME" ? "Receitas" : "Despesas"}{" "}
+                    </h2>
+                  </div>
+
+                  <section className="p-m-1 categoria-modal-section">
+                    <input
+                      type="text"
+                      name=""
+                      id=""
+                      placeholder="Descrição"
+                      onChange={(e: any) => setDescription(e.target.value)}
+                    />
+                  </section>
+
+                  <section className="p-m-1 categoria-modal-icones">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setHideIcons(!hideIcons);
+                      }}
                     >
-                        <div className="modal-nomeCategoria">
-                            <form action="" className="modal-formulario-receitas_despesas">
-                                <div className="modal-opcoesFormulario">
+                      {iconeSelected === DEFAULT_ICON ? (
+                        <>
+                          <HiOutlinePlus className="modal-icone-btn" />{" "}
+                          Selecionar ícone
+                        </>
+                      ) : (
+                        CategoryIconsMapper[iconeSelected]
+                      )}
+                    </button>
+                  </section>
 
-                                    <div className="categoria-modal-titulo">
-                                        <h1>Categoria {typeCategory === "INCOME" ? "Receitas" : "Despesas"} </h1>
-                                    </div>
+                  <div
+                    className={`categoria-selecionar-icone ${
+                      hideIcons ? "hideIcons" : ""
+                    }`}
+                  >
+                    <IconsSelectBox setIconSelected={setIconSelected} />
+                  </div>
 
-                                    <section className="p-m-1 categoria-modal-section">
-                                        <input type="text" name="" id="" placeholder="Descrição" />
-                                    </section>
-
-                                    <section className="p-m-1 categoria-modal-icones">
-                                        <button type="button"
-
-                                            onClick={() => {
-                                                setShowIcons(!showIcons);
-                                            }}
-                                        >
-                                            <HiOutlinePlus className="modal-icone-btn" /> Selecionar ícone
-
-                                        </button>
-                                    </section>
-
-                                    <div className={`categoria-selecionar-icone ${showIcons ? "showIcons" : "" }` }>
-                                        <IconsSelectBox setIconSelected={setIconSelected} />
-                                    </div>
-
-                                    <section className="p-m-1 categoria-modal-salvar">
-                                        <button type="button">
-                                            Salvar
-                                        </button>
-                                    </section>
-
-                                </div>
-
-                            </form>
-                        </div>
-
-                    </div>
-
-
-
-
-                </Modal>
+                  <section className="p-m-1 categoria-modal-salvar">
+                    <button type="submit">Salvar</button>
+                  </section>
+                </div>
+              </form>
             </div>
-        </>
-    );
+          </div>
+        </Modal>
+      </div>
+    </>
+  );
 };
 export default Categoria;
-

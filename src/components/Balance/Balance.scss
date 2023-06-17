@@ -1,7 +1,7 @@
 .balance-container {
-  width: 80%;
+  width: 86%;
   height: 260px;
-  margin-left: 10%;
+  margin-left: 7%;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -13,7 +13,7 @@
     height: 210px;
   }
 
-  .selector{
+  .selector {
     position: absolute;
     top: 20px;
     left: 10%;
@@ -21,8 +21,7 @@
   }
 
   @media screen and (max-width: 700px) {
-
-    .selector{
+    .selector {
       position: absolute;
       top: 10px;
       left: 10px;
@@ -32,17 +31,17 @@
     .balance-title,
     .month-balance,
     .value {
-      font-size: 18px;
+      font-size: 20px;
     }
 
     .arrow-down,
     .arrow-up {
-      font-size: 30px;
+      font-size: 36px;
     }
   }
 }
 
-.balance-header{
+.balance-header {
   height: 80px;
 }
 
@@ -117,7 +116,7 @@
   padding: 5px;
 
   .value {
-    color: #00A006 //rgb(80, 225, 80);
+    color: #00a006; //rgb(80, 225, 80);
   }
 }
 
@@ -141,7 +140,7 @@
 }
 
 .arrow-up {
-  color: #00A006 //rgb(80, 225, 80);
+  color: #00a006; //rgb(80, 225, 80);
 }
 
 .arrow-down {

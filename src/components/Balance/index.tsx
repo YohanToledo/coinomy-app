@@ -7,6 +7,7 @@ import {
 import { useState, useEffect } from "react";
 import MonthYearSelect from "../MonthYearSelect";
 import StaticData from "../../shared/static/static-data";
+import { formatCurrency } from "../../utils/format-currency";
 
 type Props = {
   setDate: (param: string) => void;
@@ -29,7 +30,7 @@ const Balance = ({ setDate, hideValues, setHideValues }: Props) => {
   ).toFixed(2);
   const totalBalance = StaticData.totalBalanceValue(
     new Date(`${month}-01T12:00:00`)
-  ).toFixed(2);
+  );
 
   return (
     <>
@@ -49,7 +50,11 @@ const Balance = ({ setDate, hideValues, setHideValues }: Props) => {
           <div className="balance-title">Balanço Mensal</div>
 
           <div className="value">
-            {hideValues ? "*******" : `R$${totalBalance}`}
+            {hideValues
+              ? "*******"
+              : totalBalance < 0
+              ? "-" + formatCurrency(totalBalance.toFixed(2))
+              : formatCurrency(totalBalance.toFixed(2))}
           </div>
         </div>
         <div className="income-expenses">
@@ -58,7 +63,7 @@ const Balance = ({ setDate, hideValues, setHideValues }: Props) => {
               <BsFillArrowUpCircleFill className="arrow-up" />
             </div>
             <div className="value">
-              {hideValues ? "*******" : `R$${totalIncome}`}
+              {hideValues ? "*******" : formatCurrency(totalIncome)}
             </div>
           </div>
 
@@ -67,7 +72,7 @@ const Balance = ({ setDate, hideValues, setHideValues }: Props) => {
               <BsFillArrowDownCircleFill className="arrow-down" />
             </div>
             <div className="value">
-              {hideValues ? "*******" : `- R$${totalExpense}`}
+              {hideValues ? "*******" : `- ${formatCurrency(totalExpense)}`}
             </div>
           </div>
         </div>

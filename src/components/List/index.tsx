@@ -2,7 +2,7 @@ import Card from "../Card";
 import { FcBinoculars } from "react-icons/fc";
 import "./List.scss";
 import StaticData from "../../shared/static/static-data";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 type Props = {
   date: string;
@@ -46,7 +46,12 @@ const List = ({ date, hideValues }: Props) => {
             <div className="list-not-found-icon">
               <FcBinoculars />
             </div>
-            <span>Parece que não há nada aqui!</span>
+            <span>
+              <strong>Sem registros para este mês.</strong>
+              <br />
+              <br />
+              Adicione suas transações e acompanhe suas finanças.
+            </span>
           </div>
         ) : (
           ""

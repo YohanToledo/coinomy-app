@@ -9,9 +9,11 @@ import ProfilePreferences from "./components/ProfilePreferences";
 import Privacy from "./components/Privacy";
 import Money from "./components/Money";
 import Categoria from "./components/Categoria";
-
+import StaticData from "./shared/static/static-data";
 
 function App() {
+  StaticData.saveDefaultCurrency("R$");
+
   return (
     <div className="App">
       <Routes>
