@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { formatCurrency } from "../../utils/format-currency";
+import StaticData from "../../shared/static/static-data";
 
 type Props = {
   value: string;
@@ -33,7 +34,7 @@ const InputMoney = ({ value, setValue }: Props) => {
       value={value}
       onChange={handleChange}
       required
-      placeholder="R$ 0,00"
+      placeholder={StaticData.getCurrency() + "00.00"}
     />
   );
 };

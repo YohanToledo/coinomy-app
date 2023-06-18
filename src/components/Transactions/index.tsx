@@ -75,7 +75,10 @@ const Transactions = ({
       category: _category || _defaultCategory,
       description: description,
       value: Number(
-        value.replaceAll(",", "").replaceAll("R$", "").replaceAll(" ", "")
+        value
+          .replaceAll(",", "")
+          .replaceAll(`${StaticData.getCurrency()}`, "")
+          .replaceAll(" ", "")
       ),
       transactionDate: new Date(`${time}T12:00:00`),
       type: title === "DESPESA" ? "EXPENSE" : "INCOME",
